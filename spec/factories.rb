@@ -758,6 +758,27 @@ FactoryGirl.define do
 
   end
 
+  factory :has_phases_phase, class: "HasPhases::Phase" do
+    start_date Date.current + 1.day
+    end_date Date.current + 2.days
+    enabled true
+
+    initialize_with { new(start_date: start_date,
+                          end_date: end_date,
+                          phase_enabled: enabled) }
+    trait :publication do
+      end_date nil
+    end
+
+    trait :past_start_date do
+      start_date Date.current - 2.days
+    end
+
+    trait :past_end_date do
+      end_date Date.current - 1.day
+    end
+  end
+
   factory :legislation_draft_version, class: 'Legislation::DraftVersion' do
     process factory: :legislation_process
     title "Version 1"
