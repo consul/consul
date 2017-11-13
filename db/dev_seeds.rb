@@ -63,6 +63,7 @@ section "Creating Settings" do
   Setting.create(key: 'map_latitude', value: 51.48)
   Setting.create(key: 'map_longitude', value: 0.0)
   Setting.create(key: 'map_zoom', value: 10)
+  Setting.create(key: 'postal_codes', value: "28000-28099,28100,28200")
 end
 
 section "Creating Geozones" do

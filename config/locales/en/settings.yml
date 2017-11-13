@@ -46,6 +46,7 @@ en:
     map_latitude: Latitude
     map_longitude: Longitude
     map_zoom: Zoom
+    postal_codes: Postal Codes
     mailer_from_name: Origin email name
     mailer_from_address: Origin email address
     meta_description: "Site description (SEO)"
