@@ -17,6 +17,9 @@ class Verification::Residence
   validate :allowed_age
   validate :document_number_uniqueness
 
+  validate :postal_code_in_location
+  validate :residence_in_location
+
   def initialize(attrs = {})
     self.date_of_birth = parse_date('date_of_birth', attrs)
     attrs = remove_date('date_of_birth', attrs)
@@ -68,6 +71,20 @@ class Verification::Residence
     @census_data.gender
   end
 
+  def postal_code_in_location
+    errors.add(:postal_code, I18n.t('verification.residence.new.error_not_allowed_postal_code')) unless valid_postal_code?
+  end
+
+  def residence_in_location
+    return if errors.any?
+
+    unless residency_valid?
+      errors.add(:residence_in_location, false)
+      store_failed_attempt
+      Lock.increase_tries(user)
+    end
+  end
+
   private
 
     def retrieve_census_data
@@ -82,6 +99,13 @@ class Verification::Residence
 
     def clean_document_number
       self.document_number = document_number.gsub(/[^a-z0-9]+/i, "").upcase if document_number.present?
+    end
+
+    def valid_postal_code?
+      # Example received data '35000-35019,35219'
+      postal_codes = [Setting['postal_codes']][0].sub('-','..').split(',')
+      postal_codes = postal_codes.map {|i| eval(i) }.map {|i| i.is_a?(Range) ? i.to_a : [i]}.flatten
+      postal_code.to_i.in?(postal_codes)
     end
 
 end

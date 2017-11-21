@@ -46,6 +46,7 @@ es:
     map_latitude: Latitud
     map_longitude: Longitud
     map_zoom: Zoom
+    postal_codes: Códigos Postales
     mailer_from_name: Nombre email remitente
     mailer_from_address: Dirección email remitente
     meta_description: "Descripción del sitio (SEO)"
