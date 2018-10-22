@@ -4,11 +4,10 @@
   <%= render "poll_header" %>
 
   <%= render "poll_subnav" %>
-
+      
   <div class="row margin">
     <div class="small-12 medium-9 column">
       <%= render "callout" %>
-
       <% if @poll.voted_in_booth?(current_user) %>
         <div class="callout warning">
           <%= t("polls.show.already_voted_in_booth") %>
@@ -21,9 +20,12 @@
           </div>
         <% end %>
       <% end %>
-
-      <% @questions.each do |question| %>
-        <%= render 'polls/questions/question', question: question, token: @token %>
+      <% if Setting["feature.user.require_all_answers"] %>
+          <%= render 'polls/questions_form', questions: @questions, token: @token, poll: @poll %>        
+      <% else %>
+        <% @questions.each do |question| %>
+          <%= render 'polls/questions/question', question: question, token: @token %>        
+        <% end %>      
       <% end %>
 
       <% if poll_voter_token(@poll, current_user).empty? %>

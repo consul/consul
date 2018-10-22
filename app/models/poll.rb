@@ -26,6 +26,11 @@ class Poll < ActiveRecord::Base
 
   validates :name, presence: true
 
+  validates_each :questions do |record, attr, value|
+    puts value.inspect
+    record.errors.add attr, 'starts with z.' if value[0] == ?z
+  end
+
   validate :date_range
 
   scope :current,  -> { where('starts_at <= ? and ? <= ends_at', Date.current.beginning_of_day, Date.current.beginning_of_day) }

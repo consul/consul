@@ -480,6 +480,7 @@ en:
         description: Citizens' polls are a participatory mechanism by which citizens with voting rights can make direct decisions
       no_polls: "There are no open votings."
     show:
+      send: Send      
       already_voted_in_booth: "You have already participated in a physical booth. You can not participate again."
       already_voted_in_web: "You have already participated in this poll. If you vote again it will be overwritten."
       back: Back to voting
@@ -502,6 +503,7 @@ en:
       info_menu: "Information"
       stats_menu: "Participation statistics"
       results_menu: "Poll results"
+      choose_answer: Choose the answer for the question.
       stats:
         title: "Participation data"
         total_participation: "Total participation"

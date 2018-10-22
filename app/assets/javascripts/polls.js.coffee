@@ -11,15 +11,21 @@ App.Polls =
 
   replaceToken: ->
     for link in $('.js-question-answer')
-      token_param = link.search.slice(-6)
-      if token_param == "token="
-        link.href = link.href + @token
+      if link && link.length > 0
+        token_param = link.search.slice(-6)
+        if token_param == "token="
+          link.href = link.href + @token
 
   initialize: ->
     @token = App.Polls.generateToken()
     App.Polls.replaceToken()
 
-    $(".js-question-answer").on
+    $(".polls-show label.button").on "click", () ->
+      if !$(this).hasClass('answered')
+        $(this).attr('class', 'button secondary hollow js-question-answer')
+      $(this).siblings("label.button").attr("class", "button secondary hollow js-question-answer")
+
+    $(".polls-show .js-question-answer").on
       click: =>
         token_message = $(".js-token-message")
         if !token_message.is(':visible')
