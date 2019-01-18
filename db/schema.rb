@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181206153510) do
+ActiveRecord::Schema.define(version: 20190112190324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -1232,16 +1232,17 @@ ActiveRecord::Schema.define(version: 20181206153510) do
   add_index "site_customization_page_translations", ["site_customization_page_id"], name: "index_7fa0f9505738cb31a31f11fb2f4c4531fed7178b", using: :btree
 
   create_table "site_customization_pages", force: :cascade do |t|
-    t.string   "slug",                                 null: false
+    t.string   "slug",                                             null: false
     t.string   "title"
     t.string   "subtitle"
     t.text     "content"
     t.boolean  "more_info_flag"
     t.boolean  "print_content_flag"
-    t.string   "status",             default: "draft"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "status",                         default: "draft"
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.string   "locale"
+    t.boolean  "headings_as_sidebar_navigation", default: false
   end
 
   create_table "spending_proposals", force: :cascade do |t|

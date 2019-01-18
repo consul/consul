@@ -208,6 +208,7 @@ en:
         more_info_flag: Show in help page
         print_content_flag: Print content button
         locale: Language
+        headings_as_sidebar_navigation: Show headings as sidebar navigation
       site_customization/page/translation:
         title: Title
         subtitle: Subtitle

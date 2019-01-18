@@ -2,12 +2,21 @@
 
 <div class="row margin-top">
 
+  <% if @custom_page.headings_as_sidebar_navigation %>
+    <div class="jumbo" >
+      <h1><%= @custom_page.title %></h1>
+      <% if @custom_page.subtitle.present? %>
+          <h2><%= @custom_page.subtitle%></h2>
+      <% end %>
+    </div>
+  <% end %>
   <div class="small-12 medium-9 column">
-    <h1><%= @custom_page.title %></h1>
-    <% if @custom_page.subtitle.present? %>
-      <h2><%= @custom_page.subtitle%></h2>
+    <% unless @custom_page.headings_as_sidebar_navigation %>
+      <h1><%= @custom_page.title %></h1>
+      <% if @custom_page.subtitle.present? %>
+          <h2><%= @custom_page.subtitle%></h2>
+      <% end %>
     <% end %>
-
     <%= safe_html_with_links AdminWYSIWYGSanitizer.new.sanitize(@custom_page.content) %>
   </div>
 
