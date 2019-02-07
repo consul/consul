@@ -215,6 +215,7 @@ namespace :admin do
   end
 
   resources :geozones, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :geographies, only: [:index, :new, :create, :edit, :update, :destroy]
 
   namespace :site_customization do
     resources :pages, except: [:show] do

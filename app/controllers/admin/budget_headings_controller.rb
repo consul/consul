@@ -2,9 +2,9 @@ class Admin::BudgetHeadingsController < Admin::BaseController
   include FeatureFlags
   feature_flag :budgets
 
-  before_action :load_budget
-  before_action :load_group
-  before_action :load_heading, except: [:index, :new, :create]
+  before_action :load_budget, except: [:json_data]
+  before_action :load_group, except: [:json_data]
+  before_action :load_heading, except: [:index, :new, :create, :json_data]
 
   def index
     @headings = @group.headings.order(:id)
@@ -63,7 +63,7 @@ class Admin::BudgetHeadingsController < Admin::BaseController
 
     def budget_heading_params
       params.require(:budget_heading).permit(:name, :price, :population, :allow_custom_content,
-                                             :latitude, :longitude)
+                                             :latitude, :longitude, :geography_id)
     end
 
 end

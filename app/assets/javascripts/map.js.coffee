@@ -26,6 +26,7 @@ App.Map =
     zoomInputSelector        = $(element).data('zoom-input-selector')
     removeMarkerSelector     = $(element).data('marker-remove-selector')
     addMarkerInvestments     = $(element).data('marker-investments-coordinates')
+    addGeographyPolygons     = $(element).data('polygons-geographies-data')
     editable                 = $(element).data('marker-editable')
     marker                   = null;
     markerIcon               = L.divIcon(
@@ -41,6 +42,18 @@ App.Map =
         marker.on 'dragend', updateFormfields
       marker.addTo(map)
       return marker
+
+    createPolygon = (polygon_data) ->
+      polygon  = L.polygon(polygon_data.outline_points,
+                           {color: polygon_data.color})
+      if polygon_data.heading_id
+        polygon.on 'click', openPolygonPopup
+        polygon.options['heading_id'] = polygon_data.heading_id
+        polygon.options['fillOpacity'] = 0.3
+      else
+        polygon.options['fillOpacity'] = 0
+      polygon.addTo(map)
+      return polygon
 
     removeMarker = (e) ->
       e.preventDefault()
@@ -81,7 +94,23 @@ App.Map =
           e.target.bindPopup(getPopupContent(data)).openPopup()
 
     getPopupContent = (data) ->
-      content = "<a href='/budgets/#{data['budget_id']}/investments/#{data['investment_id']}'>#{data['investment_title']}</a>"
+      content = "<a href='/budgets/#{data['budget_id']}/investments/\
+                 #{data['investment_id']}'>#{data['investment_title']}</a>"
+      return content
+
+    openPolygonPopup = (e) ->
+      polygon = e.target
+
+      if polygon.options['heading_id']
+        $.ajax 'headings/' + polygon.options['heading_id'] + '/json_data',
+          type: 'GET'
+          dataType: 'json'
+          success: (data) ->
+            e.target.bindPopup(getPolygonPopupContent(data)).openPopup()
+
+    getPolygonPopupContent = (data) ->
+      content = "<a href='/budgets/#{data['budget_id']}/investments?\
+                 heading_id=#{data['heading_id']}'>#{data['heading_name']}</a>"
       return content
 
     mapCenterLatLng  = new (L.LatLng)(mapCenterLatitude, mapCenterLongitude)
@@ -103,6 +132,10 @@ App.Map =
           marker.options['id'] = i.investment_id
 
           marker.on 'click', openMarkerPopup
+
+    if addGeographyPolygons
+      for i in addGeographyPolygons
+        polygon = createPolygon(i)
 
   toggleMap: ->
       $('.map').toggle()

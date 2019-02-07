@@ -1,0 +1,36 @@
+<%= link_to t("admin.geographies.index.create"),
+              new_admin_geography_path, class: "button float-right" %>
+
+<h2 class="inline-block"><%= t("admin.geographies.index.title") %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t("admin.geographies.geography.name") %></th>
+      <th><%= t("admin.geographies.geography.related_headings") %></th>
+      <th><%= t("admin.actions.actions") %></th>
+    </tr>
+ </thead>
+
+  <tbody>
+    <% @geographies.each do |geography| %>
+      <tr id="<%= dom_id(geography) %>">
+        <td><%= geography.name %></td>
+        <td><%= (geography.headings.any?) ? (render "related_headings", related_headings: geography.headings) : t("admin.geographies.index.no_related_headings") %></td>
+        <td>
+          <div class="small-6 column">
+            <%= link_to t("admin.geographies.index.edit"),
+                        edit_admin_geography_path(geography),
+                        class: "button hollow expanded" %>
+          </div>
+          <div class="small-6 column">
+            <%= link_to t("admin.geographies.index.delete"),
+                        admin_geography_path(geography),
+                        method: :delete,
+                        class: "button hollow alert expanded" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

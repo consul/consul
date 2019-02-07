@@ -81,6 +81,7 @@
 //= require managers
 //= require globalize
 //= require send_admin_notification_alert
+//= require geographies
 
 var initialize_modules = function() {
   App.Comments.initialize();
@@ -127,6 +128,7 @@ var initialize_modules = function() {
   App.Managers.initialize();
   App.Globalize.initialize();
   App.SendAdminNotificationAlert.initialize();
+	App.Geographies.initialize();
 };
 
 $(function(){

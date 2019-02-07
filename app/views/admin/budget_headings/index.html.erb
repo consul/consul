@@ -15,6 +15,7 @@
         <th><%= t("admin.budget_headings.form.amount") %></th>
         <th><%= t("admin.budget_headings.form.population") %></th>
         <th><%= t("admin.budget_headings.form.allow_content_block") %></th>
+       <th><%= t("admin.budget_headings.form.related_geography") %></th>
         <th><%= t("admin.actions.actions") %></th>
       </tr>
     </thead>
@@ -26,6 +27,9 @@
           <td><%= heading.population %></td>
           <td>
             <%= heading.allow_custom_content ? t("admin.shared.true_value") : t("admin.shared.false_value") %>
+          </td>
+          <td>
+            <%= heading.geography_id ? heading.geography.name : t("admin.budget_headings.no_related_geography") %>
           </td>
           <td>
             <%= link_to t("admin.actions.edit"),

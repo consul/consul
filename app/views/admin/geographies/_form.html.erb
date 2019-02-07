@@ -1,0 +1,45 @@
+<%= form_for [:admin, @geography] do |f| %>
+  <% if @geography.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@geography.errors.count, "error") %> prohibited this geography from being saved:</h2>
+
+      <ul>
+      <% @geography.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-12 medium-6 large-4 column">
+      <%= f.label :name, t("admin.geographies.geography.name") %>
+      <%= f.text_field :name, label: false %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 large-4 column">
+      <%= f.label :heading_ids, t("admin.geographies.geography.related_headings") %>
+      <%= f.collection_select :heading_ids, @headings, :id, :whole_name, {label: false}, { class: "headings-selector", multiple: true } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 large-4 column">
+      <%= f.label :color, t("admin.geographies.geography.color") %>
+      <%= f.color_field :color, {label: false} %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="documents small-12 medium-6 large-4 column">
+      <%= f.label :geojson, t("admin.geographies.geography.geojson") %>
+      <%= f.text_area :geojson, rows: "5", label: false %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

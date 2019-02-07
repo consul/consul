@@ -17,6 +17,17 @@ class BudgetsController < ApplicationController
     @finished_budgets = @budgets.finished.order(created_at: :desc)
     @budgets_coordinates = current_budget_map_locations
     @banners = Banner.in_section('budgets').with_active
+    @geographies_data = Geography.all.map{ |g| {
+                          outline_points: g.parsed_outline_points,
+                          color: g.color,
+                          heading_id: (@active_geographies.key?(g.id) ?
+                                       @active_geographies[g.id] : nil ) 
+                          }
+                        }
+  end
+
+  def get_geographies_with_active_headings
+    @active_geographies = Geography.geographies_with_active_headings
   end
 
 end

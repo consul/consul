@@ -169,8 +169,10 @@ ActiveRecord::Schema.define(version: 20190205131722) do
     t.boolean "allow_custom_content",            default: false
     t.text    "latitude"
     t.text    "longitude"
+    t.integer "geography_id"
   end
 
+  add_index "budget_headings", ["geography_id"], name: "index_budget_headings_on_geography_id", using: :btree
   add_index "budget_headings", ["group_id"], name: "index_budget_headings_on_group_id", using: :btree
 
   create_table "budget_investment_milestone_translations", force: :cascade do |t|
@@ -486,6 +488,14 @@ ActiveRecord::Schema.define(version: 20190205131722) do
   add_index "follows", ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id", using: :btree
   add_index "follows", ["user_id", "followable_type", "followable_id"], name: "access_follows", using: :btree
   add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
+
+  create_table "geographies", force: :cascade do |t|
+    t.string   "name"
+    t.text     "geojson"
+    t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "geozones", force: :cascade do |t|
     t.string   "name"
@@ -1541,6 +1551,7 @@ ActiveRecord::Schema.define(version: 20190205131722) do
   add_foreign_key "administrators", "users"
   add_foreign_key "annotations", "legacy_legislations"
   add_foreign_key "annotations", "users"
+  add_foreign_key "budget_headings", "geographies"
   add_foreign_key "budget_investments", "communities"
   add_foreign_key "documents", "users"
   add_foreign_key "failed_census_calls", "poll_officers"

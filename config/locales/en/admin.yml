@@ -138,6 +138,7 @@ en:
     budget_headings:
       name: "Name"
       no_headings: "There are no headings."
+      no_related_geography: "No related geography"
       amount:
         one: "There is 1 heading"
         other: "There are %{count} headings"
@@ -158,6 +159,7 @@ en:
         coordinates_info: "If latitude and longitude are provided, the investments page for this heading will include a map. This map will be centered using those coordinates."
         allow_content_block: "Allow content block"
         content_blocks_info: "If allow content block is checked, you will be able to create custom content related to this heading from the section Settings > Custom content blocks. This content will appear on the investments page for this heading."
+        related_geography: "Related geography"
         create: "Create new heading"
         edit: "Edit heading"
         submit: "Save heading"
@@ -599,6 +601,7 @@ en:
       proposals_topics: Proposals topics
       budgets: Participatory budgets
       geozones: Manage geozones
+      geographies: Manage geographies
       hidden_comments: Hidden comments
       hidden_debates: Hidden debates
       hidden_proposals: Hidden proposals
@@ -1276,6 +1279,26 @@ en:
       delete:
         success: Geozone successfully deleted
         error: This geozone can't be deleted since there are elements attached to it
+    geographies:
+      index:
+        title: Geographies
+        create: Create geography
+        edit: Edit
+        delete: Delete
+        no_related_headings: No related Headings
+      geography:
+        name: Name
+        related_headings: Related Headings
+        geojson: Geojson
+        color: Geography color
+      edit:
+        editing: Editing geography
+        back: Go back
+      new:
+        back: Go back
+        creating: Create geography
+      delete:
+        success: Geography successfully deleted
     signature_sheets:
       author: Author
       created_at: Creation date

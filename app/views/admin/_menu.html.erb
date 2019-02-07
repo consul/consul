@@ -255,6 +255,10 @@
         <li <%= "class=is-active" if controller_name == "content_blocks" %>>
           <%= link_to t("admin.menu.site_customization.content_blocks"), admin_site_customization_content_blocks_path%>
         </li>
+
+        <li <%= "class=is-active" if controller_name == "content_blocks" %>>
+          <%= link_to t("admin.menu.geographies"), admin_geographies_path %>
+        </li>
       </ul>
     </li>
   </ul>
