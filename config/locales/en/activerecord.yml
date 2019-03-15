@@ -1,6 +1,8 @@
 en:
   activerecord:
     models:
+      community:
+        one: "Community"
       activity:
         one: "activity"
         other: "activities"

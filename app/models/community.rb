@@ -4,9 +4,7 @@ class Community < ActiveRecord::Base
   has_many :topics
 
   def participants
-    users_participants = users_who_commented +
-                         users_who_topics_author +
-                         author_from_community
+    users_participants = users_who_follow_community
     users_participants.uniq
   end
 
@@ -31,4 +29,8 @@ class Community < ActiveRecord::Base
     from_proposal? ? User.where(id: proposal&.author_id) : User.where(id: investment&.author_id)
   end
 
+  def users_who_follow_community
+    followers=Follow.pluck(:user_id)
+    User.by_community(followers)
+  end
 end

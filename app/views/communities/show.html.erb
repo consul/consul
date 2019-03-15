@@ -1,4 +1,4 @@
-<div class="communities-show">
+<div id="<%= dom_id(@community) %>" class="communities-show">
 
   <div class="jumbo light">
     <div class="row">
@@ -31,6 +31,8 @@
       <div class="sidebar-divider"></div>
       <h2><%= t("community.show.sidebar.participate") %></h2>
       <%= link_to t("community.show.sidebar.new_topic"), create_topic_link(@community) , class: "button expanded" %>
+      <h2><%= t("community.show.sidebar.follow") %></h2>
+      <%= render 'follows/follow_button', follow: find_or_build_follow(current_user, @community)%>
     </aside>
   </div>
 </div>

@@ -569,6 +569,11 @@ en:
             notice_html: "Now you are following this citizen proposal! </br> We will notify you of changes as they occur so that you are up-to-date."
           destroy:
             notice_html: "You have stopped following this citizen proposal! </br> You will no longer receive notifications related to this proposal."
+      community:
+          create:
+            notice_html: "Now you are following this community! <br> We will notify you of changes as they occur so that you are up-to-date."
+          destroy:
+            notice_html: "You have stopped following this community! <br>
     hide: Hide
     print:
       print_button: Print this info

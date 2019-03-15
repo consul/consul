@@ -568,6 +568,11 @@ es:
           notice_html: "¡Ahora estás siguiendo esta propuesta ciudadana! </br> Te notificaremos los cambios a medida que se produzcan para que estés al día."
         destroy:
           notice_html: "¡Has dejado de seguir esta propuesta ciudadana! </br> Ya no recibirás más notificaciones relacionadas con esta propuesta."
+      community:
+        create:
+          notice_html: "¡Ahora estás siguiendo esta comunidad!<br>Te notificaremos los cambios a medida que se produzcan para que estés al día."
+        destroy:
+          notice_html: "¡Has dejado de seguir esta comunidad!<br>Ya no recibirás más notificaciones relacionadas con esta propuesta."
     hide: Ocultar
     print:
       print_button: Imprimir esta información

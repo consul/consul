@@ -1,6 +1,6 @@
 <div class="js-follow">
   <span class="followable-content">
-    <% if follow.followable.followed_by?(current_user) %>
+    <% if follow.followable.class.name == "Community" ? current_user && current_user.follows.present? : follow.followable.followed_by?(current_user) %>
       <%= link_to t('shared.following'),
                   follow_path(follow),
                   method: :delete, remote: true,
