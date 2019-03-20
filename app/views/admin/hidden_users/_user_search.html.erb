@@ -1,0 +1,10 @@
+<%= form_for(Budget::Investment.new, url: url, as: :budget_investment, method: :get) do |f| %>
+  <div class="small-12 medium-6">
+    <div class="input-group">
+      <%= text_field_tag :search, "", placeholder: t("admin.shared.user_search.placeholder") %>
+      <div class="input-group-button">
+        <%= f.submit t("admin.shared.budget_investments_search.button"), class: "button" %>
+      </div>
+    </div>
+  </div>
+<% end %>

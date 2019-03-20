@@ -1270,6 +1270,15 @@ en:
       booths_search:
         button: Search
         placeholder: Search booth by name or location
+      budget_investments_search:
+        button: Search
+        placeholder: Search projects
+      comments_search:
+        button: Search
+        placeholder: Search comments
+      debates_search:
+        button: Search
+        placeholder: Search debates
       poll_officers_search:
         button: Search
         placeholder: Search poll officers

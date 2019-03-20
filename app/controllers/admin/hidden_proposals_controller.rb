@@ -1,5 +1,6 @@
 class Admin::HiddenProposalsController < Admin::BaseController
   include FeatureFlags
+  include Search
 
   has_filters %w[without_confirmed_hide all with_confirmed_hide], only: :index
 
@@ -8,8 +9,10 @@ class Admin::HiddenProposalsController < Admin::BaseController
   before_action :load_proposal, only: [:confirm_hide, :restore]
 
   def index
-    @proposals = Proposal.only_hidden.send(@current_filter).order(hidden_at: :desc)
-                         .page(params[:page])
+    @proposals = Proposal.only_hidden
+    @proposals = @proposals.search(@search_terms) if @search_terms.present?
+    @proposals = @proposals.send(@current_filter).order(hidden_at: :desc)
+                                                 .page(params[:page])
   end
 
   def confirm_hide

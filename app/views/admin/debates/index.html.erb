@@ -1,6 +1,9 @@
 <% provide(:title) do %>
   <%= t("admin.header.title") %> - <%= t("admin.debates.index.title") %>
 <% end %>
+<h2><%= t("admin.debates.index.title") %></h2>
+<%= render "debates_search", url: admin_debates_path %>
+<p><%= t("admin.shared.moderated_content") %></p>
 
 <h2><%= t("admin.debates.index.title") %></h2>
 
