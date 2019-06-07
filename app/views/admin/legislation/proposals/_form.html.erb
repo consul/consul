@@ -1,4 +1,4 @@
-<%= form_for [:admin, @process], html: {data: {watch_changes: true}} do |f| %>
+<%= form_for [:admin, @process], url: update_proposal_fields_admin_legislation_process_path(@process), html: {method: :patch, data: {watch_changes: true}} do |f| %>
 
   <% if @process.errors.any? %>
 
@@ -23,6 +23,74 @@
                       placeholder: t("admin.legislation.proposals.form.custom_categories_placeholder"),
                       class: "js-tag-list",
                       aria: {describedby: "tag-list-help-text"} %>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <h4 class="inline-block"><%= t("proposals.form.form_title") %></h4>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <%= f.label :title_label, t("proposals.form.proposal_title") %>
+  </div>
+
+  <div class="small-12 column medium-8 column">
+    <%= f.text_field :title_label, value: @process.title_label, label: false %>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <%= f.label :summary_label, t("proposals.form.proposal_summary") %>
+  </div>
+
+  <div class="small-12 column medium-8 column">
+    <%= f.text_field :summary_label, value: @process.summary_label, label: false %>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <%= f.check_box :description_enabled, label: t("proposals.form.proposal_text") %>
+  </div>
+
+  <div class="small-12 column medium-8 column">
+    <%= f.text_field :description_label, value: @process.description_label, label: false %>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <%= f.check_box :video_url_enabled, label: t("proposals.form.proposal_video_url") %>
+  </div>
+
+  <div class="small-12 column medium-8 column">
+    <%= f.text_field :video_url_label, value: @process.video_url_label, label: false %>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <%= f.check_box :documents_enabled, label: t("documents.form.title") %>
+  </div>
+
+  <div class="small-12 column medium-8 column">
+    <%= f.text_field :documents_label, value: @process.documents_label, label: false %>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <%= f.check_box :image_enabled, label: t("images.form.title") %>
+  </div>
+
+  <div class="small-12 column medium-8 column">
+    <%= f.text_field :image_label, value: @process.image_label, label: false %>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <%= f.check_box :geozone_enabled, label: t("proposals.form.geozone") %>
+  </div>
+
+  <div class="small-12 column medium-8 column">
+    <%= f.text_field :geozone_label, value: @process.geozone_label, label: false %>
+  </div>
+
+  <div class="small-12 medium-8 column">
+    <%= f.check_box :tags_enabled, label: t("legislation.proposals.form.tags_label") %>
+  </div>
+
+  <div class="small-12 column medium-8 column">
+    <%= f.text_field :tags_label, value: @process.tags_label, label: false %>
   </div>
 
   <div class="small-12 medium-3 column clear end">

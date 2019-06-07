@@ -1,5 +1,9 @@
 <div class="documents-list">
-  <%= f.label :documents, t("documents.form.title") %>
+  <% if local_assigns[:documents_label].present? %>
+    <%= f.label :documents, documents_label %>
+  <% else %>
+    <%= f.label :documents, t("documents.form.title") %>
+  <% end %>
   <p class="help-text"><%= documentables_note(documentable) %></p>
 
   <div id="nested-documents" data-max-documents-allowed="<%= documentable.class.max_documents_allowed%>">

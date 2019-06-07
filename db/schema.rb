@@ -713,6 +713,20 @@ ActiveRecord::Schema.define(version: 20190429125842) do
     t.boolean  "homepage_enabled",           default: false
     t.text     "background_color"
     t.text     "font_color"
+    t.string   "title_label"
+    t.string   "summary_label"
+    t.boolean  "description_enabled",        default: true
+    t.string   "description_label"
+    t.boolean  "video_url_enabled",          default: true
+    t.string   "video_url_label"
+    t.boolean  "image_enabled",              default: true
+    t.string   "image_label"
+    t.boolean  "documents_enabled",          default: true
+    t.string   "documents_label"
+    t.boolean  "geozone_enabled",            default: true
+    t.string   "geozone_label"
+    t.boolean  "tags_enabled",               default: true
+    t.string   "tags_label"
     t.index ["allegations_end_date"], name: "index_legislation_processes_on_allegations_end_date", using: :btree
     t.index ["allegations_start_date"], name: "index_legislation_processes_on_allegations_start_date", using: :btree
     t.index ["debate_end_date"], name: "index_legislation_processes_on_debate_end_date", using: :btree

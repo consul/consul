@@ -42,6 +42,14 @@ class Legislation::Process < ApplicationRecord
   validates :allegations_start_date, presence: true, if: :allegations_end_date?
   validates :allegations_end_date, presence: true, if: :allegations_start_date?
   validates :proposals_phase_end_date, presence: true, if: :proposals_phase_start_date?
+  validates :title_label, presence: true
+  validates :summary_label, presence: true
+  validates :description_label, presence:true, if: :description_enabled?
+  validates :video_url_label, presence: true, if: :video_url_enabled?
+  validates :image_label, presence: true, if: :image_enabled?
+  validates :documents_label, presence: true, if: :documents_enabled?
+  validates :geozone_label, presence: true, if: :geozone_enabled?
+  validates :tags_label, presence: true, if: :tags_enabled?
   validate :valid_date_ranges
   validates :background_color, format: { allow_blank: true, with: CSS_HEX_COLOR }
   validates :font_color, format: { allow_blank: true, with: CSS_HEX_COLOR }
@@ -107,6 +115,37 @@ class Legislation::Process < ApplicationRecord
     else
       :open
     end
+  end
+
+  def title_label
+    read_attribute(:title_label) || I18n.t("proposals.form.proposal_title")
+  end
+
+  def summary_label
+    read_attribute(:summary_label) || I18n.t("proposals.form.proposal_summary")  end
+
+  def description_label
+    read_attribute(:description_label) || I18n.t("proposals.form.proposal_text")
+  end
+
+  def video_url_label
+    read_attribute(:video_url_label) || I18n.t("proposals.form.proposal_video_url")
+  end
+
+  def image_label
+    read_attribute(:image_label) || I18n.t("images.form.title")
+  end
+
+  def documents_label
+    read_attribute(:documents_label) || I18n.t("documents.form.title")
+  end
+
+  def geozone_label
+    read_attribute(:geozone_label) || I18n.t("proposals.form.geozone")
+  end
+
+  def tags_label
+    read_attribute(:tags_label) || I18n.t("legislation.proposals.form.tags_label")
   end
 
   private

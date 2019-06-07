@@ -349,6 +349,7 @@ en:
       proposal_summary_note: "(maximum 200 characters)"
       proposal_text: Proposal text
       proposal_title: Proposal title
+      form_title: Form input fields
       proposal_video_url: Link to external video
       proposal_video_url_note: You may add a link to YouTube or Vimeo
       tag_category_label: "Categories"

@@ -20,7 +20,15 @@ section "Creating collaborative legislation" do
                                  draft_publication_enabled: true,
                                  result_publication_enabled: true,
                                  proposals_phase_enabled: true,
-                                 published: true)
+                                 published: true,
+                                 title_label: "Proposal title",
+                                 summary_label: "Proposal summary",
+                                 description_label: "Proposal text",
+                                 video_url_label: "Link to external video",
+                                 image_label: "Descriptive image",
+                                 documents_label: "Documents",
+                                 geozone_label: "Scope of operation",
+                                 tags_label: "Categories")
   end
 
   Legislation::Process.find_each do |process|

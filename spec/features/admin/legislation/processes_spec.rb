@@ -282,4 +282,80 @@ describe "Admin collaborative legislation" do
       expect(page).to have_content "There is still a long journey ahead of us"
     end
   end
+
+  context "Update proposal fields" do
+    let(:process) do
+      create(:legislation_process,
+             title: "An example legislation process",
+             summary: "Summarizing the process",
+             description: "Description of the process",
+             proposals_phase_start_date: Date.current - 2.days,
+             proposals_phase_end_date: Date.current + 2.days,
+             proposals_phase_enabled: true)
+    end
+
+    scenario "Change names of the fields" do
+      visit admin_legislation_process_proposals_path(process)
+
+      fill_in "legislation_process[title_label]", with: "New Proposal title"
+      fill_in "legislation_process[summary_label]", with: "New Proposal summary"
+      fill_in "legislation_process[description_label]", with: "New Proposal text"
+      fill_in "legislation_process[video_url_label]", with: "New Link to external video"
+      fill_in "legislation_process[image_label]", with: "New Descriptive image"
+      fill_in "legislation_process[documents_label]", with: "New Documents"
+      fill_in "legislation_process[geozone_label]", with: "New Scope of operation"
+      fill_in "legislation_process[tags_label]", with: "New Categories"
+
+      click_button "Save changes"
+
+      expect(page).to have_content "Process updated successfully"
+
+      visit new_legislation_process_proposal_path(process)
+
+      expect(page).to have_content "New Proposal title"
+      expect(page).to have_content "New Proposal summary"
+      expect(page).to have_content "New Proposal text"
+      expect(page).to have_content "New Link to external video"
+      expect(page).to have_content "New Descriptive image"
+      expect(page).to have_content "New Documents"
+      expect(page).to have_content "New Scope of operation"
+      expect(page).to have_content "New Categories"
+    end
+
+    scenario "Disable fields" do
+      visit admin_legislation_process_proposals_path(process)
+
+      uncheck "legislation_process[description_enabled]"
+      uncheck "legislation_process[video_url_enabled]"
+      uncheck "legislation_process[image_enabled]"
+      uncheck "legislation_process[documents_enabled]"
+      uncheck "legislation_process[geozone_enabled]"
+      uncheck "legislation_process[tags_enabled]"
+
+      click_button "Save changes"
+
+      expect(page).to have_content "Process updated successfully"
+
+      visit new_legislation_process_proposal_path(process)
+
+      expect(page).not_to have_content "Proposal text"
+      expect(page).not_to have_content "Link to external video"
+      expect(page).not_to have_content "Descriptive image"
+      expect(page).not_to have_content "Documents"
+      expect(page).not_to have_content "Scope of operation"
+      expect(page).not_to have_content "Categories"
+    end
+
+    scenario "Redirect to correct tab when error in fields" do
+      visit admin_legislation_process_proposals_path(process)
+
+      fill_in "legislation_process[description_label]", with: ""
+
+      click_button "Save changes"
+
+      expect(page).to have_content "Process couldn't be updated"
+      expect(page).to have_content "Proposal text"
+      expect(page).to have_content "can't be blank"
+    end
+  end
 end

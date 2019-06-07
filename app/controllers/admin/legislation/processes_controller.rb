@@ -35,6 +35,19 @@ class Admin::Legislation::ProcessesController < Admin::Legislation::BaseControll
     end
   end
 
+  def update_proposal_fields
+    if @process.update(process_params)
+      set_tag_list
+
+      link = legislation_process_path(@process).html_safe
+      redirect_to(admin_legislation_process_proposals_path(@process),
+                  notice: t("admin.legislation.processes.update.notice", link: link))
+    else
+      flash.now[:error] = t("admin.legislation.processes.update.error")
+      render "admin/legislation/proposals/_form"
+    end
+  end
+
   def destroy
     @process.destroy
     notice = t("admin.legislation.processes.destroy.notice")
@@ -71,6 +84,20 @@ class Admin::Legislation::ProcessesController < Admin::Legislation::BaseControll
         :custom_list,
         :background_color,
         :font_color,
+        :title_label,
+        :summary_label,
+        :description_enabled,
+        :description_label,
+        :video_url_enabled,
+        :video_url_label,
+        :image_enabled,
+        :image_label,
+        :documents_enabled,
+        :documents_label,
+        :geozone_enabled,
+        :geozone_label,
+        :tags_enabled,
+        :tags_label,
         translation_params(::Legislation::Process),
         documents_attributes: [:id, :title, :attachment, :cached_attachment, :user_id, :_destroy],
         image_attributes: image_attributes

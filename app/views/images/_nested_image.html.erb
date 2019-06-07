@@ -1,6 +1,10 @@
 <% image_fields ||= :image %>
 
-<%= f.label image_fields, t("images.form.title") %>
+<% if local_assigns[:image_label].present? %>
+  <%= f.label image_fields, image_label %>
+<% else %>
+  <%= f.label image_fields, t("images.form.title") %>
+<% end %>
 <p class="help-text"><%= imageables_note(imageable) %></p>
 
 <div id="nested-image">

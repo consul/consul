@@ -206,6 +206,7 @@ namespace :admin do
       resources :milestones
       resources :progress_bars, except: :show
       resource :homepage, only: [:edit, :update]
+      member { patch :update_proposal_fields }
     end
   end
 

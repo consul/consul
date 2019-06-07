@@ -20,6 +20,14 @@ FactoryBot.define do
     draft_publication_enabled true
     result_publication_enabled true
     published true
+    title_label "Proposal title"
+    summary_label "Proposal summary"
+    description_label "Proposal text"
+    video_url_label "Link to external video"
+    image_label "Descriptive image"
+    documents_label "Documents"
+    geozone_label "Scope of operation"
+    tags_label "Categories"
 
     trait :past do
       start_date { Date.current - 12.days }

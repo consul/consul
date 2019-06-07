@@ -194,4 +194,22 @@ describe Legislation::Process do
     end
   end
 
+  describe "proposal fields" do
+    it "is valid when label is nil but it is not enabled" do
+      process = build(:legislation_process,
+                       description_enabled: false,
+                       description_label: nil,
+                       video_url_enabled: false,
+                       video_url_label: nil,
+                       image_enabled: false,
+                       image_label: nil,
+                       documents_enabled: false,
+                       documents_label: nil,
+                       geozone_enabled: false,
+                       geozone_label: nil,
+                       tags_enabled: false,
+                       tags_label: nil)
+      expect(process).to be_valid
+    end
+  end
 end
