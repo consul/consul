@@ -61,7 +61,8 @@ gem "axlsx", "~> 3.0.0.pre"
 gem "axlsx_rails", "~> 0.5.2"
 
 source "https://rails-assets.org" do
-  gem "rails-assets-leaflet"
+  gem "rails-assets-leaflet", "~> 1.5.1"
+  gem "rails-assets-leaflet.markercluster", "~> 1.4.1"
   gem "rails-assets-markdown-it", "~> 8.2.1"
 end
 

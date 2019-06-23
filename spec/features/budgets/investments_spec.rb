@@ -1022,7 +1022,7 @@ describe "Budget Investments" do
     end
   end
 
-  context "Show Investment's price & cost explanation" do
+  context "Show investment price & cost explanation" do
 
     let(:investment) { create(:budget_investment, :selected_with_price, heading: heading) }
 
@@ -1866,43 +1866,44 @@ describe "Budget Investments" do
   end
 
   context "sidebar map" do
-    scenario "Display 6 investment's markers on sidebar map", :js do
+    scenario "Display 5 investment markers on sidebar map", :js do
       investment1 = create(:budget_investment, heading: heading)
       investment2 = create(:budget_investment, heading: heading)
       investment3 = create(:budget_investment, heading: heading)
       investment4 = create(:budget_investment, heading: heading)
       investment5 = create(:budget_investment, heading: heading)
-      investment6 = create(:budget_investment, heading: heading)
 
-      create(:map_location, longitude: 40.1231, latitude: -3.636, investment: investment1)
-      create(:map_location, longitude: 40.1232, latitude: -3.635, investment: investment2)
-      create(:map_location, longitude: 40.1233, latitude: -3.634, investment: investment3)
-      create(:map_location, longitude: 40.1234, latitude: -3.633, investment: investment4)
-      create(:map_location, longitude: 40.1235, latitude: -3.632, investment: investment5)
-      create(:map_location, longitude: 40.1236, latitude: -3.631, investment: investment6)
+      create(:map_location, longitude: -3.73, latitude: 40.41, investment: investment1)
+
+      create(:map_location, longitude: -3.67, latitude: 40.42, investment: investment2)
+      create(:map_location, longitude: -3.67, latitude: 40.43, investment: investment3)
+      create(:map_location, longitude: -3.67, latitude: 40.44, investment: investment4)
+      create(:map_location, longitude: -3.67, latitude: 40.45, investment: investment5)
 
       visit budget_investments_path(budget, heading_id: heading.id)
 
       within ".map_location" do
-        expect(page).to have_css(".map-icon", count: 6, visible: false)
+        expect(page).to have_css(".map-icon", count: 1)
+        expect(page).to have_css(".marker-cluster div span", text: "4")
       end
     end
 
-    scenario "Display 2 investment's markers on sidebar map", :js do
+    scenario "Display 2 investment markers on sidebar map", :js do
       investment1 = create(:budget_investment, heading: heading)
       investment2 = create(:budget_investment, heading: heading)
 
-      create(:map_location, longitude: 40.1281, latitude: -3.656, investment: investment1)
-      create(:map_location, longitude: 40.1292, latitude: -3.665, investment: investment2)
+      create(:map_location, longitude: -3.67, latitude: 40.41, investment: investment1)
+      create(:map_location, longitude: -3.73, latitude: 40.41, investment: investment2)
 
       visit budget_investments_path(budget, heading_id: heading.id)
 
       within ".map_location" do
-        expect(page).to have_css(".map-icon", count: 2, visible: false)
+        sleep 3
+        expect(page).to have_css(".map-icon", count: 2)
       end
     end
 
-    scenario "Display only investment's related to the current heading", :js do
+    scenario "Display only investments related to the current heading", :js do
       heading_2 = create(:budget_heading, name: "Madrid",   group: group)
 
       investment1 = create(:budget_investment, heading: heading)
@@ -1912,34 +1913,36 @@ describe "Budget Investments" do
       investment5 = create(:budget_investment, heading: heading_2)
       investment6 = create(:budget_investment, heading: heading_2)
 
-      create(:map_location, longitude: 40.1231, latitude: -3.636, investment: investment1)
-      create(:map_location, longitude: 40.1232, latitude: -3.685, investment: investment2)
-      create(:map_location, longitude: 40.1233, latitude: -3.664, investment: investment3)
-      create(:map_location, longitude: 40.1234, latitude: -3.673, investment: investment4)
-      create(:map_location, longitude: 40.1235, latitude: -3.672, investment: investment5)
-      create(:map_location, longitude: 40.1236, latitude: -3.621, investment: investment6)
+      create(:map_location, longitude: -3.7, latitude: 40.39, investment: investment1)
+      create(:map_location, longitude: -3.7, latitude: 40.40, investment: investment2)
+      create(:map_location, longitude: -3.7, latitude: 40.41, investment: investment3)
+      create(:map_location, longitude: -3.7, latitude: 40.42, investment: investment4)
+      create(:map_location, longitude: -3.7, latitude: 40.43, investment: investment5)
+      create(:map_location, longitude: -3.7, latitude: 40.44, investment: investment6)
 
       visit budget_investments_path(budget, heading_id: heading.id)
 
       within ".map_location" do
-        expect(page).to have_css(".map-icon", count: 4, visible: false)
+        sleep 3
+        expect(page).to have_css(".marker-cluster div span", text: "4")
       end
     end
 
-    scenario "Do not display investment's, since they're all related to other heading", :js do
+    scenario "Do not display investments, since they're all related to other heading", :js do
       heading_2 = create(:budget_heading, name: "Madrid",   group: group)
 
       investment1 = create(:budget_investment, heading: heading_2)
       investment2 = create(:budget_investment, heading: heading_2)
       investment3 = create(:budget_investment, heading: heading_2)
 
-      create(:map_location, longitude: 40.1255, latitude: -3.644, investment: investment1)
-      create(:map_location, longitude: 40.1258, latitude: -3.637, investment: investment2)
-      create(:map_location, longitude: 40.1251, latitude: -3.649, investment: investment3)
+      create(:map_location, longitude: -3.7, latitude: 40.41, investment: investment1)
+      create(:map_location, longitude: -3.7, latitude: 40.42, investment: investment2)
+      create(:map_location, longitude: -3.7, latitude: 40.43, investment: investment3)
 
       visit budget_investments_path(budget, heading_id: heading.id)
 
       within ".map_location" do
+        sleep 3
         expect(page).to have_css(".map-icon", count: 0, visible: false)
       end
     end
@@ -1948,7 +1951,7 @@ describe "Budget Investments" do
       stub_const("#{Budgets::InvestmentsController}::PER_PAGE", 2)
 
       3.times do
-        create(:map_location, investment: create(:budget_investment, heading: heading))
+        create(:map_location, longitude: -3.7, latitude: 40.41, investment: create(:budget_investment, heading: heading))
       end
 
       visit budget_investments_path(budget, heading_id: heading.id)
@@ -1958,7 +1961,8 @@ describe "Budget Investments" do
       end
 
       within(".map_location") do
-        expect(page).to have_css(".map-icon", count: 3, visible: false)
+        sleep 3
+        expect(page).to have_css(".marker-cluster div span", text: "3")
       end
     end
   end

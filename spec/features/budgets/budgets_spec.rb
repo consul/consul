@@ -290,15 +290,19 @@ describe "Budgets" do
       investment1 = create(:budget_investment, heading: heading)
       investment2 = create(:budget_investment, heading: heading)
       investment3 = create(:budget_investment, heading: heading)
+      investment4 = create(:budget_investment, heading: heading)
 
-      create(:map_location, longitude: 40.1234, latitude: -3.634, investment: investment1)
-      create(:map_location, longitude: 40.1235, latitude: -3.635, investment: investment2)
-      create(:map_location, longitude: 40.1236, latitude: -3.636, investment: investment3)
+      create(:map_location, longitude: 0.1, latitude: 51.48, investment: investment1)
+
+      create(:map_location, longitude: -0.1, latitude: 51.48, investment: investment2)
+      create(:map_location, longitude: -0.1, latitude: 51.49, investment: investment3)
+      create(:map_location, longitude: -0.1, latitude: 51.50, investment: investment4)
 
       visit budgets_path
 
       within ".map_location" do
-        expect(page).to have_css(".map-icon", count: 3, visible: false)
+        expect(page).to have_css(".map-icon", count: 1)
+        expect(page).to have_css(".marker-cluster div span", text: "3")
       end
     end
 
@@ -310,15 +314,15 @@ describe "Budgets" do
       investment3 = create(:budget_investment, heading: heading)
       investment4 = create(:budget_investment, heading: heading)
 
-      investment1.create_map_location(longitude: 40.1234, latitude: 3.1234, zoom: 10)
-      investment2.create_map_location(longitude: 40.1235, latitude: 3.1235, zoom: 10)
-      investment3.create_map_location(longitude: 40.1236, latitude: 3.1236, zoom: 10)
-      investment4.create_map_location(longitude: 40.1240, latitude: 3.1240, zoom: 10)
+      investment1.create_map_location(longitude: 0, latitude: 51.48, zoom: 10)
+      investment2.create_map_location(longitude: 0, latitude: 51.49, zoom: 10)
+      investment3.create_map_location(longitude: 0, latitude: 51.50, zoom: 10)
+      investment4.create_map_location(longitude: 0, latitude: 51.51, zoom: 10)
 
       visit budgets_path
 
       within ".map_location" do
-        expect(page).to have_css(".map-icon", count: 4, visible: false)
+        expect(page).to have_css(".marker-cluster div span", text: "4")
       end
     end
 
@@ -330,15 +334,15 @@ describe "Budgets" do
       investment3 = create(:budget_investment, heading: heading)
       investment4 = create(:budget_investment, heading: heading)
 
-      investment1.create_map_location(longitude: 40.1234, latitude: 3.1234, zoom: 10)
-      investment2.create_map_location(longitude: 40.1235, latitude: 3.1235, zoom: 10)
-      investment3.create_map_location(longitude: 40.1236, latitude: 3.1236, zoom: 10)
-      investment4.create_map_location(longitude: 40.1240, latitude: 3.1240, zoom: 10)
+      investment1.create_map_location(longitude: 0, latitude: 51.48, zoom: 10)
+      investment2.create_map_location(longitude: 0, latitude: 51.49, zoom: 10)
+      investment3.create_map_location(longitude: 0, latitude: 51.50, zoom: 10)
+      investment4.create_map_location(longitude: 0, latitude: 51.51, zoom: 10)
 
       visit budgets_path
 
       within ".map_location" do
-        expect(page).to have_css(".map-icon", count: 2, visible: false)
+        expect(page).to have_css(".marker-cluster div span", text: "2")
       end
     end
 
@@ -347,9 +351,9 @@ describe "Budgets" do
 
       investment = create(:budget_investment, heading: heading)
 
-      map_locations << { longitude: 40.123456789, latitude: 3.12345678 }
-      map_locations << { longitude: 40.123456789, latitude: "********" }
-      map_locations << { longitude: "**********", latitude: 3.12345678 }
+      map_locations << { longitude: 0, latitude: 51.48 }
+      map_locations << { longitude: 0, latitude: "********" }
+      map_locations << { longitude: "**********", latitude: 51.49 }
 
       budget_map_locations = map_locations.map do |map_location|
         {
