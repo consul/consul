@@ -647,6 +647,12 @@ describe Budget::Investment do
         expect(results).to eq([budget_investment])
       end
 
+      it "searches by id" do
+        budget_investment = create(:budget_investment, title: "free willy")
+        results = described_class.search(budget_investment.id)
+        expect(results).to eq([budget_investment])
+      end
+
       it "searches by author name" do
         author = create(:user, username: "Danny Trejo")
         budget_investment = create(:budget_investment, author: author)

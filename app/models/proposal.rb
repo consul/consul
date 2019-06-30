@@ -122,8 +122,10 @@ class Proposal < ApplicationRecord
 
   def searchable_values
     { title              => "A",
+      id.to_s            => "A",
       author.username    => "B",
       tag_list.join(" ") => "B",
+      to_param()         => "B",
       geozone.try(:name) => "B",
       summary            => "C",
       description        => "D"
@@ -131,6 +133,7 @@ class Proposal < ApplicationRecord
   end
 
   def self.search(terms)
+    terms = terms.to_s if terms.is_a? Numeric
     by_code = search_by_code(terms.strip)
     by_code.present? ? by_code : pg_search(terms)
   end

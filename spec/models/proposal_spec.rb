@@ -462,6 +462,12 @@ describe Proposal do
         expect(results).to eq([proposal])
       end
 
+      it "searches by id" do
+        proposal = create(:proposal, title: "free willy")
+        results = described_class.search(proposal.id)
+        expect(results).to eq([proposal])
+      end
+
       it "searches by summary" do
         proposal = create(:proposal, summary: "basically...")
         results = described_class.search("basically")
@@ -478,6 +484,12 @@ describe Proposal do
         author = create(:user, username: "Danny Trejo")
         proposal = create(:proposal, author: author)
         results = described_class.search("Danny")
+        expect(results).to eq([proposal])
+      end
+
+      it "searches by parameterized id-title" do
+        proposal = create(:proposal, title: "river cleanup")
+        results = described_class.search(proposal.to_param)
         expect(results).to eq([proposal])
       end
 

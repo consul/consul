@@ -193,6 +193,7 @@ class Budget
 
     def searchable_values
       { title              => "A",
+        id.to_s            => "A",
         author.username    => "B",
         heading.try(:name) => "B",
         tag_list.join(" ") => "B",
