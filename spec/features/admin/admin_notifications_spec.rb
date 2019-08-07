@@ -227,15 +227,13 @@ describe "Admin Notifications" do
   end
 
   scenario "Select list of users to send notification" do
-    UserSegments::SEGMENTS.each do |user_segment|
-      segment_recipient = I18n.t("admin.segment_recipient.#{user_segment}")
-
+    UserSegments.segments.values.each do |segment_description|
       visit new_admin_admin_notification_path
 
-      fill_in_admin_notification_form(segment_recipient: segment_recipient)
+      fill_in_admin_notification_form(segment_recipient: segment_description)
       click_button "Create notification"
 
-      expect(page).to have_content(I18n.t("admin.segment_recipient.#{user_segment}"))
+      expect(page).to have_content(segment_description)
     end
   end
 end

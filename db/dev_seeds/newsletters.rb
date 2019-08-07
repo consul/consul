@@ -11,10 +11,11 @@ section "Creating Newsletters" do
     " and their quest to ensure the survival of the human species."
   ]
 
+  UserSegments.generate_geozone_segments
   5.times do |n|
     Newsletter.create!(
       subject: "Newsletter subject #{n}",
-      segment_recipient: UserSegments::SEGMENTS.sample,
+      segment_recipient: UserSegments.segment_names.sample,
       from: "no-reply@consul.dev",
       body: newsletter_body.sample,
       sent_at: [Time.now, nil].sample

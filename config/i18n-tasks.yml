@@ -160,6 +160,7 @@ ignore_unused:
   - "admin.homepage.*"
   - "admin.dashboard.administrator_tasks.index.filter*"
   - "admin.dashboard.actions.index.default.*"
+  - "admin.segment_recipient.*"
   - "moderation.comments.index.filter*"
   - "moderation.comments.index.order*"
   - "moderation.debates.index.filter*"

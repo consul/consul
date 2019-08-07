@@ -18,7 +18,7 @@ describe "Admin newsletter emails" do
       visit admin_newsletter_path(newsletter)
 
       expect(page).to have_content "This is a subject"
-      expect(page).to have_content I18n.t("admin.segment_recipient.#{newsletter.segment_recipient}")
+      expect(page).to have_content UserSegments.segments["all_users"]
       expect(page).to have_content "no-reply@consul.dev"
       expect(page).to have_content "This is a body"
     end
@@ -160,14 +160,32 @@ describe "Admin newsletter emails" do
     end
   end
 
-  scenario "Select list of users to send newsletter" do
-    UserSegments::SEGMENTS.each do |user_segment|
-      visit new_admin_newsletter_path
+  context "Select list of users to send newsletter" do
 
-      fill_in_newsletter_form(segment_recipient: I18n.t("admin.segment_recipient.#{user_segment}"))
-      click_button "Create Newsletter"
+    scenario "Custom user segments" do
+      UserSegments.segments.values.each do |segment_description|
+        visit new_admin_newsletter_path
 
-      expect(page).to have_content(I18n.t("admin.segment_recipient.#{user_segment}"))
+        fill_in_newsletter_form(segment_recipient: segment_description)
+        click_button "Create Newsletter"
+
+        expect(page).to have_content(segment_description)
+      end
+    end
+
+    scenario "Geozone segments" do
+      create(:geozone, name: "Arganzuela")
+      create(:geozone, name: "Barajas")
+      create(:geozone, name: "Centro")
+
+      Geozone.find_each do |geozone|
+        visit new_admin_newsletter_path
+
+        fill_in_newsletter_form(segment_recipient: geozone.name)
+        click_button "Create Newsletter"
+
+        expect(page).to have_content(geozone.name)
+      end
     end
   end
 end
