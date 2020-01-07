@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Verification
+  extend Enumerize
 
   devise :database_authenticatable, :registerable, :confirmable, :recoverable, :rememberable,
          :trackable, :validatable, :omniauthable, :password_expirable, :secure_validatable,
@@ -93,12 +94,12 @@ class User < ApplicationRecord
   attr_accessor :use_redeemable_code
   attr_accessor :login
 
+  enumerize :gender, in: [:male, :female, :other], scope: :shallow
+
   scope :administrators, -> { joins(:administrator) }
   scope :moderators,     -> { joins(:moderator) }
   scope :organizations,  -> { joins(:organization) }
   scope :officials,      -> { where("official_level > 0") }
-  scope :male,           -> { where(gender: "male") }
-  scope :female,         -> { where(gender: "female") }
   scope :newsletter,     -> { where(newsletter: true) }
   scope :for_render,     -> { includes(:organization) }
   scope :by_document,    ->(document_type, document_number) do

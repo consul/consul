@@ -53,6 +53,10 @@
       content: image-url("stats_woman.png");
     }
 
+    &.other::before {
+      content: image-url("stats_other.png");
+    }
+
     &.total-investments::before {
       content: image-url("stats_investments.png");
     }
@@ -168,6 +172,10 @@
 
       &.female::before {
         content: image-url("stats_woman.png");
+      }
+
+      &.other::before {
+        content: image-url("stats_other.png");
       }
     }
   }

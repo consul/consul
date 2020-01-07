@@ -20,7 +20,8 @@ module Statisticable
     end
 
     def gender_methods
-      %i[total_male_participants total_female_participants male_percentage female_percentage]
+      %i[total_male_participants total_female_participants male_percentage
+        female_percentage total_other_participants other_percentage]
     end
 
     def age_methods
@@ -59,7 +60,7 @@ module Statisticable
   end
 
   def gender?
-    participants.male.any? || participants.female.any?
+    participants.where.not(gender: nil).any?
   end
 
   def age?
@@ -82,6 +83,10 @@ module Statisticable
     participants.female.count
   end
 
+  def total_other_participants
+    participants.other.count
+  end
+
   def total_no_demographic_data
     participants.where("gender IS NULL OR date_of_birth IS NULL OR geozone_id IS NULL").count
   end
@@ -92,6 +97,10 @@ module Statisticable
 
   def female_percentage
     calculate_percentage(total_female_participants, total_participants_with_gender)
+  end
+
+  def other_percentage
+    calculate_percentage(total_other_participants, total_participants_with_gender)
   end
 
   def participants_by_age

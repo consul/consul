@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :user do
     sequence(:username) { |n| "Manuela#{n}" }
     sequence(:email)    { |n| "manuela#{n}@consul.dev" }
-
+    gender              { User.gender.values.sample }
     password            { "judgmentday" }
     terms_of_service    { "1" }
     confirmed_at        { Time.current }

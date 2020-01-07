@@ -200,6 +200,8 @@ GEM
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.7)
+    enumerize (2.3.1)
+      activesupport (>= 3.2)
     erb_lint (0.0.28)
       activesupport
       better_html (~> 1.0.7)
@@ -623,6 +625,7 @@ DEPENDENCIES
   devise-async (~> 1.0.0)
   devise_security_extension!
   email_spec (~> 2.2.0)
+  enumerize
   erb_lint
   factory_bot_rails (~> 4.8.2)
   faker (~> 1.8.7)
@@ -688,4 +691,4 @@ DEPENDENCIES
   wkhtmltopdf-binary (~> 0.12.4)
 
 BUNDLED WITH
-   1.17.1
+   1.17.3

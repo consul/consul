@@ -55,6 +55,8 @@ class RemoteCensusApi
         "male"
       when "Mujer"
         "female"
+      when "Otro"
+        "other"
       end
     end
 

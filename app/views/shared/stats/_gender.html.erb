@@ -12,4 +12,10 @@
     t("stats.women_percentage", percentage: number_to_stats_percentage(stats.female_percentage)),
     html_class: "participants female"
   ) %>
+
+  <%= number_with_info_tags(
+    stats.total_female_participants,
+    t("stats.other_percentage", percentage: number_to_stats_percentage(stats.other_percentage)),
+    html_class: "participants other"
+  ) %>
 </div>

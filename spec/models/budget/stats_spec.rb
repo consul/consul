@@ -122,8 +122,9 @@ describe Budget::Stats do
 
   describe "Participants by gender" do
     before do
-      3.times { create(:user, gender: "male") }
-      2.times { create(:user, gender: "female") }
+      5.times { create(:user, gender: "male") }
+      4.times { create(:user, gender: "female") }
+      1.times { create(:user, gender: "other") }
       create(:user, gender: nil)
 
       allow(stats).to receive(:participants).and_return(User.all)
@@ -131,25 +132,37 @@ describe Budget::Stats do
 
     describe "#total_male_participants" do
       it "returns the number of total male participants" do
-        expect(stats.total_male_participants).to be 3
+        expect(stats.total_male_participants).to be 5
       end
     end
 
     describe "#total_female_participants" do
       it "returns the number of total female participants" do
-        expect(stats.total_female_participants).to be 2
+        expect(stats.total_female_participants).to be 4
+      end
+    end
+
+    describe "#total_other_participants" do
+      it "returns the number of total other participants" do
+        expect(stats.total_other_participants).to be 1
       end
     end
 
     describe "#male_percentage" do
       it "returns the percentage of male participants" do
-        expect(stats.male_percentage).to be 60.0
+        expect(stats.male_percentage).to be 50.0
       end
     end
 
     describe "#female_percentage" do
       it "returns the percentage of female participants" do
         expect(stats.female_percentage).to be 40.0
+      end
+    end
+
+    describe "#other_percentage" do
+      it "returns the percentage of other participants" do
+        expect(stats.other_percentage).to be 10.0
       end
     end
   end
