@@ -1,4 +1,5 @@
 <h2><%= t("admin.hidden_debates.index.title") %></h2>
+<%= render "debates_search", url: admin_hidden_debates_path %>
 <p><%= t("admin.shared.moderated_content") %></p>
 
 <%= render "shared/filter_subnav", i18n_namespace: "admin.hidden_debates.index" %>

@@ -1,13 +1,16 @@
 class Admin::ProposalNotificationsController < Admin::BaseController
+  include Search
+
   has_filters %w[without_confirmed_hide all with_confirmed_hide], only: :index
 
   before_action :load_proposal, only: [:confirm_hide, :restore]
 
   def index
     @proposal_notifications = ProposalNotification.only_hidden
-                                                  .send(@current_filter)
-                                                  .order(hidden_at: :desc)
-                                                  .page(params[:page])
+    @proposal_notifications = @proposal_notifications.search(@search_terms) if @search_terms.present?
+    @proposal_notifications = @proposal_notifications.send(@current_filter)
+                                                     .order(hidden_at: :desc)
+                                                     .page(params[:page])
   end
 
   def confirm_hide

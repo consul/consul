@@ -1227,6 +1227,8 @@ en:
           without_confirmed_hide: Pending
         title: Hidden notifications
         no_hidden_proposals: There are no hidden notifications.
+      serach:
+        placeholder: Search proposal_notifications by title or body
     settings:
       flash:
         updated: Value updated
@@ -1272,13 +1274,13 @@ en:
         placeholder: Search booth by name or location
       budget_investments_search:
         button: Search
-        placeholder: Search projects
+        placeholder: Search projects by title or description
       comments_search:
         button: Search
-        placeholder: Search comments
+        placeholder: Search comments by body
       debates_search:
         button: Search
-        placeholder: Search debates
+        placeholder: Search debates by title or description
       poll_officers_search:
         button: Search
         placeholder: Search poll officers

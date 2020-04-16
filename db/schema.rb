@@ -414,12 +414,14 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.string   "ancestry"
     t.integer  "confidence_score",   default: 0,     null: false
     t.boolean  "valuation",          default: false
+    t.tsvector "tsv"
     t.index ["ancestry"], name: "index_comments_on_ancestry", using: :btree
     t.index ["cached_votes_down"], name: "index_comments_on_cached_votes_down", using: :btree
     t.index ["cached_votes_total"], name: "index_comments_on_cached_votes_total", using: :btree
     t.index ["cached_votes_up"], name: "index_comments_on_cached_votes_up", using: :btree
     t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
     t.index ["hidden_at"], name: "index_comments_on_hidden_at", using: :btree
+    t.index ["tsv"], name: "index_comments_on_tsv", using: :gin
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
     t.index ["valuation"], name: "index_comments_on_valuation", using: :btree
   end
@@ -1204,6 +1206,8 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.datetime "hidden_at"
     t.datetime "ignored_at"
     t.datetime "confirmed_hide_at"
+    t.tsvector "tsv"
+    t.index ["tsv"], name: "index_proposal_notifications_on_tsv", using: :gin
   end
 
   create_table "proposal_translations", force: :cascade do |t|
@@ -1483,12 +1487,14 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.boolean  "public_interests",                          default: false
     t.boolean  "recommended_debates",                       default: true
     t.boolean  "recommended_proposals",                     default: true
+    t.tsvector "tsv"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["geozone_id"], name: "index_users_on_geozone_id", using: :btree
     t.index ["hidden_at"], name: "index_users_on_hidden_at", using: :btree
     t.index ["password_changed_at"], name: "index_users_on_password_changed_at", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["tsv"], name: "index_users_on_tsv", using: :gin
     t.index ["username"], name: "index_users_on_username", using: :btree
   end
 
