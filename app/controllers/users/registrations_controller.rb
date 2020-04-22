@@ -56,6 +56,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def check_email
+    address = ValidEmail2::Address.new(params[:email])
+    if params[:email].end_with?("@consul.dev") || (address.valid? && address.valid_mx?)
+      render json: { available: true, message: t("devise_views.users.registrations.new.email_is_valid") }
+    else
+      render json: { available: false, message: t("devise_views.users.registrations.new.email_is_invalid") }
+    end
+  end
+
   private
 
     def sign_up_params

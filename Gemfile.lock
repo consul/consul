@@ -580,6 +580,9 @@ GEM
     uniform_notifier (1.11.0)
     user_agent_parser (2.6.0)
     uuidtools (2.1.5)
+    valid_email2 (3.1.0)
+      activemodel (>= 3.2)
+      mail (~> 2.5)
     warden (1.2.8)
       rack (>= 2.0.6)
     wasabi (3.5.0)
@@ -691,10 +694,10 @@ DEPENDENCIES
   turbolinks (~> 2.5.3)
   turnout (~> 2.4.0)
   uglifier (~> 4.1.2)
+  valid_email2 (~> 3.1.0)
   web-console (~> 3.3.0)
   whenever (~> 0.10.0)
   wicked_pdf (~> 1.1.0)
   wkhtmltopdf-binary (~> 0.12.4)
 
 BUNDLED WITH
-   1.17.1

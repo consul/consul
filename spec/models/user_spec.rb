@@ -709,4 +709,12 @@ describe User do
       expect(User.find_by_manager_login("admin_user_#{user.id}")).to eq user
     end
   end
+
+  describe "valid_email_required" do
+    it "doesn't create users with invalid emails" do
+      expect { create(:user, email: "user@consul") }.to raise_error(ActiveRecord::RecordInvalid)
+      expect { create(:user, email: "user@consul..dev") }.to raise_error(ActiveRecord::RecordInvalid)
+      expect { create(:user, email: "userconsul.dev") }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
 end

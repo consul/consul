@@ -129,7 +129,7 @@ describe Newsletter do
     it "skips invalid emails" do
       Proposal.destroy_all
       create(:user, :with_proposal, email: "valid@consul.dev")
-      create(:user, :with_proposal, email: "invalid@consul..dev")
+      create(:user, :skip_validate, :with_proposal, email: "invalid@consul..dev")
 
       newsletter.deliver
 

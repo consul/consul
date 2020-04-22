@@ -8,6 +8,7 @@ devise_for :users, controllers: {
 devise_scope :user do
   patch "/user/confirmation", to: "users/confirmations#update", as: :update_user_confirmation
   get "/user/registrations/check_username", to: "users/registrations#check_username"
+  get "/user/registrations/check_email", to: "users/registrations#check_email"
   get "users/sign_up/success", to: "users/registrations#success"
   get "users/registrations/delete_form", to: "users/registrations#delete_form"
   delete "users/registrations", to: "users/registrations#delete"

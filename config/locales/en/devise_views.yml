@@ -106,6 +106,8 @@ en:
           waiting_for: "Awaiting confirmation of:"
         new:
           cancel: Cancel login
+          email_is_valid: This e-mail address seems to be valid
+          email_is_invalid: This e-mail address does not seem to be valid
           email_label: Email
           organization_signup: Do you represent an organisation or collective? %{signup_link}
           organization_signup_link: Sign up here

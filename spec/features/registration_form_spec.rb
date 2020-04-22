@@ -23,6 +23,26 @@ describe "Registration form" do
     expect(page).to have_content I18n.t("devise_views.users.registrations.new.username_is_available")
   end
 
+  scenario "email is invalid", :js do
+    visit new_user_registration_path
+    expect(page).not_to have_content I18n.t("devise_views.users.registrations.new.email_is_invalid")
+
+    fill_in "user_email", with: "test@test"
+    check "user_terms_of_service"
+
+    expect(page).to have_content I18n.t("devise_views.users.registrations.new.email_is_invalid")
+  end
+
+  scenario "email is valid", :js do
+    visit new_user_registration_path
+    expect(page).not_to have_content I18n.t("devise_views.users.registrations.new.email_is_valid")
+
+    fill_in "user_email", with: "test@test.com"
+    check "user_terms_of_service"
+
+    expect(page).to have_content I18n.t("devise_views.users.registrations.new.email_is_valid")
+  end
+
   scenario "do not save blank redeemable codes" do
     visit new_user_registration_path(use_redeemable_code: "true")
 

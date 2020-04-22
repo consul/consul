@@ -27,4 +27,30 @@ describe Users::RegistrationsController do
       end
     end
   end
+
+  describe "POST check_email" do
+    before do
+      request.env["devise.mapping"] = Devise.mappings[:user]
+    end
+
+    context "when email is valid" do
+      it "returns true with no error message" do
+        get :check_email, params: { email: "test@test.com" }
+
+        data = JSON.parse response.body, symbolize_names: true
+        expect(data[:available]).to be true
+        expect(data[:message]).to eq I18n.t("devise_views.users.registrations.new.email_is_valid")
+      end
+    end
+
+    context "when email is invalid" do
+      it "returns false with an error message" do
+        get :check_email, params: { email: "test@test" }
+
+        data = JSON.parse response.body, symbolize_names: true
+        expect(data[:available]).to be false
+        expect(data[:message]).to eq I18n.t("devise_views.users.registrations.new.email_is_invalid")
+      end
+    end
+  end
 end

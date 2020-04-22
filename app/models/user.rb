@@ -78,6 +78,8 @@ class User < ApplicationRecord
 
   validates :username, presence: true, if: :username_required?
   validates :username, uniqueness: { scope: :registering_with_oauth }, if: :username_required?
+  validates :email, 'valid_email_2/email': true, allow_blank: true, if: :not_email_consul_dev?
+  validates :email, 'valid_email_2/email': { mx: true }, if: :not_email_consul_dev?
   validates :document_number, uniqueness: { scope: :document_type }, allow_nil: true
 
   validate :validate_username_length
@@ -413,5 +415,9 @@ class User < ApplicationRecord
         attributes: :username,
         maximum: User.username_max_length)
       validator.validate(self)
+    end
+
+    def not_email_consul_dev?
+      ->(user) { user.email.end_with?("@consul.dev") }
     end
 end

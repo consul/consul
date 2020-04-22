@@ -56,6 +56,7 @@ gem "translator-text", "~> 0.1.0"
 gem "turbolinks", "~> 2.5.3"
 gem "turnout", "~> 2.4.0"
 gem "uglifier", "~> 4.1.2"
+gem "valid_email2", "~> 3.1.0"
 gem "whenever", "~> 0.10.0", require: false
 gem "wicked_pdf", "~> 1.1.0"
 gem "wkhtmltopdf-binary", "~> 0.12.4"

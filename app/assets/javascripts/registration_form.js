@@ -27,6 +27,31 @@
           validateUsername(username);
         }
       });
+      var clearEmailMessage, showEmailMessage, emailInput, validateEmail;
+      emailInput = $("form#new_user[action=\"/users\"] input#user_email");
+      clearEmailMessage = function() {
+        $("small").remove();
+      };
+      showEmailMessage = function(response) {
+        var klass;
+        klass = response.available ? "no-error" : "error";
+        emailInput.after($("<small class=\"" + klass + "\" style=\"margin-top: -16px;\">" + response.message + "</small>"));
+      };
+      validateEmail = function(email) {
+        var request;
+        request = $.get("/user/registrations/check_email?email=" + email);
+        request.done(function(response) {
+          showEmailMessage(response);
+        });
+      };
+      emailInput.on("focusout", function() {
+        var email;
+        clearEmailMessage();
+        email = emailInput.val();
+        if (email !== "") {
+          validateEmail(email);
+        }
+      });
     }
   };
 }).call(this);

@@ -125,7 +125,7 @@ describe EmailDigest do
     end
 
     it "returns nil if email is invalid" do
-      user = create(:user, email: "invalid_email@email..com")
+      user = create(:user, :skip_validate, email: "invalid_email@email..com")
 
       email_digest = EmailDigest.new(user)
       expect(email_digest.valid_email?).to be(nil)

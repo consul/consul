@@ -164,6 +164,10 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 
   config.expect_with(:rspec) { |c| c.syntax = :expect }
+
+  config.before(:each) do
+    allow_any_instance_of(ValidEmail2::Address).to receive(:valid_mx?).and_return(true)
+  end
 end
 
 # Parallel build helper configuration for travis

@@ -64,6 +64,10 @@ FactoryBot.define do
       after(:create) { |user| create(:comment, author: user) }
     end
 
+    trait :skip_validate do
+      to_create { |instance| instance.save(validate: false) }
+    end
+
     transient do
       votables { [] }
       followables { [] }
