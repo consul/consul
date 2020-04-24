@@ -1,5 +1,6 @@
 class Admin::HiddenBudgetInvestmentsController < Admin::BaseController
   include FeatureFlags
+  include Search
 
   has_filters %w[all with_confirmed_hide without_confirmed_hide], only: :index
 
@@ -8,9 +9,11 @@ class Admin::HiddenBudgetInvestmentsController < Admin::BaseController
   before_action :load_investment, only: [:confirm_hide, :restore]
 
   def index
-    @investments = Budget::Investment.only_hidden.send(@current_filter)
-                                                 .order(hidden_at: :desc)
-                                                 .page(params[:page])
+    @investments = Budget::Investment.only_hidden
+    @investments = @investments.search(@search_terms) if @search_terms.present?
+    @investments = @investments.send(@current_filter)
+                               .order(hidden_at: :desc)
+                               .page(params[:page])
   end
 
   def confirm_hide

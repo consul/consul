@@ -1,5 +1,6 @@
 class Admin::HiddenDebatesController < Admin::BaseController
   include FeatureFlags
+  include Search
 
   feature_flag :debates
 
@@ -8,7 +9,9 @@ class Admin::HiddenDebatesController < Admin::BaseController
   before_action :load_debate, only: [:confirm_hide, :restore]
 
   def index
-    @debates = Debate.only_hidden.send(@current_filter).order(hidden_at: :desc).page(params[:page])
+    @debates = Debate.only_hidden
+    @debates = @debates.search(@search_terms) if @search_terms.present?
+    @debates = @debates.send(@current_filter).order(hidden_at: :desc).page(params[:page])
   end
 
   def confirm_hide

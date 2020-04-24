@@ -1,6 +1,7 @@
 class ProposalNotification < ApplicationRecord
   include Graphqlable
   include Notifiable
+  include Searchable
 
   belongs_to :author, class_name: "User"
   belongs_to :proposal
@@ -53,6 +54,17 @@ class ProposalNotification < ApplicationRecord
 
   def after_restore
     update(moderated: false)
+  end
+
+  def searchable_values
+    {
+      title          => "A",
+      body           => "B"
+    }
+  end
+
+  def self.search(terms)
+    pg_search(terms)
   end
 
   private
