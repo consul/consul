@@ -97,4 +97,12 @@ FactoryBot.define do
     value_es { "Texto en español" }
     value_en { "Text in english" }
   end
+
+  factory :tenant do
+    sequence(:name) { |n| "Tenant #{n}" }
+    sequence(:title) { |n| "Title of Tenant #{n}" }
+    sequence(:subdomain) { |n| "subdomain#{n}" }
+    sequence(:postal_code, &:to_s)
+    server_name { "lvh.me" }
+  end
 end

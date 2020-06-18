@@ -208,5 +208,9 @@ class Setting < ApplicationRecord
       Setting["feature.remote_census"].present? &&
         Setting["remote_census.request.postal_code"].present?
     end
+
+    def full_email_address
+      "#{Setting["mailer_from_name"]} <#{Setting["mailer_from_address"]}>"
+    end
   end
 end

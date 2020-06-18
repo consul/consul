@@ -1,5 +1,9 @@
 include DocumentParser
 class CensusApi
+  def initialize(tenant = Tenant.current)
+    @tenant = tenant
+  end
+
   def call(document_type, document_number)
     response = nil
     get_document_number_variants(document_type, document_number).each do |variant|
@@ -65,14 +69,14 @@ class CensusApi
     end
 
     def client
-      @client = Savon.client(wsdl: Rails.application.secrets.census_api_end_point)
+      @client = Savon.client(wsdl: @tenant["endpoint_census"])
     end
 
     def request(document_type, document_number)
       { request:
-        { codigo_institucion: Rails.application.secrets.census_api_institution_code,
-          codigo_portal:      Rails.application.secrets.census_api_portal_name,
-          codigo_usuario:     Rails.application.secrets.census_api_user_code,
+        { codigo_institucion: @tenant["institution_code_census"],
+          codigo_portal:      @tenant["portal_name_census"],
+          codigo_usuario:     @tenant["user_code_census"],
           documento:          document_number,
           tipo_documento:     document_type,
           codigo_idioma:      102,
@@ -80,7 +84,9 @@ class CensusApi
     end
 
     def end_point_defined?
+      # TODO: Merge these two lines
       Rails.application.secrets.census_api_end_point.present?
+      @tenant["endpoint_census"].present?
     end
 
     def end_point_available?

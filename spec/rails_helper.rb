@@ -55,3 +55,9 @@ end
 Capybara.exact = true
 
 OmniAuth.config.test_mode = true
+
+def with_subdomain(subdomain, &block)
+  Capybara.app_host = "http://#{subdomain}.lvh.me"
+  block.call
+  Capybara.app_host = Capybara.default_host
+end

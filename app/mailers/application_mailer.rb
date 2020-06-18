@@ -1,6 +1,7 @@
 class ApplicationMailer < ActionMailer::Base
   helper :settings
   helper :application
-  default from: proc { "#{Setting["mailer_from_name"]} <#{Setting["mailer_from_address"]}>" }
+  default from: ->(*) { Setting.full_email_address }
+  default reply_to: ->(*) { Setting.full_email_address }
   layout "mailer"
 end

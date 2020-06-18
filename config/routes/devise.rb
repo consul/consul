@@ -6,6 +6,8 @@ devise_for :users, controllers: {
                    }
 
 devise_scope :user do
+  get "/users/auth/twitter/setup", to: "users/omniauth_callbacks#twitter_setup"
+  get "/users/auth/facebook/setup", to: "users/omniauth_callbacks#facebook_setup"
   patch "/user/confirmation", to: "users/confirmations#update", as: :update_user_confirmation
   get "/user/registrations/check_username", to: "users/registrations#check_username"
   get "users/sign_up/success", to: "users/registrations#success"

@@ -1,0 +1,29 @@
+<%= link_to t("admin.tenants.index.create"),
+              new_admin_tenant_path, class: "button success float-right" %>
+
+<h2 class="inline-block"><%= t("admin.tenants.index.title") %></h2>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t("admin.tenants.tenant.name") %></th>
+      <th><%= t("admin.tenants.tenant.title") %></th>
+      <th><%= t("admin.shared.actions") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tenants.each do |tenant| %>
+      <tr id="<%= dom_id(tenant) %>">
+        <td><%= tenant.name %><% if main_tenant?(tenant) %>&nbsp;<span class="label"><%= t("admin.tenants.index.multitenant") %></span><% end %></td>
+        <td><%= tenant.title %></td>
+        <td>
+          <%= link_to t("admin.tenants.index.edit"), edit_admin_tenant_path(tenant), class: "edit-banner button hollow" %>
+          <% if !main_tenant?(tenant) %>
+            <%= link_to t("admin.tenants.index.delete"), admin_tenant_path(tenant), method: :delete, class: "button hollow alert" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

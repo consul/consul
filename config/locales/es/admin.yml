@@ -354,7 +354,7 @@ es:
       index:
         back: Volver a %{org}
         title: Administración
-        description: Bienvenido al panel de administración de %{org}.
+        description: Bienvenido al panel de administración de la Entidad %{org}.
       actions:
         index:
           description: "Cuando los usuarios crean propuestas pueden acceder a un panel de progreso de su propuesta, donde se le puede proponer recursos y recomendaciones para conseguir apoyos a su idea."
@@ -695,6 +695,7 @@ es:
       debates: "Debates"
       comments: "Comentarios"
       local_census_records: Gestionar censo local
+      multitenancy: Multientidad
     administrators:
       index:
         title: Administradores
@@ -1540,6 +1541,45 @@ es:
             notice: "Tarjeta actualizada con éxito"
           destroy:
             notice: "Tarjeta eliminada con éxito"
+    tenants:
+      title: "Entidad:"
+      available_tenants: Entidades disponibles
+      ws_census: Servicio Web Padrón
+      sn_login: Acceso con Redes Sociales
+      index:
+        title: Multientidad
+        create: Crear entidad
+        edit: Editar
+        delete: Borrar
+        multitenant: Multi-Entidad
+      tenant:
+        name: Nombre de la entidad
+        title: Título del sitio
+        subdomain: Subdominio
+        postal_code: Código postal
+        endpoint_census: Endpoint Servicio Web
+        institution_code_census: Código Institución
+        portal_name_census: Código Portal
+        user_code_census: Código Usuario
+        server_name: Nombre servidor
+        twitter_key: Twitter Key
+        twitter_secret: Twitter Secret
+        facebook_key: Facebook Key
+        facebook_secret: Facebook Secret
+      create:
+        success: Entidad creada correctamente
+      update:
+        success: Entidad actualizada correctamente
+      delete:
+        success: Entidad borrada correctamente
+      new:
+        back: Volver
+        creating: Nueva entidad
+      edit:
+        form:
+          submit_button: Guardar cambios
+        editing: Editar entidad
+        back: Volver
     homepage:
       title: Homepage
       description: Los módulos activos aparecerán en la homepage en el mismo orden que aquí.

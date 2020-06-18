@@ -15,7 +15,7 @@ class Officing::Residence
   validates :year_of_birth, presence: true, unless: -> { Setting.force_presence_date_of_birth? }
 
   validate :allowed_age
-  validate :residence_in_madrid
+  validate :residence_tenant
 
   def initialize(attrs = {})
     self.date_of_birth = parse_date("date_of_birth", attrs)
@@ -72,12 +72,12 @@ class Officing::Residence
     User.find_by(document_number: document_number, document_type: document_type)
   end
 
-  def residence_in_madrid
+  def residence_tenant
     return if errors.any?
 
     unless residency_valid?
       store_failed_census_call
-      errors.add(:residence_in_madrid, false)
+      errors.add(:residence_tenant, false)
     end
   end
 

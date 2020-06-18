@@ -18,7 +18,7 @@ describe DeviseMailer do
 
       email = DeviseMailer.confirmation_instructions(create(:user), "ABC")
 
-      expect(email).to deliver_from "'New organization' <new@consul.dev>"
+      expect(email).to deliver_from "New organization <new@consul.dev>"
     end
   end
 end

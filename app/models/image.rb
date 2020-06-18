@@ -8,7 +8,7 @@ class Image < ApplicationRecord
                                    thumb: "140x245#"
                                  },
                                  url: "/system/:class/:prefix/:style/:hash.:extension",
-                                 hash_data: ":class/:style",
+                                 hash_data: ":class/:style/:updated_at",
                                  use_timestamp: false,
                                  hash_secret: Rails.application.secrets.secret_key_base
   attr_accessor :cached_attachment

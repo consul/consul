@@ -354,7 +354,7 @@ en:
       index:
         back: Go back to %{org}
         title: Administration
-        description: Welcome to the %{org} admin panel.
+        description: Welcome to the (%{org} Tenant) admin panel.
       actions:
         index:
           description: "When users create proposals they can access a dashboard of their proposal, where you can propose resources and recommendations to get support for their idea."
@@ -696,6 +696,7 @@ en:
       debates: "Debates"
       comments: "Comments"
       local_census_records: Manage local census
+      multitenancy: Multitenancy
     administrators:
       index:
         title: Administrators
@@ -1541,6 +1542,45 @@ en:
             notice: "Card updated successfully"
           destroy:
             notice: "Card removed successfully"
+    tenants:
+      title: "Tenant:"
+      available_tenants: Available tenants
+      ws_census: Census Web Service
+      sn_login: Login with Social Networks
+      index:
+        title: Multitenancy
+        create: Create tenant
+        edit: Edit
+        delete: Delete
+        multitenant: Multi-Tenant
+      tenant:
+        name: Tenant name
+        title: Site Title
+        subdomain: Subdomain
+        postal_code: Postal code
+        endpoint_census: Web Service Endpoint
+        institution_code_census: Institution code
+        portal_name_census: Portal code
+        user_code_census: User code
+        server_name: Server name
+        twitter_key: Twitter Key
+        twitter_secret: Twitter Secret
+        facebook_key: Facebook Key
+        facebook_secret: Facebook Secret
+      create:
+        success: Tenant created successfully
+      update:
+        success: Tenant updated successfully
+      delete:
+        success: Tenant deleted successfully
+      new:
+        back: Go back
+        creating: New tenant
+      edit:
+        form:
+          submit_button: Save changes
+        editing: Edit tenant
+        back: Go back
     homepage:
       title: Homepage
       description: The active modules appear in the homepage in the same order as here.

@@ -8,6 +8,10 @@ end
 
 Setting.reset_defaults
 
+if Apartment::Tenant.current == "public"
+  Tenant.where(name: "CONSUL", title: "CONSUL", subdomain: "public", postal_code: "280", server_name: "lvh.me").first_or_create!
+end
+
 WebSection.where(name: "homepage").first_or_create!
 WebSection.where(name: "debates").first_or_create!
 WebSection.where(name: "proposals").first_or_create!

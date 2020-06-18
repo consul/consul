@@ -22,14 +22,14 @@
             <% if namespace == "officing" %>
               <h1>
                 <%= link_to "#" do %>
-                  <%= setting["org_name"] %>
+                  <%= current_name_tenant %>
                   <br><small><%= namespaced_header_title %></small>
                 <% end %>
               </h1>
             <% else %>
               <h1>
                 <%= link_to namespaced_root_path do %>
-                  <%= setting["org_name"] %>
+                  <%= current_name_tenant %>
                   <br><small><%= namespaced_header_title %></small>
                 <% end %>
               </h1>

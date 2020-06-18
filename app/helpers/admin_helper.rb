@@ -108,6 +108,15 @@ module AdminHelper
     user_roles(user).join(", ")
   end
 
+  def admin_main_tenant?
+    Apartment::Tenant.current == "public"
+  end
+
+  def current_name_tenant
+    (!session.nil? && !session[:current_tenant].nil?) ? session[:current_tenant]["name"]
+      : setting["org_name"]
+  end
+
   private
 
     def namespace

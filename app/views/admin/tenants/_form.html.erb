@@ -1,0 +1,71 @@
+<%= form_for [:admin, @tenant] do |f| %>
+
+  <%= render "shared/errors", resource: @tenant %>
+
+  <div class="row">
+    <div class="small-12 medium-6 large-4 column">
+      <%= f.text_field :name, label: t("admin.tenants.tenant.name") %>
+    </div>
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :title, label: t("admin.tenants.tenant.title") %>
+    </div>
+    <div class="small-12 medium-6 large-2 column">
+      <%= f.text_field :postal_code, label: t("admin.tenants.tenant.postal_code") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 large-4 column">
+      <%= f.text_field :subdomain, label: t("admin.tenants.tenant.subdomain"), :readonly => !change_subdomain?(@tenant) %>
+    </div>
+    <div class="small-12 medium-8 column">
+      <%= f.text_field :server_name, label: t("admin.tenants.tenant.server_name") %>
+    </div>
+  </div>
+
+  <h2><%= t("admin.tenants.ws_census") %></h2>
+
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :endpoint_census, label: t("admin.tenants.tenant.endpoint_census") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :institution_code_census, label: t("admin.tenants.tenant.institution_code_census") %>
+    </div>
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :portal_name_census, label: t("admin.tenants.tenant.portal_name_census") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-6 large-2 column">
+      <%= f.text_field :user_code_census, label: t("admin.tenants.tenant.user_code_census") %>
+    </div>
+  </div>
+
+  <h2><%= t("admin.tenants.sn_login") %></h2>
+
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :twitter_key, label: t("admin.tenants.tenant.twitter_key") %>
+    </div>
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :twitter_secret, label: t("admin.tenants.tenant.twitter_secret") %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :facebook_key, label: t("admin.tenants.tenant.facebook_key") %>
+    </div>
+    <div class="small-12 medium-6 column">
+      <%= f.text_field :facebook_secret, label: t("admin.tenants.tenant.facebook_secret") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="actions small-12 large-3 medium-3 column">
+      <%= f.submit(class: "button success expanded", value: t("admin.tenants.edit.form.submit_button")) %>
+    </div>
+  </div>
+<% end %>

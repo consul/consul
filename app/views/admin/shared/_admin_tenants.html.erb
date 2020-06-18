@@ -1,0 +1,19 @@
+<% if current_user.administrator? %>
+  <div class="text-right">
+    <form class="locale-form">
+      <label class="inline-block" for="locale-switcher">
+        <%= t("admin.tenants.title") %>
+      </label>
+      <select class="js-tenant-changer locale-switcher inline-block" name="locale-switcher" id="locale-switcher">
+        <optgroup label="<%= t("admin.tenants.available_tenants") %>">
+          <% @tenants.each do |tenant| %>
+            <option <%= "selected" if session[:current_tenant]["subdomain"] == tenant.subdomain %>
+                    value="<%= tenant.subdomain %>">
+              <%= tenant.name %>
+            </option>
+          <% end %>
+        </optgroup>
+      </select>
+    </form>
+  </div>
+<% end %>

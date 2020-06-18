@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191108173350) do
+ActiveRecord::Schema.define(version: 20200602233844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -527,6 +527,7 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.string "queue"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "tenant"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
@@ -1415,6 +1416,24 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.index ["legislation/proposals_count"], name: "index_tags_on_legislation/proposals_count"
     t.index ["name"], name: "index_tags_on_name", unique: true
     t.index ["proposals_count"], name: "index_tags_on_proposals_count"
+  end
+
+  create_table "tenants", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "title"
+    t.string "subdomain"
+    t.string "postal_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "endpoint_census"
+    t.string "institution_code_census"
+    t.string "portal_name_census"
+    t.string "user_code_census"
+    t.string "server_name"
+    t.string "twitter_key"
+    t.string "twitter_secret"
+    t.string "facebook_key"
+    t.string "facebook_secret"
   end
 
   create_table "topics", id: :serial, force: :cascade do |t|

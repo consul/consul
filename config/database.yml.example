@@ -1,5 +1,6 @@
 default: &default
   adapter: postgresql
+  schema_search_path: "public,shared_extensions"
   encoding: unicode
   host: localhost
   pool: 5
