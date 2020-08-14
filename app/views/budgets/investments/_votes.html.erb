@@ -47,7 +47,7 @@
     <div class="share-supported">
       <%= render "shared/social_share",
         title: investment.title,
-        image_url: image_absolute_url(investment.image, :thumb),
+        image_url: image_absolute_url(investment, :thumb),
         url: budget_investment_url(investment.budget, investment),
         description: investment.title,
         mobile: investment.title
