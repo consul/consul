@@ -139,6 +139,7 @@ es:
         back: "Volver a presupuestos"
     budget_headings:
       no_headings: "No hay partidas."
+      no_related_geography: "No hay geografías relacionadas"
       amount:
         one: "Hay 1 partida presupuestarias"
         other: "Hay %{count} partidas presupuestarias"
@@ -154,6 +155,7 @@ es:
         population_info: "El campo población de las partidas presupuestarias se usa con fines estadísticos únicamente, con el objetivo de mostrar el porcentaje de votos habidos en cada partida que represente un área con población. Es un campo opcional, así que puedes dejarlo en blanco si no aplica."
         coordinates_info: "Si se añaden los campos latitud y longitud, en la página de proyectos de esta partida aparecerá un mapa, que estará centrado en esas coordenadas."
         content_blocks_info: "Si se permite el bloque de contenidos, se tendrá la oportunidad de crear bloques de contenido relativos a esta partida desde la sección Configuración > Personalizar bloques. Este contenido aparecerá en la página de proyectos de esta partida."
+        related_geography: "Geografías relacionadas"
         create: "Crear nueva partida"
         edit: "Editar partida"
         submit: "Guardar partida"
@@ -639,6 +641,7 @@ es:
       proposals_topics: Temas de propuestas
       budgets: Presupuestos participativos
       geozones: Gestionar zonas
+      geographies: "Gestionar geografías"
       hidden_comments: Comentarios ocultos
       hidden_debates: Debates ocultos
       hidden_proposals: Propuestas ocultas
@@ -1328,6 +1331,27 @@ es:
       delete:
         success: Zona borrada correctamente
         error: No se puede borrar la zona porque ya tiene elementos asociados
+    geographies:
+      index:
+        title: "Geografías"
+        create: "Crear una geografía"
+        edit: "Editar"
+        delete: "Borrar"
+        no_related_headings: "Sin partidas relacionadas"
+      geography:
+        name: "Nombre"
+        related_headings: "Partidas relacionadas"
+        geojson: "Geojson"
+        color: "Color"
+      edit: "Editar geografía"
+      create: "Crear geografía"
+      invalid_format: "El GeoJSON proporcionado no tiene el formato correcto. Debe de tener un tipo del formato \"Polygon\" o \"MultiPolygon\"."
+      create:
+        notice: "Geografía creada correctamente!"
+      update:
+        notice: "Geografía actualizada correctamente!"
+      delete:
+        notice: "Geografía borrada correctamente!"
     signature_sheets:
       author: Autor
       created_at: Fecha de creación

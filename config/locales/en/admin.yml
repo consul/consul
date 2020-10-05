@@ -139,6 +139,7 @@ en:
         back: "Go back to budgets"
     budget_headings:
       no_headings: "There are no headings."
+      no_related_geography: "No related geography"
       amount:
         one: "There is 1 heading"
         other: "There are %{count} headings"
@@ -154,6 +155,7 @@ en:
         population_info: "Budget Heading population field is used for Statistic purposes at the end of the Budget to show for each Heading that represents an area with population what percentage voted. The field is optional so you can leave it empty if it doesn't apply."
         coordinates_info: "If latitude and longitude are provided, the investments page for this heading will include a map. This map will be centered using those coordinates."
         content_blocks_info: "If allow content block is checked, you will be able to create custom content related to this heading from the section Settings > Custom content blocks. This content will appear on the investments page for this heading."
+        related_geography: "Related geography"
         create: "Create new heading"
         edit: "Edit heading"
         submit: "Save heading"
@@ -640,6 +642,7 @@ en:
       proposals_topics: Proposals topics
       budgets: Participatory budgets
       geozones: Manage geozones
+      geographies: "Manage geographies"
       hidden_comments: Hidden comments
       hidden_debates: Hidden debates
       hidden_proposals: Hidden proposals
@@ -1329,6 +1332,27 @@ en:
       delete:
         success: Geozone successfully deleted
         error: This geozone can't be deleted since there are elements attached to it
+    geographies:
+      index:
+        title: "Geographies"
+        create: "Create geography"
+        edit: "Edit"
+        delete: "Delete"
+        no_related_headings: "No related Headings"
+      form:
+        name: "Name"
+        related_headings: "Related Headings"
+        geojson: "Geojson"
+        color: "Color"
+        edit: "Edit geography"
+        create: "Create geography"
+        invalid_format: "The GeoJSON provided does not follow the correct format. It must follow the \"Polygon\" or \"MultiPolygon\" type format."
+      create:
+        notice: "Geography created successfully!"
+      update:
+        notice: "Geography updated successfully!"
+      delete:
+        notice: "Geography deleted successfully!"
     signature_sheets:
       author: Author
       created_at: Creation date

@@ -1,0 +1,36 @@
+<%= form_for [:admin, @geography] do |f| %>
+
+  <%= render "shared/errors", resource: @geography %>
+
+  <div class="row">
+    <div class="small-12 medium-6 large-4 column">
+      <%= f.label :name, t("admin.geographies.form.name") %>
+      <%= f.text_field :name, label: false %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 large-4 column">
+      <%= f.label :heading_ids, t("admin.geographies.form.related_headings") %>
+      <%= f.collection_select :heading_ids, @headings, :id, :name_with_budget, { label: false }, { multiple: true } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 large-4 column">
+      <%= f.label :color, t("admin.geographies.form.color") %>
+      <%= f.color_field :color, { label: false } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="documents small-12 medium-6 large-4 column">
+      <%= f.label :geojson, t("admin.geographies.form.geojson") %>
+      <%= f.text_area :geojson, rows: "10", label: false %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

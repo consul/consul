@@ -20,11 +20,13 @@
       App.Map.maps = [];
     },
     initializeMap: function(element) {
-      var addMarkerInvestments, clearFormfields, createMarker, dataCoordinates, editable, formCoordinates,
-        getPopupContent, latitudeInputSelector, longitudeInputSelector, map, mapAttribution, mapCenterLatLng,
-        mapCenterLatitude, mapCenterLongitude, mapTilesProvider, marker, markerIcon, markerLatitude,
-        markerLongitude, moveOrPlaceMarker, openMarkerPopup, removeMarker, removeMarkerSelector,
-        updateFormfields, zoom, zoomInputSelector;
+      var addGeographyPolygons, addMarkerInvestments, clearFormfields, createMarker, createPolygon,
+        dataCoordinates, editable, formCoordinates, getPopupContent, latitudeInputSelector,
+        longitudeInputSelector, map, mapAttribution, mapCenterLatLng, mapCenterLatitude, mapCenterLongitude,
+        mapTilesProvider, marker, markerIcon, markerLatitude, markerLongitude, moveOrPlaceMarker,
+        openMarkerPopup, openPolygonPopup, removeMarker, removeMarkerSelector, updateFormfields, zoom,
+        zoomInputSelector;
+
       App.Map.cleanInvestmentCoordinates(element);
       mapTilesProvider = $(element).data("map-tiles-provider");
       mapAttribution = $(element).data("map-tiles-provider-attribution");
@@ -61,6 +63,7 @@
       }
       removeMarkerSelector = $(element).data("marker-remove-selector");
       addMarkerInvestments = $(element).data("marker-investments-coordinates");
+      addGeographyPolygons = $(element).data("polygons-geographies-data");
       editable = $(element).data("marker-editable");
       marker = null;
       markerIcon = L.divIcon({
@@ -81,6 +84,21 @@
         }
         marker.addTo(map);
         return marker;
+      };
+      createPolygon = function(polygon_data) {
+        var polygon;
+        polygon = L.polygon(polygon_data.outline_points, {
+          color: polygon_data.color
+        });
+        if (polygon_data.headings.length > 0) {
+          polygon.on("click", openPolygonPopup);
+          polygon.options.headings = polygon_data.headings;
+          polygon.options.fillOpacity = 0.3;
+        } else {
+          polygon.options.fillOpacity = 0;
+        }
+        polygon.addTo(map);
+        return polygon;
       };
       removeMarker = function(e) {
         e.preventDefault();
@@ -121,6 +139,15 @@
       getPopupContent = function(data) {
         return "<a href='/budgets/" + data.budget_id + "/investments/" + data.investment_id + "'>" + data.investment_title + "</a>";
       };
+      openPolygonPopup = function(e) {
+        var polygon = e.target;
+        if (polygon.options.headings.length > 0) {
+          var data = polygon.options.headings.map(function(heading) {
+            return heading + "<br>";
+          });
+          return e.target.bindPopup(data.join("").slice(0, -4)).openPopup();
+        }
+      };
       mapCenterLatLng = new L.LatLng(mapCenterLatitude, mapCenterLongitude);
       map = L.map(element.id).setView(mapCenterLatLng, zoom);
       App.Map.maps.push(map);
@@ -147,6 +174,11 @@
             marker.on("click", openMarkerPopup);
           }
         });
+      }
+      if (addGeographyPolygons) {
+        for (var i = 0; i < addGeographyPolygons.length; i++) {
+          createPolygon(addGeographyPolygons[i]);
+        }
       }
     },
     toggleMap: function() {
