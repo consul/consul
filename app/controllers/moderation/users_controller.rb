@@ -12,6 +12,13 @@ class Moderation::UsersController < Moderation::BaseController
     redirect_with_query_params_to({ action: :index }, { notice: I18n.t("moderation.users.notice_hide") })
   end
 
+  def soft_block
+    @user.hide
+    Activity.log(current_user, :soft_block, @user)
+
+    redirect_with_query_params_to({ action: :index }, { notice: I18n.t("moderation.users.notice_soft_hide") })
+  end
+
   def hide
     block_user
 

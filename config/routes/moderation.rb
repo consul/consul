@@ -5,6 +5,7 @@ namespace :moderation do
     member do
       put :hide
       put :hide_in_moderation_screen
+      put :soft_block
     end
   end
 

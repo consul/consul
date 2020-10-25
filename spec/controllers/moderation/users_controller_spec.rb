@@ -12,4 +12,14 @@ describe Moderation::UsersController do
       expect(response).to redirect_to "/moderation/users?name_or_email=user%40consul.dev"
     end
   end
+
+  describe "PUT soft_block" do
+    it "keeps query parameters while using protected redirects" do
+      user = create(:user, email: "user@consul.dev")
+
+      get :soft_block, params: { id: user, name_or_email: "user@consul.dev", host: "evil.dev" }
+
+      expect(response).to redirect_to "/moderation/users?name_or_email=user%40consul.dev"
+    end
+  end
 end
