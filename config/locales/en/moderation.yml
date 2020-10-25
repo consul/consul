@@ -111,7 +111,9 @@ en:
       index:
         hidden: Blocked
         hide: Block
+        soft_hide: Soft Block
         search: Search
         search_placeholder: email or name of user
         title: Block users
       notice_hide: User blocked. All of this user's debates and comments have been hidden.
+      notice_soft_hide: User blocked. All ot this user's debates and comments are still available.
