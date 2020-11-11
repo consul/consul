@@ -414,7 +414,7 @@ namespace :proposal_actions do
           password_confirmation: "12345678",
           confirmed_at: Time.current - expected_supports.length.days,
           terms_of_service: "1",
-          gender: ["Male", "Female"].sample,
+          gender: ["Male", "Female", "Other"].sample,
           date_of_birth: rand((Time.current - 80.years)..(Time.current - 16.years)),
           public_activity: (rand(1..100) > 30)
         )

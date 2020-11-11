@@ -1,0 +1,28 @@
+<%= back_link_to %>
+
+<h2><%= t("admin.stats.genders.title") %></h2>
+
+<div class="stats">
+  <div class="row stats-numbers">
+    <div class="small-12 medium-3 column">
+      <p class="featured">
+        <%= t("admin.stats.genders.female") %><br>
+        <span id="female_count" class="number"><%= @users_with_female_gender %></span>
+      </p>
+    </div>
+
+    <div class="small-12 medium-3 column">
+      <p class="featured">
+        <%= t("admin.stats.genders.male") %><br>
+        <span id="male_count" class="number"><%= @users_with_male_gender %></span>
+      </p>
+  </div>
+
+    <div class="small-12 medium-3 column end">
+      <p class="featured">
+        <%= t("admin.stats.genders.other") %><br>
+        <span id="other_count" class="number"><%= @users_with_other_gender %></span>
+      </p>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,7 @@ en:
     by_geozone: "Participants by district"
     men_percentage: "%{percentage} Men"
     women_percentage: "%{percentage} Women"
+    other_percentage: "%{percentage} Other"
     age: "Age"
     age_more_than: "%{start} years old and older"
     age_range: "%{start} - %{finish} years old"

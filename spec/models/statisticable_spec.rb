@@ -45,6 +45,14 @@ describe Statisticable do
         expect(stats.gender?).to be true
       end
     end
+
+    context "There's a other gender participant" do
+      before { create(:user, gender: "other") }
+
+      it "is true" do
+        expect(stats.gender?).to be true
+      end
+    end
   end
 
   describe "#age?" do

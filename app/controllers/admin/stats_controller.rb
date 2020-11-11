@@ -90,6 +90,12 @@ class Admin::StatsController < Admin::BaseController
     @participants = ::Poll::Voter.where(poll: @polls)
   end
 
+  def gender_stats
+    @users_with_male_gender = User.male.count
+    @users_with_female_gender = User.female.count
+    @users_with_other_gender = User.other.count
+  end
+
   private
 
     def voters_in_heading(heading)

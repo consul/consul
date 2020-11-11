@@ -38,6 +38,8 @@ class LocalCensus
         "male"
       when "Mujer"
         "female"
+      when "Otro"
+        "other"
       end
     rescue NoMethodError
       nil
