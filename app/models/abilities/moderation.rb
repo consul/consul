@@ -48,6 +48,9 @@ module Abilities
       can :hide, User
       cannot :hide, User, id: user.id
 
+      can :soft_block, User
+      cannot :soft_block, User, id: user.id
+
       can :block, User
       cannot :block, User, id: user.id
 

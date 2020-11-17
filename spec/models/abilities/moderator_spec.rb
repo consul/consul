@@ -93,6 +93,9 @@ describe Abilities::Moderator do
     it { should_not be_able_to(:hide, user) }
     it { should be_able_to(:hide, other_user) }
 
+    it { should_not be_able_to(:soft_block, user) }
+    it { should be_able_to(:soft_block, other_user) }
+
     it { should_not be_able_to(:block, user) }
     it { should be_able_to(:block, other_user) }
 
