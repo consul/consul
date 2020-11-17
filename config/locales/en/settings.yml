@@ -127,6 +127,8 @@ en:
       valuation_comment_notification: "Valuation comment notification"
       valuation_comment_notification_description: "Send an email to all associated users except valuation commenter to budget investment when a new valuation comment is created"
       graphql_api: "GraphQL API"
+      link_to_top: "Link to top"
+      link_to_top_description: "Show a link to return to the top of the page after scrolling"
       dashboard:
         notification_emails: "Dashboard notification emails"
         notification_emails_description: "Enable sending dashboard notification emails to proposal's authors"

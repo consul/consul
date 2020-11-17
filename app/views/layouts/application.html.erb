@@ -13,7 +13,7 @@
 
     <%= raw setting["html.per_page_code_head"] %>
   </head>
-  <body class="<%= yield (:body_class) %>">
+  <body id="body" class="<%= yield (:body_class) %>">
     <%= raw setting["html.per_page_code_body"] %>
 
     <h1 class="show-for-sr"><%= setting["org_name"] %></h1>
@@ -45,6 +45,9 @@
 
       <%= yield %>
 
+      <% if feature?(:link_to_top) %>
+        <%= render "layouts/link_to_top" %>
+      <% end %>
       <div class="push"></div>
     </div>
     <div class="footer">

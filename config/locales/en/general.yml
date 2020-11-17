@@ -213,6 +213,8 @@ en:
           zero: No supports
           one: 1 Support
           other: "Supports"
+    link_to_top:
+      title: "Go back to the top of the page"
     footer:
       accessibility: Accessibility
       conditions: Terms and conditions of use

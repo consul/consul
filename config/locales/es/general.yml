@@ -213,6 +213,8 @@ es:
           zero: Sin apoyos
           one: 1 Apoyo
           other: "Apoyos"
+    link_to_top:
+      title: "Volver a la parte superior de la página"
     footer:
       accessibility: Accesibilidad
       conditions: Condiciones de uso

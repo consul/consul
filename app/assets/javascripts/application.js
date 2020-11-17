@@ -111,6 +111,7 @@
 //= require columns_selector
 //= require budget_edit_associations
 //= require datepicker
+//= require link_to_top
 
 var initialize_modules = function() {
   "use strict";
@@ -164,6 +165,7 @@ var initialize_modules = function() {
   }
   App.BudgetEditAssociations.initialize();
   App.Datepicker.initialize();
+  App.LinkToTop.initialize();
 };
 
 var destroy_non_idempotent_modules = function() {

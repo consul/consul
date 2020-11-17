@@ -130,6 +130,8 @@ es:
       dashboard:
         notification_emails: "Emails del panel de progreso"
         notification_emails_description: "Activar el envío de emails de notificaciones a los autores de las propuestas en la sección de panel de progreso"
+      link_to_top: "Enlace al inicio"
+      link_to_top_description: "Muestra una enlace para volver a la parte superior de la página después de desplazarse"
     remote_census:
       general:
         endpoint: "Endpoint"

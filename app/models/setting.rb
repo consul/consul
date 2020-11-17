@@ -100,6 +100,7 @@ class Setting < ApplicationRecord
         "feature.remote_census": nil,
         "feature.valuation_comment_notification": true,
         "feature.graphql_api": true,
+        "feature.link_to_top": true,
         "homepage.widgets.feeds.debates": true,
         "homepage.widgets.feeds.processes": true,
         "homepage.widgets.feeds.proposals": true,

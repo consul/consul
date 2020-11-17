@@ -6,7 +6,7 @@
     <%= content_for :head %>
   </head>
 
-  <body class="admin">
+  <body id="body" class="admin">
     <%= render "layouts/admin_header" %>
 
     <div class="menu-and-content">
@@ -23,6 +23,10 @@
         <%= render "layouts/flash" %>
         <%= render "layouts/officing_booth" if controller.class.parent == Officing && session[:booth_id].present? %>
         <%= yield %>
+
+        <% if feature?(:link_to_top) %>
+          <%= render "layouts/link_to_top" %>
+        <% end %>
       </div>
     </div>
   </body>

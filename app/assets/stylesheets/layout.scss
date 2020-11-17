@@ -505,6 +505,27 @@ a {
   }
 }
 
+.link-to-top {
+  background: rgba(226, 226, 226, 0.5);
+  border-radius: rem-calc(6);
+  bottom: 12px;
+  display: table;
+  height: rem-calc(48);
+  position: fixed;
+  right: 24px;
+  width: rem-calc(48);
+
+  a {
+    color: $text;
+    display: table-cell;
+    font-size: rem-calc(24);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 100%;
+  }
+}
+
 // 02. Header
 // ----------
 
