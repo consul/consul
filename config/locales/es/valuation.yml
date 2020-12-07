@@ -57,7 +57,7 @@ es:
       edit:
         dossier: Informe
         price: "Coste (%{currency}) <small>(dato público)</small>"
-        price_first_year: "Coste en el primer año (%{currency}) <small>(opcional, dato no público)</small>"
+        price_first_year: "Coste en el primer año (%{currency}) <small>(dato no público)</small>"
         feasibility: Viabilidad
         valuation_finished_alert: "¿Estás seguro/a de querer marcar este informe como completado? Una vez hecho, no se puede deshacer la acción."
         not_feasible_alert: "Un email será enviado inmediatamente al autor del proyecto con el informe de inviabilidad."

@@ -57,7 +57,7 @@ en:
       edit:
         dossier: Dossier
         price: "Price (%{currency})"
-        price_first_year: "Cost during the first year (%{currency}) <small>(optional, data not public)</small>"
+        price_first_year: "Cost during the first year (%{currency}) <small>(data not public)</small>"
         feasibility: Feasibility
         valuation_finished_alert: "Are you sure you want to mark this report as completed? If you do it, it can no longer be modified."
         not_feasible_alert: "An email will be sent immediately to the author of the project with the report of unfeasibility."

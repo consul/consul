@@ -591,7 +591,7 @@ en:
           add_option: Add option
           title_placeholder: Add question
           value_placeholder: Add a closed answer
-          question_options: "Possible answers (optional, by default open answers)"
+          question_options: "Possible answers (by default open answers)"
         index:
           back: Back
           title: Questions associated to this process
@@ -624,9 +624,9 @@ en:
     menu:
       activity: Moderator activity
       admin: Admin menu
-      banner: Manage banners
+      banners: Manage banners
       proposals: Proposals
-      proposals_topics: Proposals topics
+      tags: Proposals topics
       budgets: Participatory budgets
       geozones: Manage geozones
       hidden_comments: Hidden comments
@@ -638,7 +638,6 @@ en:
       administrators: Administrators
       managers: Managers
       moderators: Moderators
-      messaging_users: Messages to users
       newsletters: Newsletters
       admin_notifications: Notifications
       system_emails: System Emails
@@ -675,6 +674,8 @@ en:
           save: "Save"
           content_block:
             update: "Update Block"
+      title_dashboard: Proposals dashboard
+      title_messages: Messages to users
       title_moderated_content: Moderated content
       title_profiles: Profiles
       title_settings: Settings
@@ -682,9 +683,9 @@ en:
       title_booths: Voting booths
       legislation: Collaborative Legislation
       users: Users
-      dashboard: Proposals dashboard
-      administrator_tasks: Resources requested
-      dashboard_actions: Resources and actions
+      dashboard:
+        administrator_tasks: Resources requested
+        actions: Resources and actions
       debates: "Debates"
       comments: "Comments"
       local_census_records: Manage local census

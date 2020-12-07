@@ -195,7 +195,7 @@ describe "Admin edit translatable records", :admin do
           fill_in "Title", with: "Título corregido"
           fill_in "Description", with: "Descripción corregida"
           fill_in "Link text", with: "Texto del enlace corregido"
-          fill_in "Label (optional)", with: "Etiqueta corregida"
+          fill_in "Label", with: "Etiqueta corregida"
         end
 
         click_button "Save card"
@@ -209,7 +209,7 @@ describe "Admin edit translatable records", :admin do
         expect(page).to have_field "Título", with: "Título corregido"
         expect(page).to have_field "Descripción", with: "Descripción corregida"
         expect(page).to have_field "Texto del enlace", with: "Texto del enlace corregido"
-        expect(page).to have_field "Etiqueta (opcional)", with: "Etiqueta corregida"
+        expect(page).to have_field "Etiqueta", with: "Etiqueta corregida"
       end
     end
 

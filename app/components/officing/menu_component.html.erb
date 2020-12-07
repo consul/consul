@@ -3,7 +3,7 @@
     <% if vote_collection_shift? %>
       <li class="<%= "js-vote-collection" %>
                  <%= " is-active" if controller_name == "voters" %>
-                 <%= " is-hidden" if controller_name == "voters" && Poll.votable_by(@user).any? %>">
+                 <%= " is-hidden" if controller_name == "voters" && Poll.votable_by(user).any? %>">
         <%= link_to t("officing.menu.voters"), new_officing_residence_path, class: "users-link" %>
       </li>
     <% end %>

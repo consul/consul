@@ -10,7 +10,7 @@
     padding: 0;
   }
 
-  > ul > li a {
+  > ul > li > a {
     font-weight: bold;
 
     @mixin icon($name, $style) {
@@ -117,7 +117,8 @@
       padding-left: $line-height / 2;
     }
 
-    &.is-active a {
+    &.is-active a,
+    &[aria-current] a {
       background: $sidebar-hover;
       border-left: 2px solid $sidebar-active;
       font-weight: bold;

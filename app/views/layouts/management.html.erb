@@ -49,7 +49,7 @@
       <%= check_box_tag :show_menu, nil, false, role: "switch" %>
 
       <nav class="admin-sidebar">
-        <%= render "/management/menu" %>
+        <%= render Management::MenuComponent.new %>
       </nav>
 
       <main class="admin-content">

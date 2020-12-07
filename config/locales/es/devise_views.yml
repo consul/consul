@@ -91,7 +91,7 @@ es:
         delete_form:
           erase_reason_label: Razón de la baja
           info: Esta acción no se puede deshacer. Una vez que des de baja tu cuenta, no podrás volver a entrar con ella.
-          info_reason: Si quieres, escribe el motivo por el que te das de baja (opcional).
+          info_reason: Si quieres, escribe el motivo por el que te das de baja.
           submit: Darme de baja
           title: Darme de baja
         edit:

@@ -181,11 +181,11 @@ en:
         description: "Description"
       geozone:
         name: Name
-        external_code: "External code (optional)"
-        census_code: "Census code (optional)"
-        html_map_coordinates: "HTML <map> Coordinates (optional)"
+        external_code: "External code"
+        census_code: "Census code"
+        html_map_coordinates: "HTML <map> Coordinates"
       milestone:
-        status_id: "Current status (optional)"
+        status_id: "Current status"
         title: "Title"
         description: "Description (optional if there's an status assigned)"
         publication_date: "Date"
@@ -193,7 +193,7 @@ en:
         description: "Description"
       milestone/status:
         name: "Name"
-        description: "Description (optional)"
+        description: "Description"
       progress_bar:
         kind: "Type"
         title: "Title"
@@ -207,11 +207,11 @@ en:
         name: "Group name"
       budget/heading:
         allow_custom_content: "Allow content block"
-        latitude: "Latitude (optional)"
-        longitude: "Longitude (optional)"
+        latitude: "Latitude"
+        longitude: "Longitude"
         name: "Heading name"
         price: "Amount"
-        population: "Population (optional)"
+        population: "Population"
         max_ballot_lines: "Votes allowed"
       budget/heading/translation:
         name: "Heading name"
@@ -441,14 +441,14 @@ en:
         title: Title
         body: Text
       widget/card:
-        label: Label (optional)
+        label: Label
         title: Title
         description: Description
         link_text: Link text
         link_url: Link URL
         columns: Number of columns
       widget/card/translation:
-        label: Label (optional)
+        label: Label
         title: Title
         description: Description
         link_text: Link text

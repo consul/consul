@@ -164,13 +164,13 @@ es:
         organization_name: "Si estás proponiendo en nombre de una organización o colectivo, o en nombre de más gente, escribe su nombre"
         image: "Imagen descriptiva del proyecto de gasto"
         image_title: "Título de la imagen"
-        duration: "Plazo de ejecución <small>(opcional, dato no público)</small>"
+        duration: "Plazo de ejecución <small>(dato no público)</small>"
         feasibility_feasible: "Viable"
         feasibility_undecided: "Sin decidir"
         feasibility_unfeasible: "Inviable"
         incompatible: "Marcar como incompatible"
         milestone_tag_list: "Etiquetas de Seguimiento"
-        price_explanation: "Informe de coste <small>(opcional, dato público)</small>"
+        price_explanation: "Informe de coste <small>(dato público)</small>"
         selected: "Marcar como seleccionado"
         selected_true: "Seleccionado"
         selected_false: "No seleccionado"
@@ -183,11 +183,11 @@ es:
         description: "Descripción"
       geozone:
         name: Nombre
-        external_code: "Código externo (opcional)"
-        census_code: "Código del censo (opcional)"
-        html_map_coordinates: "Coordenadas HTML <map> (opcional)"
+        external_code: "Código externo"
+        census_code: "Código del censo"
+        html_map_coordinates: "Coordenadas HTML <map>"
       milestone:
-        status_id: "Estado actual (opcional)"
+        status_id: "Estado actual"
         title: "Título"
         description: "Descripción (opcional si hay un estado asignado)"
         publication_date: "Fecha"
@@ -195,7 +195,7 @@ es:
         description: "Descripción"
       milestone/status:
         name: "Nombre"
-        description: "Descripción (opcional)"
+        description: "Descripción"
       progress_bar:
         kind: "Tipo"
         title: "Título"
@@ -209,11 +209,11 @@ es:
         name: "Nombre del grupo"
       budget/heading:
         allow_custom_content: "Permitir bloque de contenidos"
-        latitude: "Latitud (opcional)"
-        longitude: "Longitud (opcional)"
+        latitude: "Latitud"
+        longitude: "Longitud"
         name: "Nombre de la partida"
         price: "Cantidad"
-        population: "Población (opcional)"
+        population: "Población"
         max_ballot_lines: "Votos permitidos"
       budget/heading/translation:
         name: "Nombre de la partida"
@@ -271,7 +271,7 @@ es:
         public_interests: "Mostrar públicamente las etiquetas de los elementos que sigo"
         recommended_debates: "Mostrar recomendaciones en el listado de debates"
         recommended_proposals: "Mostrar recomendaciones en el listado de propuestas"
-        redeemable_code: "Código de verificación por carta (opcional)"
+        redeemable_code: "Código de verificación por carta"
       direct_message:
         title: "Título"
         body: "Mensaje"
@@ -443,14 +443,14 @@ es:
         title: Título
         body: Texto
       widget/card:
-        label: Etiqueta (opcional)
+        label: Etiqueta
         title: Título
         description: Descripción
         link_text: Texto del enlace
         link_url: URL del enlace
         columns: Número de columnas
       widget/card/translation:
-        label: Etiqueta (opcional)
+        label: Etiqueta
         title: Título
         description: Descripción
         link_text: Texto del enlace

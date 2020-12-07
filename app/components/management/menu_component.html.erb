@@ -1,0 +1,7 @@
+<%= link_list(
+  item_title("users") + users_list,
+  (print_investments_link if Setting["process.budgets"]),
+  print_proposals_link,
+  user_invites_link,
+  id: "admin_menu", data: { "accordion-menu": true }
+) %>

@@ -1,34 +1,47 @@
 <div class="row">
   <div class="small-12 column">
-    <ul class="menu-pages" data-magellan>
-      <% if feature?(:debates) %>
-      <li>
-        <%= link_to t("pages.help.menu.debates"), "#debates", class: "button hollow expanded" %>
-      </li>
-      <% end %>
-      <% if feature?(:proposals) %>
-        <li>
-          <%= link_to t("pages.help.menu.proposals"), "#proposals", class: "button hollow expanded" %>
-        </li>
-      <% end %>
-      <% if feature?(:budgets) %>
-      <li>
-        <%= link_to t("pages.help.menu.budgets"), "#budgets", class: "button hollow expanded" %>
-      </li>
-      <% end %>
-      <% if feature?(:polls) %>
-      <li>
-        <%= link_to t("pages.help.menu.polls"), "#polls", class: "button hollow expanded" %>
-      </li>
-      <% end %>
-      <% if feature?(:legislation) %>
-      <li>
-        <%= link_to t("pages.help.menu.processes"), "#processes", class: "button hollow expanded" %>
-      </li>
-      <% end %>
-      <li>
-        <%= link_to t("pages.help.menu.other"), "#other", class: "button hollow expanded" %>
-      </li>
-    </ul>
+    <%= link_list(
+      (
+        [
+          t("pages.help.menu.debates"),
+          "#debates",
+          class: "button hollow expanded"
+        ] if feature?(:debates)
+      ),
+      (
+        [
+          t("pages.help.menu.proposals"),
+          "#proposals",
+          class: "button hollow expanded"
+        ] if feature?(:proposals)
+      ),
+      (
+        [
+          t("pages.help.menu.budgets"),
+          "#budgets",
+          class: "button hollow expanded"
+        ] if feature?(:budgets)
+      ),
+      (
+        [
+          t("pages.help.menu.polls"),
+          "#polls",
+          class: "button hollow expanded"
+        ] if feature?(:polls)
+      ),
+      (
+        [
+          t("pages.help.menu.processes"),
+          "#processes",
+          class: "button hollow expanded"
+        ]
+      ),
+      [
+        t("pages.help.menu.other"),
+        "#other",
+        class: "button hollow expanded"
+      ],
+      class: "menu-pages", "data-magellan": true
+    ) %>
   </div>
 </div>

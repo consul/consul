@@ -1,5 +1,1 @@
-<ul class="sdg-content-menu">
-  <li class="<%= "is-active" if sdg? %>">
-    <%= link_to t("sdg_management.menu.sdg_content"), sdg_management_goals_path, class: "goals-link" %>
-  </li>
-</ul>
+<%= link_list(goals_link, class: "sdg-content-menu") %>

@@ -9,7 +9,7 @@ class Widget::Card < ApplicationRecord
   self.table_name = "widget_cards"
 
   translates :label,       touch: true
-  translates :title,       touch: true
+  translates :title,       touch: true # TODO: make mandatory
   translates :description, touch: true
   translates :link_text,   touch: true
   include Globalizable

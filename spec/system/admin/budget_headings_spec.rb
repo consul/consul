@@ -137,7 +137,7 @@ describe "Admin budget headings", :admin do
 
       fill_in "Heading name", with: "All City"
       fill_in "Amount", with: "1000"
-      fill_in "Population (optional)", with: "10000"
+      fill_in "Population", with: "10000"
       check "Allow content block"
 
       click_button "Create new heading"
@@ -201,9 +201,9 @@ describe "Admin budget headings", :admin do
 
       expect(page).to have_field "Heading name", with: heading.name
       expect(page).to have_field "Amount", with: heading.price
-      expect(page).to have_field "Population (optional)", with: heading.population
-      expect(page).to have_field "Longitude (optional)", with: heading.longitude
-      expect(page).to have_field "Latitude (optional)", with: heading.latitude
+      expect(page).to have_field "Population", with: heading.population
+      expect(page).to have_field "Longitude", with: heading.longitude
+      expect(page).to have_field "Latitude", with: heading.latitude
       expect(find_field("Allow content block")).not_to be_checked
     end
 
@@ -249,16 +249,16 @@ describe "Admin budget headings", :admin do
 
       expect(page).to have_field "Heading name", with: "All City"
       expect(page).to have_field "Amount", with: 1000
-      expect(page).to have_field "Population (optional)", with: 10000
-      expect(page).to have_field "Longitude (optional)", with: 20.50
-      expect(page).to have_field "Latitude (optional)", with: -10.50
+      expect(page).to have_field "Population", with: 10000
+      expect(page).to have_field "Longitude", with: 20.50
+      expect(page).to have_field "Latitude", with: -10.50
       expect(find_field("Allow content block")).to be_checked
 
       fill_in "Heading name", with: "Districts"
       fill_in "Amount", with: "2000"
-      fill_in "Population (optional)", with: "20000"
-      fill_in "Longitude (optional)", with: "-40.47"
-      fill_in "Latitude (optional)", with: "25.25"
+      fill_in "Population", with: "20000"
+      fill_in "Longitude", with: "-40.47"
+      fill_in "Latitude", with: "25.25"
       uncheck "Allow content block"
       click_button "Save heading"
 
@@ -267,9 +267,9 @@ describe "Admin budget headings", :admin do
       visit edit_admin_budget_group_heading_path(budget, group, heading)
       expect(page).to have_field "Heading name", with: "Districts"
       expect(page).to have_field "Amount", with: 2000
-      expect(page).to have_field "Population (optional)", with: 20000
-      expect(page).to have_field "Longitude (optional)", with: -40.47
-      expect(page).to have_field "Latitude (optional)", with: 25.25
+      expect(page).to have_field "Population", with: 20000
+      expect(page).to have_field "Longitude", with: -40.47
+      expect(page).to have_field "Latitude", with: 25.25
       expect(find_field("Allow content block")).not_to be_checked
     end
 

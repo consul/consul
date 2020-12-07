@@ -590,7 +590,7 @@ es:
           add_option: Añadir respuesta cerrada
           title_placeholder: Escribe un título a la pregunta
           value_placeholder: Escribe una respuesta cerrada
-          question_options: "Posibles respuestas (opcional, por defecto respuestas abiertas)"
+          question_options: "Posibles respuestas (por defecto respuestas abiertas)"
         index:
           back: Volver
           title: Preguntas asociadas a este proceso
@@ -623,9 +623,9 @@ es:
     menu:
       activity: Actividad de moderadores
       admin: Menú de administración
-      banner: Gestionar banners
+      banners: Gestionar banners
       proposals: Propuestas
-      proposals_topics: Temas de propuestas
+      tags: Temas de propuestas
       budgets: Presupuestos participativos
       geozones: Gestionar zonas
       hidden_comments: Comentarios ocultos
@@ -637,7 +637,6 @@ es:
       administrators: Administradores
       managers: Gestores
       moderators: Moderadores
-      messaging_users: Mensajes a usuarios
       newsletters: Newsletters
       admin_notifications: Notificaciones
       system_emails: Emails del sistema
@@ -674,6 +673,8 @@ es:
           save: "Guardar cambios"
           content_block:
             update: "Actualizar Bloque"
+      title_dashboard: Panel de progreso de propuestas
+      title_messages: Mensajes a usuarios
       title_moderated_content: Contenido moderado
       title_profiles: Perfiles
       title_settings: Configuración
@@ -681,9 +682,9 @@ es:
       title_booths: Urnas de votación
       legislation: Legislación colaborativa
       users: Usuarios
-      dashboard: Panel de progreso de propuestas
-      administrator_tasks: Recursos solicitados
-      dashboard_actions: Recursos y acciones
+      dashboard:
+        administrator_tasks: Recursos solicitados
+        actions: Recursos y acciones
       debates: "Debates"
       comments: "Comentarios"
       local_census_records: Gestionar censo local

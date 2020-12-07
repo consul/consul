@@ -1,5 +1,5 @@
 class Admin::StatsController < Admin::BaseController
-  def show
+  def index
     @event_types = Ahoy::Event.distinct.order(:name).pluck(:name)
 
     @visits    = Visit.count

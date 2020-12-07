@@ -1,0 +1,10 @@
+<%= link_list(
+  moderation_link,
+  (proposals_link if feature?(:proposals)),
+  (proposal_notifications_link if feature?(:proposals)),
+  (debates_link if feature?(:debates)),
+  (investments_link if feature?(:budgets)),
+  comments_link,
+  users_link,
+  id: "moderation_menu"
+) %>
