@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :image do
     attachment { File.new("spec/fixtures/files/clippy.jpg") }
     title { "Lorem ipsum dolor sit amet" }
-    association :user, factory: :user
+    association :user, factory: :user, strategy: :create
 
     trait :proposal_image do
       association :imageable, factory: :proposal

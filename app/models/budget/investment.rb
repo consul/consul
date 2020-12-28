@@ -59,7 +59,7 @@ class Budget
     validates_translation :description, presence: true, length: { maximum: Budget::Investment.description_max_length }
 
     validates :author, presence: true
-    validates :heading_id, presence: true
+    validates :heading, presence: true
     validates :unfeasibility_explanation, presence: { if: :unfeasibility_explanation_required? }
     validates :price, presence: { if: :price_required? }
     validates :terms_of_service, acceptance: { allow_nil: false }, on: :create
@@ -389,8 +389,8 @@ class Budget
     private
 
       def set_denormalized_ids
-        self.group_id = heading&.group_id if will_save_change_to_heading_id?
-        self.budget_id ||= heading&.group&.budget_id
+        self.group = heading&.group if will_save_change_to_heading_id?
+        self.budget ||= heading&.group&.budget
       end
 
       def set_original_heading_id

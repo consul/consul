@@ -25,8 +25,7 @@ class Image < ApplicationRecord
   validates :title, presence: true
   validate :validate_title_length
   validates :user_id, presence: true
-  validates :imageable_id, presence: true,         if: -> { persisted? }
-  validates :imageable_type, presence: true,       if: -> { persisted? }
+  validates :imageable, presence: true, if: -> { persisted? }
   validate :validate_image_dimensions, if: -> { attachment.present? && attachment.dirty? }
 
   before_save :set_attachment_from_cached_attachment, if: -> { cached_attachment.present? }

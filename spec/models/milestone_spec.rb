@@ -27,7 +27,7 @@ describe Milestone do
     end
 
     it "is not valid without a milestoneable" do
-      milestone.milestoneable_id = nil
+      milestone.milestoneable = nil
       expect(milestone).not_to be_valid
     end
 

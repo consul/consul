@@ -125,7 +125,7 @@ FactoryBot.define do
   end
 
   factory :poll_voter, class: "Poll::Voter" do
-    association :user, :level_two
+    association :user, :level_two, strategy: :create
     from_web
 
     transient { budget { nil } }

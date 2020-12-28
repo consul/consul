@@ -27,7 +27,7 @@ class Budget
     has_many :content_blocks
 
     validates_translation :name, presence: true
-    validates :group_id, presence: true
+    validates :group, presence: true
     validates :price, presence: true
     validates :slug, presence: true, format: /\A[a-z0-9\-_]+\z/
     validates :population, numericality: { greater_than: 0 }, allow_nil: true

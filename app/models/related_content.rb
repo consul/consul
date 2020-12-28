@@ -11,8 +11,7 @@ class RelatedContent < ApplicationRecord
   has_one :opposite_related_content, class_name: self.name, foreign_key: :related_content_id
   has_many :related_content_scores
 
-  validates :parent_relationable_id, presence: true
-  validates :parent_relationable_type, presence: true
+  validates :parent_relationable, presence: true
   validates :child_relationable_id, presence: true
   validates :child_relationable_type, presence: true
   validates :parent_relationable_id, uniqueness: { scope: [:parent_relationable_type, :child_relationable_id, :child_relationable_type] }
