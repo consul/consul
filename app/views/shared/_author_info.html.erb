@@ -4,11 +4,18 @@
       <%= t("shared.author_info.author_deleted") %>
   </span>
 <% else %>
-  <%= avatar_image(resource.author, seed: resource.author_id, size: 32, class: "author-photo") %>
-  <span class="author">
-      <%= link_to resource.author.name, user_path(resource.author) %>
-  </span>
-
+  <% if resource.respond_to?(:organization_name) && resource.organization_name.present? %>
+    <%= avatar_image(resource.organization_name, seed: resource.author_id, size: 32, class: "author-photo") %>
+    <%= sanitize(resource.organization_name) %> &nbsp; (created by:
+    <span class="author">
+        <%= link_to resource.author.name, user_path(resource.author) %>
+    </span>)
+  <% else %>
+    <%= avatar_image(resource.author, seed: resource.author_id, size: 32, class: "author-photo") %>
+    <span class="author">
+        <%= link_to resource.author.name, user_path(resource.author) %>
+    </span>
+  <% end %>
   <% if resource.respond_to?(:association_name) && resource.association_name.present? %>
     <span>
       <%= "(#{resource.association_name})" %>

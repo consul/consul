@@ -133,7 +133,6 @@ en:
         unfeasibility_explanation: Unfeasibility explanation
         code: "Investment project code: <strong>%{code}</strong>"
         location: "Location: <strong>%{location}</strong>"
-        organization_name: "Proposed on behalf of: <strong>%{name}</strong>"
         share: Share
         title: Investment project
         supports: Supports

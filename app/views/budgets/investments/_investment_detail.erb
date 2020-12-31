@@ -36,12 +36,6 @@
   </p>
 <% end %>
 
-<% if investment.organization_name.present? %>
-  <p>
-    <%= sanitize(t("budgets.investments.show.organization_name", name: investment.organization_name)) %>
-  </p>
-<% end %>
-
 <% if feature?(:allow_attached_documents) %>
   <%= render "documents/documents",
               documents: investment.documents,

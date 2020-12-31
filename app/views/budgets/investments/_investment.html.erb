@@ -31,9 +31,16 @@
                 </span>
               <% else %>
                 <span class="bullet">&nbsp;&bull;&nbsp;</span>
-                <span class="author">
-                  <%= investment.author.name %>
-                </span>
+                <% if investment.organization_name.present? %>
+                  <%= sanitize(investment.organization_name) %>&nbsp;(created by:
+                  <span class="author">
+                      <%= investment.author.name %>
+                  </span>)
+                <% else %>
+                  <span class="author">
+                    <%= investment.author.name %>
+                  </span>
+                <% end %>
                 <% if investment.author.official? %>
                   <span class="bullet">&nbsp;&bull;&nbsp;</span>
                   <span class="label round level-<%= investment.author.official_level %>">
