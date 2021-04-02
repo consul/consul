@@ -668,7 +668,7 @@ GEM
       chronic (>= 0.6.3)
     wicked_pdf (2.1.0)
       activesupport
-    wkhtmltopdf-binary (0.12.4)
+    wkhtmltopdf-binary (0.12.6.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -777,7 +777,7 @@ DEPENDENCIES
   webdrivers (~> 4.4.1)
   whenever (~> 1.0.0)
   wicked_pdf (~> 2.1.0)
-  wkhtmltopdf-binary (~> 0.12.4)
+  wkhtmltopdf-binary (~> 0.12.6)
 
 BUNDLED WITH
    1.17.2
