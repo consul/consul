@@ -107,7 +107,7 @@ group :development do
   gem "pronto-eslint", "~> 0.11.0", require: false
   gem "pronto-rubocop", "~> 0.11.0", require: false
   gem "pronto-scss", "~> 0.11.0", require: false
-  gem "rubocop", "~> 0.91.0", require: false
+  gem "rubocop", "~> 0.93.1", require: false
   gem "rubocop-performance", "~> 1.7.1", require: false
   gem "rubocop-rails", "~> 2.6.0", require: false
   gem "rubocop-rspec", "~> 1.41.0", require: false
