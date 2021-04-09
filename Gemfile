@@ -19,7 +19,7 @@ gem "dalli", "~> 2.7.10"
 gem "delayed_job_active_record", "~> 4.1.4"
 gem "devise", "~> 4.7.3"
 gem "devise-async", "~> 1.0.0"
-gem "devise-security", "~> 0.11.1"
+gem "devise-security", "~> 0.15.0"
 gem "font-awesome-sass", "~> 5.15.1" # Remember to update vendor/assets/images/fontawesome when updating this gem
 gem "foundation-rails", "~> 6.6.2.0"
 gem "foundation_rails_helper", "~> 3.0.0"
