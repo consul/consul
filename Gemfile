@@ -108,7 +108,7 @@ group :development do
   gem "pronto-rubocop", "~> 0.11.0", require: false
   gem "pronto-scss", "~> 0.11.0", require: false
   gem "rubocop", "~> 0.91.0", require: false
-  gem "rubocop-performance", "~> 1.7.1", require: false
+  gem "rubocop-performance", "~> 1.10.1", require: false
   gem "rubocop-rails", "~> 2.6.0", require: false
   gem "rubocop-rspec", "~> 1.41.0", require: false
   gem "rvm1-capistrano3", "~> 1.4.0", require: false
