@@ -59,7 +59,7 @@ gem "translator-text", "~> 0.1.0"
 gem "turbolinks", "~> 5.2.1"
 gem "turnout", "~> 2.5.0"
 gem "uglifier", "~> 4.2.0"
-gem "view_component", "~> 2.19.1", require: "view_component/engine"
+gem "view_component", "~> 2.28.0", require: "view_component/engine"
 gem "whenever", "~> 1.0.0", require: false
 gem "wicked_pdf", "~> 2.1.0"
 gem "wkhtmltopdf-binary", "~> 0.12.4"
