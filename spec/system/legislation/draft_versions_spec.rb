@@ -184,7 +184,7 @@ describe "Legislation Draft Versions" do
 
       visit legislation_process_draft_version_path(draft_version.process, draft_version)
 
-      page.find(:css, ".legislation-annotatable").double_click
+      select_text_in(find(:css, ".legislation-annotatable"))
       page.find(:css, ".annotator-adder button").click
       expect(page).not_to have_css("#legislation_annotation_text")
       expect(page).to have_content "You must sign in or sign up to leave a comment."
@@ -193,7 +193,7 @@ describe "Legislation Draft Versions" do
     scenario "Create" do
       visit legislation_process_draft_version_path(draft_version.process, draft_version)
 
-      page.find(:css, ".legislation-annotatable").double_click
+      select_text_in(find(:css, ".legislation-annotatable"))
       page.find(:css, ".annotator-adder button").click
       page.click_button "Publish Comment"
       expect(page).to have_content "Comment can't be blank"
@@ -250,7 +250,7 @@ describe "Legislation Draft Versions" do
       create(:legislation_annotation, draft_version: draft_version)
 
       visit legislation_process_draft_version_path(draft_version.process, draft_version)
-      find(:css, ".annotator-hl").double_click
+      select_text_in(find(:css, ".annotator-hl"))
       find(:css, ".annotator-adder button").click
       click_button "Publish Comment"
 
@@ -296,6 +296,11 @@ describe "Legislation Draft Versions" do
       click_button "Publish comment"
 
       expect(page).to have_content "My interesting comment"
+    end
+
+    def select_text_in(element)
+      element.click
+      3.times { page.driver.browser.action.click(element.native).perform }
     end
   end
 
