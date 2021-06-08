@@ -3,7 +3,7 @@ en:
     comments:
       index:
         block_authors: Block authors
-        confirm: Are you sure?
+        confirm_action: "%{action}: Are you sure?"
         filter: Filter
         filters:
           all: All
@@ -24,7 +24,7 @@ en:
     debates:
       index:
         block_authors: Block authors
-        confirm: Are you sure?
+        confirm_action: "%{action}: Are you sure?"
         filter: Filter
         filters:
           all: All
@@ -51,7 +51,7 @@ en:
     proposals:
       index:
         block_authors: Block authors
-        confirm: Are you sure?
+        confirm_action: "%{action}: Are you sure?"
         filter: Filter
         filters:
           all: All
@@ -69,7 +69,7 @@ en:
     budget_investments:
       index:
         block_authors: Block authors
-        confirm: Are you sure?
+        confirm_action: "%{action}: Are you sure?"
         filter: Filter
         filters:
           all: All
@@ -87,7 +87,7 @@ en:
     proposal_notifications:
       index:
         block_authors: Block authors
-        confirm: Are you sure?
+        confirm_action: "%{action}: Are you sure?"
         filter: Filter
         filters:
           all: All
