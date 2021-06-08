@@ -3,13 +3,13 @@
     <span class="js-moderation-actions">
       <% if can? :hide, notification %>
         <%= link_to t("admin.actions.hide").capitalize, hide_moderation_proposal_notification_path(notification),
-                    method: :put, remote: true, data: { confirm: t("admin.actions.confirm") } %>
+                    method: :put, remote: true, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.hide")) } %>
       <% end %>
 
       <% if can? :hide, notification.author %>
         <span class="divider">&nbsp;&bull;&nbsp;</span>
         <%= link_to t("admin.actions.hide_author").capitalize, hide_moderation_user_path(notification.author_id),
-                    method: :put, data: { confirm: t("admin.actions.confirm") } %>
+                    method: :put, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.hide_author")) } %>
       <% end %>
     </span>
   </div>

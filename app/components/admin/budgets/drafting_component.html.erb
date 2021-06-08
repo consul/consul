@@ -11,6 +11,6 @@
     <%= link_to t("admin.budgets.edit.publish"),
                 publish_admin_budget_path(budget),
                 method: :patch, class: "publish-link",
-                data: { confirm: t("admin.actions.confirm") } %>
+                data: { confirm: t("admin.actions.confirm_action", action: t("admin.budgets.edit.publish")) } %>
   <% end %>
 </div>

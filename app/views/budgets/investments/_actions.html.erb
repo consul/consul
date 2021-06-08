@@ -1,10 +1,10 @@
 <% if can? :hide, investment %>
   <%= link_to t("admin.actions.hide").capitalize, hide_moderation_budget_investment_path(investment),
-              method: :put, remote: true, data: { confirm: t("admin.actions.confirm") } %>
+              method: :put, remote: true, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.hide")) } %>
 <% end %>
 
 <% if can? :hide, investment.author %>
   &nbsp;|&nbsp;
   <%= link_to t("admin.actions.hide_author").capitalize, hide_moderation_user_path(investment.author_id),
-              method: :put, data: { confirm: t("admin.actions.confirm") } %>
+              method: :put, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.hide_author")) } %>
 <% end %>

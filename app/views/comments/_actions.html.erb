@@ -12,13 +12,13 @@
                   data: { confirm: t("comments.actions.confirm_delete") } %>
     <% else %>
       <%= link_to t("admin.actions.hide").capitalize, hide_moderation_comment_path(comment),
-                  method: :put, remote: true, data: { confirm: t("admin.actions.confirm") } %>
+                  method: :put, remote: true, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.hide")) } %>
     <% end %>
   <% end %>
 
   <% if can? :hide, comment.user %>
     <span class="divider">&nbsp;&bull;&nbsp;</span>
     <%= link_to t("admin.actions.hide_author").capitalize, hide_moderation_user_path(comment.user_id),
-                method: :put, data: { confirm: t("admin.actions.confirm") } %>
+                method: :put, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.hide_author")) } %>
   <% end %>
 </span>

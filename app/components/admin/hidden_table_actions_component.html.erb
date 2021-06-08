@@ -1,7 +1,7 @@
 <%= render Admin::TableActionsComponent.new(actions: []) do %>
   <%= link_to restore_text, restore_path,
     method: :put,
-    data: { confirm: t("admin.actions.confirm") },
+    data: { confirm: t("admin.actions.confirm_action", action: restore_text) },
     class: "restore-link" %>
 
   <% unless record.confirmed_hide? %>

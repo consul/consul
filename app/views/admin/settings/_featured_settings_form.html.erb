@@ -1,7 +1,9 @@
 <%= form_for(feature, url: admin_setting_path(feature), html: { id: "edit_#{dom_id(feature)}" }) do |f| %>
   <%= f.hidden_field :tab, value: tab if defined?(tab) %>
   <%= f.hidden_field :value, id: dom_id(feature), value: (feature.enabled? ? "" : "active") %>
-  <%= f.submit(t("admin.settings.index.features.#{feature.enabled? ? "disable" : "enable"}"),
+
+  <% submit_action = t("admin.settings.index.features.#{feature.enabled? ? "disable" : "enable"}") %>
+  <%= f.submit(submit_action,
                class: "button expanded #{feature.enabled? ? "hollow alert" : "success"}",
-               data: { confirm: t("admin.actions.confirm") }) %>
+               data: { confirm: t("admin.actions.confirm_action", action: submit_action) }) %>
 <% end %>
