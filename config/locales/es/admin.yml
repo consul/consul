@@ -26,7 +26,7 @@ es:
           all: Todos
           with_active: Activos
           with_inactive: Inactivos
-        preview: Vista previa de presupuesto
+        preview: Vista previa
       banner:
         sections_label: Secciones en las que aparece
         sections:
@@ -35,17 +35,12 @@ es:
           proposals: Propuestas
           budgets: Presupuestos participativos
           help_page: Página de ayuda
-          sdg: ODS
-      create:
-        notice: "Banner creado correctamente"
       edit:
         editing: Editar el banner
         form:
           submit_button: Guardar cambios
       new:
         creating: Crear banner
-      update:
-        notice: "Banner actualizado correctamente"
     activity:
       show:
         action: Acción
@@ -67,24 +62,16 @@ es:
         type: Tipo
         no_activity: No hay actividad de moderadores.
     budgets:
-      actions:
-        preview: "Previsualizar presupuesto"
       index:
         title: Presupuestos participativos
         new_link: Crear nuevo presupuesto
         filter: Filtro
         filters:
-          all: Todos
           open: Abiertos
           finished: Terminados
-        help: "Los presupuestos participativos permiten que los ciudadanos propongan y decidan de manera directa cómo gastar parte del presupuesto, con un seguimiento y evaluación riguroso de las propuestas por parte de la institución."
         budget_investments: Gestionar proyectos de gasto
-        table_completed: Completado
-        table_draft: "Borrador"
-        table_duration: "Duración"
         table_name: Nombre
         table_phase: Fase
-        table_phase_progress: "(%{current_phase_number}/%{total_phases})"
         edit_groups: Editar grupos de partidas
         edit_budget: Editar presupuesto
         admin_ballots: Gestionar urnas
@@ -93,16 +80,10 @@ es:
         notice: '¡Presupuestos participativos creados con éxito!'
       update:
         notice: Presupuestos participativos actualizados
-      publish:
-        notice: "Presupuestos participativos actualizados"
       edit:
         title: Editar presupuestos participativos
-        drafting: "Este presupuesto participativo está en modo borrador, solo los administradores pueden verlo desde la parte pública de la página. Una vez se haya publicado, no se podrá volver a poner en modo borrador otra vez."
-        publish: "Publicar presupuesto"
         delete: Eliminar presupuesto
         phase: Fase
-        phases_caption: "Fases"
-        duration: "Duración"
         enabled: Habilitada
         actions: Acciones
         edit_phase: Editar fase
@@ -118,11 +99,6 @@ es:
           other: "%{count} evaluadores seleccionados"
         empty_administrators: "No hay administradores"
         empty_valuators: "No hay evaluadores"
-        name_description: "Este es el nombre del presupuesto participativo usado en la cabecera y tarjetas cuando éste está activo"
-        info:
-          budget_settings: "Configuración genérica del presupuesto participativo"
-          phases_settings: "Configuración de las fases"
-          staff_settings: "Administradores y Evaluadores asigandos al presupuesto"
       destroy:
         success_notice: Presupuesto eliminado correctamente
         unable_notice: No se puede eliminar un presupuesto con proyectos asociados
@@ -155,7 +131,6 @@ es:
         submit: "Guardar grupo"
       index:
         back: "Volver a presupuestos"
-        help: "Los grupos sirven para organizar las partidas del presupuesto. Después de que un grupo sea creado y éste contenga partidas, es posible determinar el número de partidas a las que un usuario puede votar por grupo."
     budget_headings:
       no_headings: "No hay partidas."
       amount:
@@ -178,17 +153,11 @@ es:
         submit: "Guardar partida"
       index:
         back: "Volver a grupos"
-        help: "Las partidas sirven para dividir el dinero del presupuesto participativo. Aquí puedes ir añadiendo partidas para cada grupo y establecer la cantidad de dinero que se gastará en cada partida."
     budget_phases:
       edit:
         description_help_text: Este texto aparecerá en la cabecera cuando la fase esté activa
-        duration: "Duración de la fase"
-        duration_description: "El período de tiempo que esta fase estará activa."
         enabled_help_text: Esta fase será pública en el calendario de fases del presupuesto y estará activa para otros propósitos
-        name_help_text: "Este es el título de la fase que los usuarios leerán en el encabezado cuando la fase esté activa."
         save_changes: Guardar cambios
-      index:
-        help: "Los presupuestos participativos tienen distintas fases. Aquí puedes habilitar o deshabilitar fases y también personalizar cada una de las fases."
     budget_investments:
       index:
         heading_filter_all: Todas las partidas
@@ -308,7 +277,7 @@ es:
       edit:
         title: Editar hito
       create:
-        notice: "¡Nuevo hito creado con éxito!"
+        notice: '¡Nuevo hito creado con éxito!'
       update:
         notice: Hito actualizado
       delete:
@@ -362,7 +331,7 @@ es:
         commentable_type: "Tipo"
         title: Comentarios
         no_comments: No hay comentarios.
-        table_link: "Link"
+        table_link: "Enlace"
     hidden_comments:
       index:
         filter: Filtro
@@ -647,12 +616,6 @@ es:
         add: Añadir como gestor
       search:
         title: "Gestores: Búsqueda de usuarios"
-    sdg_managers:
-      index:
-        no_sdg_managers: No hay usuarios.
-    sdg/managers:
-      sdg/manager:
-        add: Añadir como gestor ODS
     menu:
       activity: Actividad de moderadores
       admin: Menú de administración
@@ -669,7 +632,6 @@ es:
       hidden_users: Usuarios bloqueados
       administrators: Administradores
       managers: Gestores
-      sdg_managers: Gestores ODS
       moderators: Moderadores
       messaging_users: Mensajes a usuarios
       newsletters: Newsletters
@@ -1209,9 +1171,9 @@ es:
         title: Propuestas
         id: ID
         author: Autor
-        milestones: Hitos
         select: Seleccionar
         selected: Seleccionada
+        milestones: Hitos
         no_proposals: No hay propuestas.
       show:
         create_question: Añadir esta propuesta a una votación para ser votada
@@ -1265,9 +1227,6 @@ es:
         remote_census:
           title: Configuración del Censo Remoto
           how_to_enable: 'Para configurar la conexión con el Censo Remoto (SOAP) se debe activar "Configurar la conexión al censo remoto (SOAP)" en la pestaña "Funcionalidades".'
-        sdg:
-          title: Configuración ODS
-          how_to_enable: 'Para mostrar las opciones de configuración de los Objetivos de Desarrollo Sostenible se debe activar "ODS" en la pestaña "Funcionalidades".'
       remote_census_general_name: Datos Generales
       remote_census_request_name: Datos Petición
       remote_census_response_name: Datos Respuesta
@@ -1281,27 +1240,15 @@ es:
       true_value: "Sí"
       false_value: "No"
       search:
-        advanced_filters:
-          sdg_goals:
-            all: "Todos los objetivos"
-            label: "Por objetivo"
-          sdg_targets:
-            all: "Todas las metas"
-            label: "Por meta"
         label:
           booths: "Buscar urna por nombre"
-          budget_investments: "Buscar proyectos por título, descripción o partida"
           debates: "Buscar debates por título o descripción"
-          legislation_processes: "Buscar procesos por título o descripción"
-          legislation_proposals: "Buscar propuestas por título o descripción"
           local_census_records: "Búsqueda por número de documento"
           organizations: "Nombre, email o teléfono"
           poll_officers: "Buscar presidentes de mesa"
           poll_questions: "Buscar preguntas"
-          polls: "Buscar votaciones por nombre o descripción"
           proposals: "Buscar propuestas por título, código, descripción o pregunta"
           users: "Buscar usuario por nombre o email"
-        search: "Buscar"
       search_results: "Resultados de la búsqueda"
       no_search_results: "No se han encontrado resultados."
       actions: Acciones
@@ -1401,7 +1348,6 @@ es:
         proposal_notifications: Notificaciones de propuestas
         incomplete_verifications: Verificaciones incompletas
         polls: Votaciones
-        sdg: ODS
       graph:
         debate_created: Debates
         visit: Visitas
@@ -1444,15 +1390,6 @@ es:
           question_name: Pregunta
           origin_web: Participantes en Web
           origin_total: Participantes Totales
-      sdg:
-        budget_investments:
-          amount: "Presupuesto aprobado"
-          winners: "Proyectos de inversión ganadores"
-          sent: "Proyectos de inversión enviados"
-        debates: "Debates"
-        polls: "Votaciones"
-        proposals: "Propuestas"
-        title: "Objetivos de Desarrollo Sostenible - Estadísticas"
     tags:
       create: Crear tema
       destroy: Eliminar tema
@@ -1463,7 +1400,6 @@ es:
         help: "Cuando un usuario crea una propuesta se le sugieren como etiquetas por defecto los siguientes temas."
     users:
       columns:
-        id: ID
         erase_reason: Razón de la baja
         name: Nombre
         email: Email
@@ -1595,7 +1531,7 @@ es:
       field: "Campo"
       new_value: "Valor nuevo"
       old_value: "Valor anterior"
-      edited_at: "Editado el"
+      edited_at: "Editado en"
       edited_by: "Editado por"
       actions: "Acciones"
       empty: "No hay cambios registrados"
@@ -1612,19 +1548,19 @@ es:
       new:
         creating: Creando nuevo registro de censo local
       create:
-        notice: ¡Nuevo registro de censo local creado correctamente!
+        notice: '¡Nuevo registro de censo local creado correctamente!'
       edit:
         editing: Editando registro del censo local
       update:
-        notice: ¡Registro del censo local actualizado correctamente!
+        notice: '¡Registro del censo local actualizado correctamente!'
       destroy:
-        notice: ¡Registro del censo local eliminado correctamente!
+        notice: '¡Registro del censo local eliminado correctamente!'
       imports:
         new:
           title: Registros del censo local
           subtitle: Importar archivo CSV
         create:
-          notice: ¡Proceso de import de registros del censo local ejecutado correctamente!
+          notice: '¡Proceso de importación de registros del censo local ejecutado correctamente!'
         show:
           title: Gestionar censo local
           subtitle: Resultados del proceso de importación

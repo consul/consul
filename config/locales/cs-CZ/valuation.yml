@@ -55,6 +55,7 @@ cs:
         assigned_valuators: Přiřazeno hodnotiteli
       edit:
         dossier: Dokumentace
+        price: "Cena (%{currency})"
         feasibility: Proveditelnost
         valuation_finished_alert: "Opravdu chcete tuto zprávu označit za dokončenou? Pokud to uděláte, nemůže již změnit."
         not_feasible_alert: "Autorovi projektu bude okamžitě zaslán email s informací o nerealizovatelnosti projektu."

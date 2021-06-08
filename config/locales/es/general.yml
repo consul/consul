@@ -29,9 +29,6 @@ es:
     close: Cerrar
     menu: Menú
   comments:
-    actions:
-      confirm_delete: "¿Estás seguro/a? Esta acción borrará este comentario. No puedes deshacer esta acción."
-      delete: "Borrar comentario"
     comments_closed: Los comentarios están cerrados
     verified_only: Para participar %{verify_account}
     comment:
@@ -44,13 +41,13 @@ es:
         one: 1 respuesta
         other: "%{count} respuestas"
       responses_show:
+        zero: Sin respuestas
         one: "1 respuesta (mostrar)"
         other: "%{count} respuestas (mostrar)"
-        zero: Sin respuestas
       responses_collapse:
+        zero: Sin respuestas
         one: "1 respuesta (colapsar)"
         other: "%{count} respuestas (colapsar)"
-        zero: Sin respuestas
       user_deleted: Usuario eliminado
       votes:
         zero: Sin votos
@@ -193,7 +190,6 @@ es:
     local_census_records/import: la importación de registros del censo local
     site_customization/content_block: el bloque
     site_customization/page: la página
-    sdg/local_target: la meta localizada
   geozones:
     none: Toda la ciudad
   layouts:
@@ -250,11 +246,10 @@ es:
       budgets: Presupuestos participativos
       notification_item:
         new_notifications:
+          zero: "No tienes notificaciones nuevas"
           one: Tienes una nueva notificación
           other: Tienes %{count} notificaciones nuevas
-          zero: "No tienes notificaciones nuevas"
         notifications: Notificaciones
-      sdg: "ODS"
   notifications:
     index:
       empty_notifications: No tienes notificaciones nuevas.
@@ -431,7 +426,6 @@ es:
         one: 1 voto
         other: "%{count} votos"
       supports_necessary: "%{number} apoyos necesarios"
-      reason_for_supports_necessary: ""
       total_percent: 100%
       archived: "Esta propuesta ha sido archivada y ya no puede recoger apoyos."
       successful: "Esta propuesta ha alcanzado los apoyos necesarios."
@@ -696,11 +690,7 @@ es:
       from: "Desde"
       general: "Con el texto"
       general_placeholder: "Escribe el texto"
-      goal: "Por ODS"
-      goal_blank: "Elige un objetivo"
       search: "Filtrar"
-      target: "Por meta"
-      target_blank: "Elige una meta"
       title: "Búsqueda avanzada"
       to: "Hasta"
     author_info:
@@ -884,10 +874,6 @@ es:
         debates: Ver todos los debates
         proposals: Ver todas las propuestas
         processes: Ver todos los procesos
-      no_items:
-        debates: Ahora mismo no hay debates
-        proposals: Ahora mismo no hay propuestas
-        processes: Ahora mismo no hay procesos abiertos
       process_label: Proceso
       see_process: Ver proceso
     cards:
@@ -970,12 +956,7 @@ es:
       take_part: Participa del %{from} al %{to}
   remote_translations:
     text: El contenido de esta página no está disponible en tu idioma
-    all_remote_translations_enqueued_text: "En un breve periodo de tiempo refrescando la página podrá ver todo el contenido en su idioma"
+    all_remote_translations_enqueued_text: En un breve periodo de tiempo refrescando la página podrá ver todo el contenido en su idioma
     create:
       enqueue_remote_translation: Se han solicitado correctamente las traducciones.
     button: Traducir página
-  tags:
-    filter:
-      more:
-        one: "Una etiqueta más"
-        other: "%{count} etiquetas más"

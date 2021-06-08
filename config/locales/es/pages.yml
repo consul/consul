@@ -56,7 +56,6 @@ es:
       other:
         title: "Otra información de interés"
         how_to_use: "Utiliza %{org_name} en tu municipio"
-        sdg: "Ayuda Objetivos de Desarrollo Sostenible"
       how_to_use:
         text: |-
           Utilízalo en tu municipio libremente o ayúdanos a mejorarlo, es software libre.

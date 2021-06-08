@@ -51,6 +51,10 @@ sv:
         title: "Ekosystem på land"
         title_in_two_lines: "Ekosystem\npå land"
         description: "Hantera skogen hållbart, bekämpa ökenspridning, stoppa och återställa landdegradering och stoppa förlusten av biologisk mångfald."
+      goal_17:
+        targets:
+          target_17_12:
+            title: "Tidigt genomförande av tull- och kvotfritt marknadstillträde på varaktig grund för alla de minst utvecklade länderna, i överensstämmelse med beslut från Världshandelsorganisationen, bland annat genom att säkerställa att förmånliga ursprungsregler som gäller för import från de minst utvecklade länderna är transparenta och enkla, och bidrar till att underlätta marknadstillträde."
       help:
         title: "Globala målen för hållbar utveckling, hjälp"
         description: "Du kan anpassa dina bidrag till gemenskapen (debatter, medborgarförslag och budgetförslag) runt den hållbara 2030-agendan med hållbar utveckling som mål, så att vi får överblick över vårt bidrag till varje mål för hållbar utveckling. Nedan hittar du mer information om alla mål, deras delmål och lokala delmål."
@@ -71,10 +75,12 @@ sv:
       help:
         title: "Vilka globala mål och delmål är i linje med min/mitt %{record}?"
         text: "SDG-hjälpsida"
+      placeholder: "Skriv en kod eller beskrivning för ett mål eller delmål"
       remove_tag: "Ta bort"
       title: "Globala mål och delmål för hållbar utveckling"
     targets:
       filter:
+        link: "Se alla %{resources} kopplade till delmålet %{code}"
         more:
           one: "Ett delmål till"
           other: "%{count} delmål till"

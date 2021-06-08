@@ -106,3 +106,8 @@ cs:
       form:
         tags_label: "Kategorie"
       not_verified: "Pro hlasování o návrzích %{verify_account}."
+    summary:
+      title: "Souhrn"
+      votes:
+        zero: "%{count} hlasů"
+      debate_phase: "Fáze debaty"

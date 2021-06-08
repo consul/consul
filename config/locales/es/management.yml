@@ -106,7 +106,6 @@ es:
         one: " que contiene '%{search_term}'"
         other: " que contienen '%{search_term}'"
     sessions:
-      need_managed_user: Para realizar esta acción debes seleccionar un usuario.
       signed_out: Has cerrado la sesión correctamente.
       signed_out_managed_user: Se ha cerrado correctamente la sesión del usuario.
     username_label: Nombre de usuario

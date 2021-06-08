@@ -104,6 +104,7 @@ cs:
         feasibility_undecided: "Nedefinováno"
         feasibility_unfeasible: "Neproveditelné"
         incompatible: "Označit jako nekompatibilní"
+        milestone_tag_list: "Označení milníku"
         price_explanation: "Vysvětlení nákladů"
         selected: "Označit jako vybrané"
         selected_true: "Vybrané"
@@ -148,21 +149,40 @@ cs:
         population: "Population"
       budget/heading/translation:
         name: "Název záhlaví"
+      budget/phase:
+        enabled: "Fáze je povolena"
+        ends_at: "Konečné datum"
+        starts_at: "Počáteční datum"
+      budget/phase/translation:
+        name: "Název"
+        description: "Popis"
+        summary: "Souhrn"
       comment:
         body: "Komentář"
         user: "User"
       debate:
         author: "Autor"
         description: "Opinion"
+        tag_list: "Téma"
         terms_of_service: "Terms of service"
         title: "Předmět"
+      debate/translation:
+        title: "Název debaty"
+        description: "Počáteční text debaty"
       proposal:
         author: "Autor"
         title: "Předmět"
         question: "Otázka"
         description: "Popis"
+        responsible_name: "Úplné jméno osoby, která podala návrh"
+        retired_reason: "Důvod k pozastavení návrhu"
+        selected: "Označit jako vybrané"
         terms_of_service: "Terms of service"
+        video_url: "Externí URL videa"
       proposal/translation:
+        title: "Název návrhu"
+        description: "Text návrhu"
+        summary: "Shrnutí návrhu"
         retired_explanation: "Vysvětlení"
       user:
         login: "Email nebo uživatelské jméno"
@@ -219,6 +239,16 @@ cs:
         signable_type: "Signable type"
         signable_id: "Signable ID"
         document_numbers: "Documents numbers"
+      sdg/local_target:
+        title: "Nadpis"
+      sdg/local_target/translation:
+        title: "Nadpis"
+        description: "Popis"
+      sdg/phase/kind:
+        monitoring: "Monitoring"
+      sdg/target:
+        code: "Kód"
+        title: "Nadpis"
       site_customization/page:
         content: Obsah
         created_at: Vytvořeno dne
@@ -359,6 +389,19 @@ cs:
         link: Externí odkaz
         active: Aktivní
         action_type: Typ
+      dashboard/administrator_task:
+        source: Zdroj
+      link:
+        label: Nadpis
+        url: Odkaz
+      valuator:
+        description: Popis
+      valuator_group:
+        name: "Název skupiny"
+      local_census_record:
+        document_type: Typ dokumentu
+        document_number: Číslo dokladu
+        date_of_birth: Datum narození
     errors:
       models:
         user:
@@ -386,10 +429,6 @@ cs:
           attributes:
             segment_recipient:
               invalid: "The user recipients segment is invalid"
-        map_location:
-          attributes:
-            map:
-              invalid: Map location can't be blank. Place a marker or select the checkbox if geolocalization is not needed
         poll/voter:
           attributes:
             document_number:

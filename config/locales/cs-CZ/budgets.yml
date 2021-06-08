@@ -3,6 +3,7 @@ cs:
     ballots:
       show:
         title: Vaše hlasování
+        amount_progress: "%{amount_spent} / %{amount_limit}"
         amount_limit:
           knapsack: "%{count}"
         no_balloted_group_yet: "Dosud jste o této skupině nehlasovali, hlasujte!"
@@ -63,7 +64,6 @@ cs:
         map_location: "Mapa umístění"
         map_location_instructions: "Nalezněte mapu lokality a umístěte kliknutím značku."
         map_remove_marker: "Odstranit značku z mapy"
-        map_skip_checkbox: "Tato investice nemá konkrétní umístění nebo si umístěním nejsem jistý."
       index:
         title: Participativní rozpočtování
         unfeasible: Nerealizovatelné investiční projekty

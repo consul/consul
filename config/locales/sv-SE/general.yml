@@ -347,7 +347,6 @@ sv:
       map_location: "Kartposition"
       map_location_instructions: "Navigera till platsen på kartan och placera markören."
       map_remove_marker: "Ta bort kartmarkör"
-      map_skip_checkbox: "Det finns ingen specifik geografisk plats för förslaget, eller jag känner inte till platsen."
     index:
       featured_proposals: Utvalda
       orders:

@@ -4,10 +4,6 @@ es:
     results_enabled: "Mostrar resultados"
     stats_enabled: "Mostrar estadísticas"
     advanced_stats_enabled: "Mostrar estadísticas avanzadas"
-    name: Nombre
-    email: Email
-    description: Descripción
-    related_sdg_list: Objetivos y Metas
   activerecord:
     models:
       activity:
@@ -76,18 +72,6 @@ es:
       proposal:
         one: "Propuesta ciudadana"
         other: "Propuestas ciudadanas"
-      sdg/goal:
-        one: "objetivo"
-        other: "objetivos"
-      sdg/local_target:
-        one: "meta localizada"
-        other: "metas localizadas"
-      sdg/manager:
-        one: "gestor ODS"
-        other: "gestores ODS"
-      sdg/target:
-        one: "meta"
-        other: "metas"
       site_customization/page:
         one: Página
         other: Páginas
@@ -158,8 +142,8 @@ es:
         phase: "Fase"
         currency_symbol: "Divisa"
         voting_style: "Estilo de la votación final"
-        voting_style_knapsack: Bolsa de dinero
-        voting_style_approval: Por aprobación
+        voting_style_knapsack: "Bolsa de dinero"
+        voting_style_approval: "Por aprobación"
       budget/translation:
         name: "Nombre"
       budget/investment:
@@ -168,7 +152,7 @@ es:
         description: "Descripción"
         external_url: "Enlace a documentación adicional"
         administrator_id: "Administrador"
-        location: "Información adicional de la ubicación"
+        location: "Ubicación (opcional)"
         organization_name: "Si estás proponiendo en nombre de una organización o colectivo, o en nombre de más gente, escribe su nombre"
         image: "Imagen descriptiva del proyecto de gasto"
         image_title: "Título de la imagen"
@@ -212,7 +196,7 @@ es:
         primary: "Principal"
         secondary: "Secundaria"
       budget/group:
-        max_votable_headings: "Máximo número de partidas en que un usuario puede seleccionar proyectos"
+        max_votable_headings: "Máximo número de partidas en que un usuario puede votar"
       budget/group/translation:
         name: "Nombre del grupo"
       budget/heading:
@@ -230,7 +214,6 @@ es:
         ends_at: "Fecha de fin"
         starts_at: "Fecha de inicio"
       budget/phase/translation:
-        name: "Nombre"
         description: "Descripción"
         summary: "Resumen"
       comment:
@@ -289,7 +272,6 @@ es:
         responsible_name: "Persona responsable del colectivo"
       poll:
         name: "Nombre"
-        title: "Nombre"
         starts_at: "Fecha de apertura"
         ends_at: "Fecha de cierre"
         geozone_restricted: "Restringida por zonas"
@@ -320,24 +302,6 @@ es:
         task: "Tarea"
       proposal_notification:
         body: "Mensaje"
-        title: "Título"
-      sdg/goal:
-        code: "Código"
-        title: "Título"
-        description: "Descripción"
-      sdg/local_target:
-        code: "Código"
-        target_id: "Meta"
-        title: "Título"
-      sdg/local_target/translation:
-        title: "Título"
-        description: "Descripción"
-      sdg/phase/kind:
-        sensitization: "Sensibilización"
-        planning: "Planificación"
-        monitoring: "Seguimiento"
-      sdg/target:
-        code: "Código"
         title: "Título"
       signature_sheet:
         title: "Título"
@@ -430,7 +394,7 @@ es:
         title: Título
         question_options: Respuestas
       legislation/question/translation:
-        title: "Pregunta"
+        title: Pregunta
       legislation/question_option:
         value: Valor
       legislation/annotation:
@@ -590,10 +554,6 @@ es:
           attributes:
             locale:
               already_translated: Recurso ya traducido
-        sdg/local_target:
-          attributes:
-            code:
-              invalid: "debe empezar con el código de su meta seguido de un punto y terminar con un número"
       messages:
         translations_too_short: El obligatorio proporcionar una traducción como mínimo
         record_invalid: "Error de validación: %{errors}"
