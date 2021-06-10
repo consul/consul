@@ -12,7 +12,7 @@ describe "Moderate proposal notifications" do
     click_link "Notifications (1)"
 
     within("#proposal_notification_#{proposal_notification.id}") do
-      accept_confirm { click_link "Hide" }
+      accept_confirm("Hide: Are you sure?") { click_link "Hide" }
     end
 
     expect(page).to have_css("#proposal_notification_#{proposal_notification.id}.faded")
@@ -61,7 +61,7 @@ describe "Moderate proposal notifications" do
         end
 
         scenario "Hide the proposal" do
-          accept_confirm { click_button "Hide proposals" }
+          accept_confirm("Hide proposals: Are you sure?") { click_button "Hide proposals" }
 
           expect(page).not_to have_css("#proposal_notification_#{proposal_notification.id}")
 
@@ -78,7 +78,7 @@ describe "Moderate proposal notifications" do
           author = create(:user)
           proposal_notification.update!(author: author)
 
-          accept_confirm { click_button "Block authors" }
+          accept_confirm("Block authors: Are you sure?") { click_button "Block authors" }
 
           expect(page).not_to have_css("#proposal_notification_#{proposal_notification.id}")
 
@@ -122,7 +122,7 @@ describe "Moderate proposal notifications" do
 
         visit moderation_proposal_notifications_path(filter: "all", page: "2", order: "created_at")
 
-        accept_confirm { click_button "Mark as viewed" }
+        accept_confirm("Mark as viewed: Are you sure?") { click_button "Mark as viewed" }
 
         expect(page).to have_link "Most recent", class: "is-active"
         expect(page).to have_link "Moderated"

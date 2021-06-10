@@ -11,7 +11,7 @@ describe "Moderate debates" do
     visit debate_path(debate)
 
     within("#debate_#{debate.id}") do
-      accept_confirm { click_link "Hide" }
+      accept_confirm("Hide: Are you sure?") { click_link "Hide" }
     end
 
     expect(find("div#debate_#{debate.id}.faded")).to have_text debate.title
@@ -57,7 +57,7 @@ describe "Moderate debates" do
         end
 
         scenario "Hide the debate" do
-          accept_confirm { click_button "Hide debates" }
+          accept_confirm("Hide debates: Are you sure?") { click_button "Hide debates" }
 
           expect(page).not_to have_css("#debate_#{debate.id}")
 
@@ -71,7 +71,7 @@ describe "Moderate debates" do
         end
 
         scenario "Block the author" do
-          accept_confirm { click_button "Block authors" }
+          accept_confirm("Block authors: Are you sure?") { click_button "Block authors" }
 
           expect(page).not_to have_css("#debate_#{debate.id}")
 
@@ -115,7 +115,7 @@ describe "Moderate debates" do
 
         visit moderation_debates_path(filter: "all", page: "2", order: "created_at")
 
-        accept_confirm { click_button "Mark as viewed" }
+        accept_confirm("Mark as viewed: Are you sure?") { click_button "Mark as viewed" }
 
         expect(page).to have_link "Newest", class: "is-active"
         expect(page).to have_link "Most flagged"

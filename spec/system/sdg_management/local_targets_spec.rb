@@ -91,7 +91,7 @@ describe "Local Targets" do
       create(:sdg_local_target, code: "1.1.1")
       visit sdg_management_local_targets_path
 
-      accept_confirm { click_link "Delete" }
+      accept_confirm("Delete: Are you sure?") { click_link "Delete" }
 
       expect(page).to have_content("Local target deleted successfully")
       expect(page).not_to have_content("1.1.1")

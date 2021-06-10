@@ -10,7 +10,7 @@ describe "Moderate budget investments" do
     login_as(mod.user)
     visit budget_investment_path(budget, investment)
 
-    accept_confirm { click_link "Hide" }
+    accept_confirm("Hide: Are you sure?") { click_link "Hide" }
 
     expect(page).to have_css(".faded", count: 2)
 
@@ -23,7 +23,7 @@ describe "Moderate budget investments" do
     login_as(mod.user)
     visit budget_investment_path(budget, investment)
 
-    accept_confirm { click_link "Hide author" }
+    accept_confirm("Hide author: Are you sure?") { click_link "Hide author" }
 
     expect(page).to have_current_path(debates_path)
 
@@ -64,7 +64,9 @@ describe "Moderate budget investments" do
         end
 
         scenario "Hide the investment" do
-          accept_confirm { click_button "Hide budget investments" }
+          accept_confirm("Hide budget investments: Are you sure?") do
+            click_button "Hide budget investments"
+          end
 
           expect(page).not_to have_css("#investment_#{investment.id}")
 
@@ -78,7 +80,7 @@ describe "Moderate budget investments" do
         end
 
         scenario "Block the author" do
-          accept_confirm { click_button "Block authors" }
+          accept_confirm("Block authors: Are you sure?") { click_button "Block authors" }
 
           expect(page).not_to have_css("#investment_#{investment.id}")
 
@@ -124,7 +126,7 @@ describe "Moderate budget investments" do
 
         visit moderation_budget_investments_path(filter: "all", page: "2", order: "created_at")
 
-        accept_confirm { click_button "Mark as viewed" }
+        accept_confirm("Mark as viewed: Are you sure?") { click_button "Mark as viewed" }
 
         expect(page).to have_link "Most recent", class: "is-active"
         expect(page).to have_link "Most flagged"

@@ -103,7 +103,7 @@ describe "Admin newsletter emails", :admin do
 
     visit admin_newsletters_path
     within("#newsletter_#{newsletter.id}") do
-      accept_confirm { click_link "Delete" }
+      accept_confirm("Delete: Are you sure?") { click_link "Delete" }
     end
 
     expect(page).to have_content "Newsletter deleted successfully"

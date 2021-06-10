@@ -59,7 +59,9 @@ describe "Admin budget groups", :admin do
       group = create(:budget_group, budget: budget)
 
       visit admin_budget_groups_path(budget)
-      within("#budget_group_#{group.id}") { accept_confirm { click_link "Delete" } }
+      within("#budget_group_#{group.id}") do
+        accept_confirm("Delete: Are you sure?") { click_link "Delete" }
+      end
 
       expect(page).to have_content "Group deleted successfully"
       expect(page).not_to have_selector "#budget_group_#{group.id}"
@@ -70,7 +72,9 @@ describe "Admin budget groups", :admin do
       create(:budget_heading, group: group)
 
       visit admin_budget_groups_path(budget)
-      within("#budget_group_#{group.id}") { accept_confirm { click_link "Delete" } }
+      within("#budget_group_#{group.id}") do
+        accept_confirm("Delete: Are you sure?") { click_link "Delete" }
+      end
 
       expect(page).to have_content "You cannot delete a Group that has associated headings"
       expect(page).to have_selector "#budget_group_#{group.id}"

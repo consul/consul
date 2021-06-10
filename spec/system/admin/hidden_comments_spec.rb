@@ -13,7 +13,7 @@ describe "Admin hidden comments", :admin do
     visit proposal_path(proposal)
 
     within("#proposal_#{proposal.id}") do
-      accept_confirm { click_link "Hide author" }
+      accept_confirm("Hide author: Are you sure?") { click_link "Hide author" }
     end
 
     expect(page).to have_current_path debates_path
@@ -67,7 +67,7 @@ describe "Admin hidden comments", :admin do
     comment = create(:comment, :hidden, body: "Not really SPAM")
     visit admin_hidden_comments_path
 
-    accept_confirm { click_link "Restore" }
+    accept_confirm("Restore: Are you sure?") { click_link "Restore" }
 
     expect(page).not_to have_content(comment.body)
 
@@ -128,7 +128,7 @@ describe "Admin hidden comments", :admin do
 
     visit admin_hidden_comments_path(filter: "with_confirmed_hide", page: 2)
 
-    accept_confirm { click_link "Restore", match: :first, exact: true }
+    accept_confirm("Restore: Are you sure?") { click_link "Restore", match: :first, exact: true }
 
     expect(page).to have_current_path(/filter=with_confirmed_hide/)
     expect(page).to have_current_path(/page=2/)

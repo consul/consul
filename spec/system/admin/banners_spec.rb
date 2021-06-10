@@ -173,7 +173,7 @@ describe "Admin banners magement", :admin do
 
     expect(page).to have_content "Ugly banner"
 
-    accept_confirm { click_link "Delete banner" }
+    accept_confirm("Delete banner: Are you sure?") { click_link "Delete banner" }
 
     visit admin_root_path
     expect(page).not_to have_content "Ugly banner"

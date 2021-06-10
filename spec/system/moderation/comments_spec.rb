@@ -11,7 +11,7 @@ describe "Moderate comments" do
     visit debate_path(comment.commentable)
 
     within("#comment_#{comment.id}") do
-      accept_confirm { click_link "Hide" }
+      accept_confirm("Hide: Are you sure?") { click_link "Hide" }
       expect(page).to have_css(".comment .faded")
     end
 
@@ -84,7 +84,9 @@ describe "Moderate comments" do
         end
 
         scenario "Hide the comment" do
-          accept_confirm { click_button "Hide comments" }
+          accept_confirm("Hide comments: Are you sure?") do
+            click_button "Hide comments"
+          end
 
           expect(page).not_to have_css("#comment_#{comment.id}")
 
@@ -98,7 +100,9 @@ describe "Moderate comments" do
         end
 
         scenario "Block the user" do
-          accept_confirm { click_button "Block authors" }
+          accept_confirm("Block authors: Are you sure?") do
+            click_button "Block authors"
+          end
 
           expect(page).not_to have_css("#comment_#{comment.id}")
 
@@ -142,7 +146,7 @@ describe "Moderate comments" do
 
         visit moderation_comments_path(filter: "all", page: "2", order: "newest")
 
-        accept_confirm { click_button "Mark as viewed" }
+        accept_confirm("Mark as viewed: Are you sure?") { click_button "Mark as viewed" }
 
         expect(page).to have_link "Newest", class: "is-active"
         expect(page).to have_link "Most flagged"

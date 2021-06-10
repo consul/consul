@@ -28,7 +28,7 @@ describe "Documents", :admin do
     visit admin_answer_documents_path(answer)
     expect(page).to have_content(document.title)
 
-    accept_confirm { click_link "Delete" }
+    accept_confirm("Delete: Are you sure?") { click_link "Delete" }
 
     expect(page).not_to have_content(document.title)
   end
