@@ -259,14 +259,14 @@ describe "Debates" do
 
     visit new_debate_path
     fill_in "Debate title", with: "Testing an attack"
-    fill_in "Initial debate text", with: "<p>This is <script>alert('an attack');</script></p>"
+    fill_in "Initial debate text", with: "<p>This is a JS <script>alert('an attack');</script></p>"
     check "debate_terms_of_service"
 
     click_button "Start a debate"
 
     expect(page).to have_content "Debate created successfully."
     expect(page).to have_content "Testing an attack"
-    expect(page.html).to include "<p>This is alert('an attack');</p>"
+    expect(page.html).to include "<p>This is a JS alert('an attack');</p>"
     expect(page.html).not_to include "<script>alert('an attack');</script>"
     expect(page.html).not_to include "&lt;p&gt;This is"
   end

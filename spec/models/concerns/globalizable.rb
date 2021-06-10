@@ -66,7 +66,7 @@ shared_examples_for "globalizable" do |factory_name|
       record.reload
 
       record.update!(translations_attributes: [
-        { locale: :de }.merge(fields.map { |field| [field, "Deutsch"] }.to_h)
+        { locale: :de }.merge(fields.map { |field| [field, "Deutsche Sprache"] }.to_h)
       ])
 
       record.reload
@@ -105,7 +105,7 @@ shared_examples_for "globalizable" do |factory_name|
       record.reload
 
       record.update!(translations_attributes: [
-        { id: record.translations.first.id }.merge(fields.map { |field| [field, "Cambiado"] }.to_h)
+        { id: record.translations.first.id }.merge(fields.map { |field| [field, "Actualizado"] }.to_h)
       ])
 
       record.reload
@@ -158,8 +158,8 @@ shared_examples_for "globalizable" do |factory_name|
   describe "Fallbacks" do
     before do
       I18n.with_locale(:de) do
-        record.update!(required_fields.map { |field| [field, "Deutsch"] }.to_h)
-        record.update!(attribute => "Deutsch")
+        record.update!(required_fields.map { |field| [field, "Deutsche Sprache"] }.to_h)
+        record.update!(attribute => "Deutsche Sprache")
       end
     end
 
@@ -177,7 +177,7 @@ shared_examples_for "globalizable" do |factory_name|
       Globalize.set_fallbacks_to_all_available_locales
 
       I18n.with_locale(:fr) do
-        expect(record.send(attribute)).to eq "Deutsch"
+        expect(record.send(attribute)).to eq "Deutsche Sprache"
       end
     end
 
@@ -188,7 +188,7 @@ shared_examples_for "globalizable" do |factory_name|
         { id: record.translations.find_by(locale: :en).id, _destroy: true }
       ])
 
-      expect(record.send(attribute)).to eq "Deutsch"
+      expect(record.send(attribute)).to eq "Deutsche Sprache"
     end
   end
 end

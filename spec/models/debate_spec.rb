@@ -45,8 +45,13 @@ describe Debate do
     end
 
     it "is not valid when very short" do
-      debate.description = "abc"
+      debate.description = "<a><h1><u>abc</u></h1></a>"
       expect(debate).not_to be_valid
+    end
+
+    it "is valid when very long and sanitized" do
+      debate.description = "<a><h1>a</h1></a>" * 6000
+      expect(debate).to be_valid
     end
 
     it "is not valid when very long" do
