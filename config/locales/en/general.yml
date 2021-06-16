@@ -534,7 +534,7 @@ en:
       comments: Comments
       latest_comments: Latest messages
     messages:
-      send_notification: Send message to proposal followers
+      send_notification: Send notification to proposal followers
       previous_notifications: See previous notifications
     polls:
       index:
@@ -669,9 +669,9 @@ en:
       voted: "You have voted %{answer}"
   proposal_notifications:
     new:
-      title: "Send message"
-      submit_button: "Send message"
-      info_about_receivers: "This message will be sent to <strong>%{count} people</strong> and it will be visible in %{proposal_page}.<br> Messages are not sent immediately, users will receive periodically an email with all proposal notifications."
+      title: "Send notification"
+      submit_button: "Send notification"
+      info_about_receivers: "This notification will be sent to <strong>%{count} people</strong> and it will be visible in %{proposal_page}.<br> Notifications are not sent immediately, users will periodically receive an email with all proposal notifications."
       proposal_page: "the proposal's page"
     show:
       back: "Go back to my content"

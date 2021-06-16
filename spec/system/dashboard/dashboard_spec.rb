@@ -356,13 +356,13 @@ describe "Proposal's dashboard" do
       click_link "Message to users"
     end
 
-    expect(page).to have_link("Send message to proposal followers")
+    expect(page).to have_link("Send notification to proposal followers")
     expect(page).to have_link("See previous notifications")
   end
 
   scenario "Dashboard has a link to send message to proposal supporters" do
     visit messages_proposal_dashboard_path(proposal)
-    click_link("Send message to proposal followers")
+    click_link("Send notification to proposal followers")
 
     fill_in "Title", with: "Thank you for supporting my proposal"
     fill_in "Message", with: "Please share it with others!"

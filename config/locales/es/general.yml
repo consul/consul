@@ -534,7 +534,7 @@ es:
       comments: Comentarios
       latest_comments: Últimos mensajes
     messages:
-      send_notification: Enviar mensaje a los que siguen la propuesta
+      send_notification: Enviar notificación a los que siguen la propuesta
       previous_notifications: Ver notificaciones anteriores
     polls:
       index:
@@ -669,9 +669,9 @@ es:
       voted: "Has votado %{answer}"
   proposal_notifications:
     new:
-      title: "Enviar mensaje"
-      submit_button: "Enviar mensaje"
-      info_about_receivers: "Este mensaje se enviará a <strong>%{count} usuarios</strong> y se publicará en %{proposal_page}.<br> El mensaje no se enviará inmediatamente, los usuarios recibirán periódicamente un email con todas las notificaciones de propuestas."
+      title: "Enviar notificación"
+      submit_button: "Enviar notificación"
+      info_about_receivers: "Esta notificación se enviará a <strong>%{count} usuarios</strong> y se publicará en %{proposal_page}.<br> Las notificaciones no se enviarán inmediatamente, los usuarios recibirán periódicamente un email con todas las notificaciones de propuestas."
       proposal_page: "la página de la propuesta"
     show:
       back: "Volver a mi contenido"

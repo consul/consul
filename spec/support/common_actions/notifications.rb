@@ -39,11 +39,11 @@ module Notifications
       click_link "Message to users"
     end
 
-    click_link "Send message to proposal followers"
+    click_link "Send notification to proposal followers"
 
     fill_in "proposal_notification_title", with: "Thanks for supporting proposal: #{proposal.title}"
     fill_in "proposal_notification_body", with: "Please share it with others! #{proposal.summary}"
-    click_button "Send message"
+    click_button "Send notification"
 
     expect(page).to have_content "Your message has been sent correctly."
     Notification.last
