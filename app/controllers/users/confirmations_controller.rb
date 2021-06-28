@@ -1,4 +1,19 @@
 class Users::ConfirmationsController < Devise::ConfirmationsController
+  # POST /resource/confirmation
+  def create
+    self.resource = resource_class.send_confirmation_instructions(resource_params)
+    yield resource if block_given?
+
+    if !self.resource.confirmation_required?
+      redirect_to new_user_confirmation_path,
+                  notice: WYSIWYGSanitizer.new.sanitize(t("devise.confirmations.user.already_confirmed"))
+    elsif successfully_sent?(resource)
+      respond_with({}, location: after_resending_confirmation_instructions_path_for(resource_name))
+    else
+      respond_with(resource)
+    end
+  end
+
   # new action, PATCH does not exist in the default Devise::ConfirmationsController
   # PATCH /resource/confirmation
   def update

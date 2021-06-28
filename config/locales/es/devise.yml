@@ -11,6 +11,8 @@ es:
       confirmed: "Tu cuenta ha sido confirmada. Por favor autentifícate con tu red social o tu usuario y contraseña"
       send_instructions: "Recibirás un correo electrónico en unos minutos con instrucciones sobre cómo restablecer tu contraseña."
       send_paranoid_instructions: "Si tu correo electrónico existe en nuestra base de datos recibirás un correo electrónico en unos minutos con instrucciones sobre cómo restablecer tu contraseña."
+      user:
+        already_confirmed: "Tu cuenta ya ha sido confirmada."
     failure:
       already_authenticated: "Ya has iniciado sesión."
       inactive: "Tu cuenta aún no ha sido activada."

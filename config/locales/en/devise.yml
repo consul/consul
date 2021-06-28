@@ -11,6 +11,8 @@ en:
       confirmed: "Your account has been confirmed."
       send_instructions: "In a few minutes you will receive an email containing instructions on how to reset your password."
       send_paranoid_instructions: "If your email address is in our database, in a few minutes you will receive an email containing instructions on how to reset your password."
+      user:
+        already_confirmed: "You have already confirmed your email account."
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account has not yet been activated."
