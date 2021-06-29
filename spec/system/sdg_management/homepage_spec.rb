@@ -80,7 +80,7 @@ describe "SDG homepage configuration" do
       visit sdg_management_homepage_path
 
       within ".sdg-header" do
-        accept_confirm { click_link "Delete" }
+        accept_confirm("Delete: Are you sure?") { click_link "Delete" }
       end
 
       expect(page).not_to have_content "SDG Header"

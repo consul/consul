@@ -110,7 +110,7 @@ describe "Cards", :admin do
     visit admin_homepage_path
 
     within("#widget_card_#{card.id}") do
-      accept_confirm do
+      accept_confirm("Delete: Are you sure?") do
         click_link "Delete"
       end
     end
@@ -237,7 +237,7 @@ describe "Cards", :admin do
 
         expect(page).to have_content("Card title")
 
-        accept_confirm do
+        accept_confirm("Delete: Are you sure?") do
           click_link "Delete"
         end
 

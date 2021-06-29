@@ -174,7 +174,7 @@ describe "Admin shifts", :admin do
 
     expect(page).to have_css(".shift", count: 1)
     within("#shift_#{shift.id}") do
-      accept_confirm { click_link "Remove" }
+      accept_confirm("Remove: Are you sure?") { click_link "Remove" }
     end
 
     expect(page).to have_content "Shift removed"
@@ -198,7 +198,7 @@ describe "Admin shifts", :admin do
 
     expect(page).to have_css(".shift", count: 1)
     within("#shift_#{shift.id}") do
-      accept_confirm { click_link "Remove" }
+      accept_confirm("Remove: Are you sure?") { click_link "Remove" }
     end
 
     expect(page).not_to have_content "Shift removed"
@@ -225,7 +225,7 @@ describe "Admin shifts", :admin do
 
     expect(page).to have_css(".shift", count: 1)
     within("#shift_#{shift.id}") do
-      accept_confirm { click_link "Remove" }
+      accept_confirm("Remove: Are you sure?") { click_link "Remove" }
     end
 
     expect(page).not_to have_content "Shift removed"

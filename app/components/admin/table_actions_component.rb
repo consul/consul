@@ -43,6 +43,6 @@ class Admin::TableActionsComponent < ApplicationComponent
     end
 
     def destroy_confirmation
-      options[:destroy_confirmation] || t("admin.actions.confirm")
+      options[:destroy_confirmation] || t("admin.actions.confirm_action", action: destroy_text)
     end
 end

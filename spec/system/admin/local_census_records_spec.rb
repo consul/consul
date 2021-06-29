@@ -139,7 +139,7 @@ describe "Admin local census records", :admin do
 
       expect(page).to have_content deleted_document_number
 
-      accept_confirm { click_on "Delete" }
+      accept_confirm("Delete: Are you sure?") { click_on "Delete" }
 
       expect(page).to have_content "Local census record removed successfully!"
       expect(page).not_to have_content deleted_document_number

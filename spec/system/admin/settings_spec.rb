@@ -245,7 +245,7 @@ describe "Admin settings", :admin do
       visit admin_settings_path
       find("#participation-processes-tab").click
 
-      accept_alert do
+      accept_alert "Enable: Are you sure?" do
         find("#edit_setting_#{process_setting.id} .button").click
       end
 
@@ -259,7 +259,7 @@ describe "Admin settings", :admin do
       visit admin_settings_path
       find("#features-tab").click
 
-      accept_alert do
+      accept_alert "Enable: Are you sure?" do
         find("#edit_setting_#{feature_setting.id} .button").click
       end
 
@@ -275,7 +275,7 @@ describe "Admin settings", :admin do
       visit admin_settings_path
       click_link "SDG configuration"
 
-      accept_alert do
+      accept_alert "Enable: Are you sure?" do
         within("tr", text: "Whatever") { click_button "Enable" }
       end
 
@@ -292,7 +292,7 @@ describe "Admin settings", :admin do
       visit admin_settings_path
       find("#features-tab").click
 
-      accept_alert do
+      accept_alert "Disable: Are you sure?" do
         find("#edit_setting_#{setting.id} .button").click
       end
 
@@ -306,7 +306,7 @@ describe "Admin settings", :admin do
       visit admin_settings_path
       find("#features-tab").click
 
-      accept_alert do
+      accept_alert "Enable: Are you sure?" do
         find("#edit_setting_#{setting.id} .button").click
       end
 

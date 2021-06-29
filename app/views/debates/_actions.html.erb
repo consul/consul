@@ -1,21 +1,21 @@
 <% if can? :hide, debate %>
   <%= link_to t("admin.actions.hide").capitalize, hide_moderation_debate_path(debate),
-              method: :put, remote: true, data: { confirm: t("admin.actions.confirm") } %>
+              method: :put, remote: true, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.hide")) } %>
 <% end %>
 
 <% if can? :hide, debate.author %>
   &nbsp;|&nbsp;
   <%= link_to t("admin.actions.hide_author").capitalize, hide_moderation_user_path(debate.author_id),
-              method: :put, data: { confirm: t("admin.actions.confirm") } %>
+              method: :put, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.hide_author")) } %>
 <% end %>
 
 <% if can? :mark_featured, debate %>
   &nbsp;|&nbsp;
   <% if debate.featured? %>
     <%= link_to t("admin.actions.unmark_featured").capitalize, unmark_featured_debate_path(debate),
-              method: :put, data: { confirm: t("admin.actions.confirm") } %>
+              method: :put, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.unmark_featured")) } %>
   <% else %>
     <%= link_to t("admin.actions.mark_featured").capitalize, mark_featured_debate_path(debate),
-              method: :put, data: { confirm: t("admin.actions.confirm") } %>
+              method: :put, data: { confirm: t("admin.actions.confirm_action", action: t("admin.actions.mark_featured")) } %>
   <% end %>
 <% end %>

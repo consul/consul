@@ -25,7 +25,7 @@ describe "Admin feature flags", :admin do
       expect(page).to have_button "Disable"
       expect(page).not_to have_button "Enable"
 
-      accept_confirm { click_button "Disable" }
+      accept_confirm("Disable: Are you sure?") { click_button "Disable" }
     end
 
     expect(page).to have_content "Value updated"
@@ -61,7 +61,7 @@ describe "Admin feature flags", :admin do
       expect(page).to have_button "Enable"
       expect(page).not_to have_button "Disable"
 
-      accept_confirm { click_button "Enable" }
+      accept_confirm("Enable: Are you sure?") { click_button "Enable" }
     end
 
     expect(page).to have_content "Value updated"
@@ -81,7 +81,7 @@ describe "Admin feature flags", :admin do
       expect(page).to have_button "Disable"
       expect(page).not_to have_button "Enable"
 
-      accept_confirm { click_button "Disable" }
+      accept_confirm("Disable: Are you sure?") { click_button "Disable" }
     end
 
     expect(page).to have_content "Value updated"
@@ -102,7 +102,7 @@ describe "Admin feature flags", :admin do
       expect(page).to have_button "Enable"
       expect(page).not_to have_button "Disable"
 
-      accept_confirm { click_button "Enable" }
+      accept_confirm("Enable: Are you sure?") { click_button "Enable" }
     end
 
     expect(page).to have_content "Value updated"

@@ -4,7 +4,7 @@ en:
       title: Administration
     actions:
       actions: Actions
-      confirm: Are you sure?
+      confirm_action: "%{action}: Are you sure?"
       confirm_hide: Confirm moderation
       hide: Hide
       hide_author: Hide author

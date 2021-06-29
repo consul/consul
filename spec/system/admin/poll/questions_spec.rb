@@ -142,7 +142,7 @@ describe "Admin poll questions", :admin do
     visit admin_poll_path(poll)
 
     within("#poll_question_#{question1.id}") do
-      accept_confirm { click_link "Delete" }
+      accept_confirm("Delete: Are you sure?") { click_link "Delete" }
     end
 
     expect(page).not_to have_content(question1.title)

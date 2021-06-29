@@ -55,7 +55,7 @@ describe "Admin valuators", :admin do
   scenario "Destroy" do
     visit admin_valuators_path
 
-    accept_confirm { click_link "Delete" }
+    accept_confirm("Delete: Are you sure?") { click_link "Delete" }
 
     within("#valuators") do
       expect(page).not_to have_content(valuator.name)

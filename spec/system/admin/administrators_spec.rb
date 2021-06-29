@@ -34,7 +34,7 @@ describe "Admin administrators" do
     visit admin_administrators_path
 
     within "#administrator_#{user_administrator.id}" do
-      accept_confirm { click_link "Delete" }
+      accept_confirm("Delete: Are you sure?") { click_link "Delete" }
     end
 
     within("#administrators") do
@@ -46,7 +46,7 @@ describe "Admin administrators" do
     visit admin_administrators_path
 
     within "#administrator_#{admin.id}" do
-      accept_confirm { click_link "Delete" }
+      accept_confirm("Delete: Are you sure?") { click_link "Delete" }
     end
 
     within("#error") do
@@ -110,7 +110,7 @@ describe "Admin administrators" do
       fill_in "Search user by name or email", with: administrator2.email
       click_button "Search"
 
-      accept_confirm { click_link "Delete" }
+      accept_confirm("Delete: Are you sure?") { click_link "Delete" }
 
       expect(page).to have_content(administrator1.email)
       expect(page).not_to have_content(administrator2.email)

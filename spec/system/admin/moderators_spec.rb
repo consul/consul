@@ -28,7 +28,7 @@ describe "Admin moderators", :admin do
   scenario "Delete Moderator" do
     visit admin_moderators_path
 
-    accept_confirm { click_link "Delete" }
+    accept_confirm("Delete: Are you sure?") { click_link "Delete" }
 
     within("#moderators") do
       expect(page).not_to have_content moderator.name
@@ -88,7 +88,7 @@ describe "Admin moderators", :admin do
       fill_in "Search user by name or email", with: moderator2.email
       click_button "Search"
 
-      accept_confirm { click_link "Delete" }
+      accept_confirm("Delete: Are you sure?") { click_link "Delete" }
 
       expect(page).to have_content(moderator1.email)
       expect(page).not_to have_content(moderator2.email)

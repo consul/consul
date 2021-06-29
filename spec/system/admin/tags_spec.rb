@@ -39,7 +39,7 @@ describe "Admin tags", :admin do
     expect(page).to have_content "bad tag"
 
     within("#tag_#{tag2.id}") do
-      accept_confirm { click_link "Delete topic" }
+      accept_confirm("Delete topic: Are you sure?") { click_link "Delete topic" }
     end
 
     expect(page).not_to have_content "bad tag"
@@ -57,7 +57,7 @@ describe "Admin tags", :admin do
     expect(page).to have_content "bad tag"
 
     within("#tag_#{tag2.id}") do
-      accept_confirm { click_link "Delete topic" }
+      accept_confirm("Delete topic: Are you sure?") { click_link "Delete topic" }
     end
 
     expect(page).not_to have_content "bad tag"

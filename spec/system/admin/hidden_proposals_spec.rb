@@ -18,7 +18,7 @@ describe "Admin hidden proposals", :admin do
     proposal = create(:proposal, :hidden)
     visit admin_hidden_proposals_path
 
-    accept_confirm { click_link "Restore" }
+    accept_confirm("Restore: Are you sure?") { click_link "Restore" }
 
     expect(page).not_to have_content(proposal.title)
 
@@ -83,7 +83,7 @@ describe "Admin hidden proposals", :admin do
 
     visit admin_hidden_proposals_path(filter: "with_confirmed_hide", page: 2)
 
-    accept_confirm { click_link "Restore", match: :first, exact: true }
+    accept_confirm("Restore: Are you sure?") { click_link "Restore", match: :first, exact: true }
 
     expect(page).to have_current_path(/filter=with_confirmed_hide/)
     expect(page).to have_current_path(/page=2/)

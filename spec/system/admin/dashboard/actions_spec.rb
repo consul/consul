@@ -94,7 +94,7 @@ describe "Admin dashboard actions", :admin do
     end
 
     scenario "deletes the action" do
-      page.accept_confirm do
+      page.accept_confirm("Delete: Are you sure?") do
         click_link "Delete"
       end
 
@@ -104,7 +104,7 @@ describe "Admin dashboard actions", :admin do
     scenario "can not delete actions that have been executed" do
       _executed_action = create(:dashboard_executed_action, action: action)
 
-      page.accept_confirm do
+      page.accept_confirm("Delete: Are you sure?") do
         click_link "Delete"
       end
 
