@@ -22,7 +22,7 @@ describe "Admin Budgets", :admin do
              name_fr: "Budget pour le changement climatique")
 
       visit admin_budgets_path
-      select "Français", from: "Language:"
+      select_language "Français"
 
       click_link "Bulletins de l’admin"
 

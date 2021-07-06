@@ -15,12 +15,24 @@ class Layout::LocaleSwitcherComponent < ApplicationComponent
       I18n.available_locales
     end
 
+    def number_of_locales_class
+      if many_locales?
+        "many-languages"
+      else
+        "few-languages"
+      end
+    end
+
     def label
       t("layouts.header.locale")
     end
 
     def label_id
       "locale_switcher_label"
+    end
+
+    def dropdown_id
+      "locale_switcher_dropdown"
     end
 
     def language_links

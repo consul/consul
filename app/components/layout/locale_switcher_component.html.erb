@@ -1,11 +1,15 @@
-<div class="locale">
+<div class="locale-switcher <%= number_of_locales_class %>">
+  <p id="<%= label_id %>"><%= label %></p>
+
   <% if many_locales? %>
-    <form class="locale-form">
-      <label class="inline-block" for="locale-switcher"><%= label %></label>
-      <select class="js-location-changer locale-switcher inline-block" name="locale-switcher" id="locale-switcher">
-        <%= options_for_select(language_options, current_path_with_query_params(locale: I18n.locale)) %>
-      </select>
-    </form>
+    <ul class="dropdown menu" data-dropdown-menu data-disable-hover="true" data-click-open="true">
+      <li class="has-submenu">
+        <a href="#" id="<%= dropdown_id %>" aria-labelledby="<%= "#{label_id} #{dropdown_id}" %>">
+          <%= name_for_locale(I18n.locale) %>
+        </a>
+        <%= link_list(*language_links, "aria-labelledby": label_id, class: "menu", "data-submenu": true) %>
+      </li>
+    </ul>
   <% else %>
     <p id="<%= label_id %>"><%= label %></p>
 

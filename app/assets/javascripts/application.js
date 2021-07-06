@@ -53,7 +53,6 @@
 //= require comments
 //= require foundation_extras
 //= require ie_alert
-//= require location_changer
 //= require moderator_comment
 //= require moderator_debates
 //= require moderator_proposals
@@ -114,6 +113,7 @@
 //= require budget_edit_associations
 //= require datepicker
 //= require_tree ./admin
+//= require_tree ./layout
 //= require_tree ./sdg
 //= require_tree ./sdg_management
 
@@ -128,7 +128,7 @@ var initialize_modules = function() {
   App.AllowParticipation.initialize();
   App.Tags.initialize();
   App.FoundationExtras.initialize();
-  App.LocationChanger.initialize();
+  App.LocaleSwitcher.initialize();
   App.CheckAllNone.initialize();
   App.IeAlert.initialize();
   App.AdvancedSearch.initialize();

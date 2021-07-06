@@ -112,7 +112,7 @@ describe "Admin edit translatable records", :admin do
         click_button "Save changes"
 
         visit path
-        select "Português brasileiro", from: "Language:"
+        select_language "Português brasileiro"
 
         expect(page).to have_field "Questão", with: "Português"
       end
@@ -205,7 +205,7 @@ describe "Admin edit translatable records", :admin do
 
         expect(page).to have_field "Title", with: "Title in English"
 
-        select "Español", from: "Language:"
+        select_language "Español"
 
         expect(page).to have_field "Título", with: "Título corregido"
         expect(page).to have_field "Descripción", with: "Descripción corregida"
@@ -234,7 +234,7 @@ describe "Admin edit translatable records", :admin do
 
         expect(page).to have_field "Answer", with: "Answer in English"
 
-        select "Español", from: "Language:"
+        select_language "Español"
 
         expect(page).to have_field "Respuesta", with: "Respuesta corregida"
         expect(page).to have_ckeditor "Descripción", with: "Descripción corregida"
@@ -466,7 +466,7 @@ describe "Admin edit translatable records", :admin do
 
       expect_to_have_language_selected "English"
 
-      select "Español", from: "Language:"
+      select_language "Español"
 
       expect_to_have_language_selected "Español"
     end

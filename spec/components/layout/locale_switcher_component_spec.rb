@@ -16,25 +16,25 @@ describe Layout::LocaleSwitcherComponent, type: :component do
       render_inline component
 
       expect(page.text).to be_empty
-      expect(page).not_to have_css ".locale"
+      expect(page).not_to have_css ".locale-switcher"
     end
   end
 
   context "with many languages" do
     before { allow(I18n).to receive(:available_locales).and_return(%i[de en es fr nl]) }
 
-    it "renders a form to select the language" do
+    it "renders a widget to select the language" do
       render_inline component
 
-      expect(page).to have_css "form"
-      expect(page).to have_select "Language:", options: %w[Deutsch English Español Français Nederlands]
-      expect(page).not_to have_css "ul"
+      expect(page).to have_css "ul.menu"
+      expect(page.find("ul ul")).to have_link count: 5
     end
 
     it "selects the current locale" do
       render_inline component
 
-      expect(page).to have_select "Language:", selected: "English"
+      expect(page).to have_css "[aria-current]", count: 1
+      expect(page).to have_css "[aria-current]", exact_text: "English"
     end
 
     context "missing language names" do
@@ -50,7 +50,7 @@ describe Layout::LocaleSwitcherComponent, type: :component do
       it "renders the locale key" do
         render_inline component
 
-        expect(page).to have_select "Language:", with_options: ["wl"]
+        expect(page).to have_link "wl"
       end
     end
   end

@@ -15,6 +15,13 @@ module CommonActions
   include Verifications
   include Votes
 
+  def select_language(language_name)
+    within ".locale-switcher" do
+      click_link "English"
+      click_link language_name
+    end
+  end
+
   def app_host
     "#{Capybara.app_host}:#{Capybara::Server.ports.values.last}"
   end
