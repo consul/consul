@@ -12,6 +12,10 @@
       <div class="top-links">
         <div class="expanded row">
           <%= render "shared/locale_switcher" %>
+
+          <%= link_to root_path, class: "float-right" do %>
+            <%= t("admin.dashboard.index.back", org: setting["org_name"]) %>
+          <% end %>
         </div>
       </div>
 
@@ -35,6 +39,7 @@
               <div class="top-bar-right">
                 <ul class="menu" data-responsive-menu="medium-dropdown">
                   <%= render "shared/admin_login_items", current_user: manager_logged_in %>
+                  <%= render "layouts/notification_item", current_user: manager_logged_in %>
                   <%= render "devise/menu/login_items", current_user: manager_logged_in %>
                 </ul>
               </div>
