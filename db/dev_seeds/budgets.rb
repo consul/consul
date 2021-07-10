@@ -25,17 +25,20 @@ def add_image_to(imageable)
 end
 
 section "Creating Budgets" do
+  locale_1 = I18n.available_locales.first
+  locale_2 = I18n.available_locales.second
+
   Budget.create!(
-    name_en: "#{I18n.t("seeds.budgets.budget", locale: :en)} #{Date.current.year - 1}",
-    name_es: "#{I18n.t("seeds.budgets.budget", locale: :es)} #{Date.current.year - 1}",
+    "name_#{locale_1}": "#{I18n.t("seeds.budgets.budget", locale: locale_1)} #{Date.current.year - 1}",
+    "name_#{locale_2}": "#{I18n.t("seeds.budgets.budget", locale: locale_2)} #{Date.current.year - 1}",
     currency_symbol: I18n.t("seeds.budgets.currency"),
     phase: "finished",
     published: true
   )
 
   Budget.create!(
-    name_en: "#{I18n.t("seeds.budgets.budget", locale: :en)} #{Date.current.year}",
-    name_es: "#{I18n.t("seeds.budgets.budget", locale: :es)} #{Date.current.year}",
+    "name_#{locale_1}": "#{I18n.t("seeds.budgets.budget", locale: locale_1)} #{Date.current.year}",
+    "name_#{locale_2}": "#{I18n.t("seeds.budgets.budget", locale: locale_2)} #{Date.current.year}",
     currency_symbol: I18n.t("seeds.budgets.currency"),
     phase: "accepting",
     published: true
@@ -56,14 +59,14 @@ section "Creating Budgets" do
 
   Budget.all.each do |budget|
     city_group_params = {
-      name_en: I18n.t("seeds.budgets.groups.all_city", locale: :en),
-      name_es: I18n.t("seeds.budgets.groups.all_city", locale: :es)
+      "name_#{locale_1}": I18n.t("seeds.budgets.groups.all_city", locale: locale_1),
+      "name_#{locale_2}": I18n.t("seeds.budgets.groups.all_city", locale: locale_2)
     }
     city_group = budget.groups.create!(city_group_params)
 
     city_heading_params = {
-      name_en: I18n.t("seeds.budgets.groups.all_city", locale: :en),
-      name_es: I18n.t("seeds.budgets.groups.all_city", locale: :es),
+      "name_#{locale_1}": I18n.t("seeds.budgets.groups.all_city", locale: locale_1),
+      "name_#{locale_2}": I18n.t("seeds.budgets.groups.all_city", locale: locale_2),
       price: 1000000,
       population: 1000000,
       latitude: "40.416775",
@@ -72,14 +75,14 @@ section "Creating Budgets" do
     city_group.headings.create!(city_heading_params)
 
     districts_group_params = {
-      name_en: I18n.t("seeds.budgets.groups.districts", locale: :en),
-      name_es: I18n.t("seeds.budgets.groups.districts", locale: :es)
+      "name_#{locale_1}": I18n.t("seeds.budgets.groups.districts", locale: locale_1),
+      "name_#{locale_2}": I18n.t("seeds.budgets.groups.districts", locale: locale_2)
     }
     districts_group = budget.groups.create!(districts_group_params)
 
     north_heading_params = {
-      name_en: I18n.t("seeds.geozones.north_district", locale: :en),
-      name_es: I18n.t("seeds.geozones.north_district", locale: :es),
+      "name_#{locale_1}": I18n.t("seeds.geozones.north_district", locale: locale_1),
+      "name_#{locale_2}": I18n.t("seeds.geozones.north_district", locale: locale_2),
       price: rand(5..10) * 100000,
       population: 350000,
       latitude: "40.416775",
@@ -88,8 +91,8 @@ section "Creating Budgets" do
     districts_group.headings.create!(north_heading_params)
 
     west_heading_params = {
-      name_en: I18n.t("seeds.geozones.west_district", locale: :en),
-      name_es: I18n.t("seeds.geozones.west_district", locale: :es),
+      "name_#{locale_1}": I18n.t("seeds.geozones.west_district", locale: locale_1),
+      "name_#{locale_2}": I18n.t("seeds.geozones.west_district", locale: locale_2),
       price: rand(5..10) * 100000,
       population: 300000,
       latitude: "40.416775",
@@ -98,8 +101,8 @@ section "Creating Budgets" do
     districts_group.headings.create!(west_heading_params)
 
     east_heading_params = {
-      name_en: I18n.t("seeds.geozones.east_district", locale: :en),
-      name_es: I18n.t("seeds.geozones.east_district", locale: :es),
+      "name_#{locale_1}": I18n.t("seeds.geozones.east_district", locale: locale_1),
+      "name_#{locale_2}": I18n.t("seeds.geozones.east_district", locale: locale_2),
       price: rand(5..10) * 100000,
       population: 200000,
       latitude: "40.416775",
@@ -108,8 +111,8 @@ section "Creating Budgets" do
     districts_group.headings.create!(east_heading_params)
 
     central_heading_params = {
-      name_en: I18n.t("seeds.geozones.central_district", locale: :en),
-      name_es: I18n.t("seeds.geozones.central_district", locale: :es),
+      "name_#{locale_1}": I18n.t("seeds.geozones.central_district", locale: locale_1),
+      "name_#{locale_2}": I18n.t("seeds.geozones.central_district", locale: locale_2),
       price: rand(5..10) * 100000,
       population: 150000,
       latitude: "40.416775",
