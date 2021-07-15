@@ -274,7 +274,7 @@ GEM
       railties
       sprockets-rails
     graphql (1.11.5)
-    groupdate (5.2.1)
+    groupdate (5.2.2)
       activesupport (>= 5)
     gyoku (1.3.1)
       builder (>= 2.1.2)
@@ -288,7 +288,7 @@ GEM
     httpi (2.4.5)
       rack
       socksify
-    i18n (1.8.9)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.31)
       activesupport (>= 4.0.2)
@@ -717,7 +717,7 @@ DEPENDENCIES
   globalize-accessors (~> 0.2.1)
   graphiql-rails (~> 1.7.0)
   graphql (~> 1.11.5)
-  groupdate (~> 5.2.1)
+  groupdate (~> 5.2.2)
   i18n-tasks (~> 0.9.31)
   initialjs-rails (~> 0.2.0.9)
   invisible_captcha (~> 1.1.0)
