@@ -71,8 +71,8 @@ GEM
       activerecord (>= 4.2.0)
     arel (9.0.0)
     ast (2.4.2)
-    audited (4.9.0)
-      activerecord (>= 4.2, < 6.1)
+    audited (4.10.0)
+      activerecord (>= 4.2, < 6.2)
     autoprefixer-rails (8.2.0)
       execjs
     babel-source (5.8.35)
@@ -288,7 +288,7 @@ GEM
     httpi (2.4.5)
       rack
       socksify
-    i18n (1.8.9)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.31)
       activesupport (>= 4.0.2)
@@ -681,7 +681,7 @@ DEPENDENCIES
   ahoy_matey (~> 1.6.0)
   airbrake (~> 5.0)
   ancestry (~> 3.2.1)
-  audited (~> 4.9.0)
+  audited (~> 4.10.0)
   autoprefixer-rails (~> 8.2.0)
   bullet (~> 6.1.0)
   byebug (~> 11.1.3)
