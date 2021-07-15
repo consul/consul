@@ -75,7 +75,7 @@ group :development, :test do
   gem "database_cleaner", "~> 1.8.5"
   gem "factory_bot_rails", "~> 4.8.2"
   gem "faker", "~> 1.8.7"
-  gem "i18n-tasks", "~> 0.9.31"
+  gem "i18n-tasks", "~> 0.9.34"
   gem "knapsack_pro", "~> 2.6.0"
   gem "launchy", "~> 2.5.0"
   gem "letter_opener_web", "~> 1.4.0"

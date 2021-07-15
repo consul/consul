@@ -288,9 +288,9 @@ GEM
     httpi (2.4.5)
       rack
       socksify
-    i18n (1.8.9)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (0.9.31)
+    i18n-tasks (0.9.34)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
       erubi
@@ -343,7 +343,7 @@ GEM
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
-    loofah (2.9.0)
+    loofah (2.9.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -363,7 +363,7 @@ GEM
     mimemagic (0.3.8)
       nokogiri (~> 1)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.1)
+    mini_portile2 (2.5.3)
     minitest (5.14.4)
     mixlib-cli (2.1.8)
     mixlib-config (3.0.9)
@@ -718,7 +718,7 @@ DEPENDENCIES
   graphiql-rails (~> 1.7.0)
   graphql (~> 1.11.5)
   groupdate (~> 5.2.1)
-  i18n-tasks (~> 0.9.31)
+  i18n-tasks (~> 0.9.34)
   initialjs-rails (~> 0.2.0.9)
   invisible_captcha (~> 1.1.0)
   jquery-fileupload-rails
