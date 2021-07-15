@@ -127,6 +127,18 @@ class Mailer < ApplicationMailer
     mail(to: @email_to.email, subject: @email.subject) if @email.can_be_sent?
   end
 
+  def machine_learning_error(user)
+    @email_to = user.email
+
+    mail(to: @email_to, subject: t("mailers.machine_learning_error.subject"))
+  end
+
+  def machine_learning_success(user)
+    @email_to = user.email
+
+    mail(to: @email_to, subject: t("mailers.machine_learning_success.subject"))
+  end
+
   private
 
     def with_user(user)

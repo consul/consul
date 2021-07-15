@@ -1,0 +1,61 @@
+<div class="tabs-panel is-active" id="scripts">
+  <% if machine_learning_job.errored? %>
+    <div class="callout alert">
+      <p>
+        <span class="fas fa-ban"></span>
+        <strong><%= t("admin.machine_learning.notice.error") %></strong>
+      </p>
+
+      <p>
+        <strong><%= t("admin.machine_learning.executed_by") %></strong> <%= machine_learning_job.user.name %><br>
+        <strong><%= t("admin.machine_learning.script_name") %></strong> <%= machine_learning_job.script %><br>
+        <strong><%= t("admin.machine_learning.error") %></strong> <%= sanitize(machine_learning_job.error) %>
+      </p>
+    </div>
+  <% elsif machine_learning_job.finished? %>
+    <div class="callout success">
+      <span class="fas fa-check-circle"></span>
+      <strong><%= t("admin.machine_learning.notice.success") %></strong>
+    </div>
+  <% elsif machine_learning_job.started? %>
+    <div class="callout warning">
+      <p>
+        <span class="fas fa-hourglass-half"></span>
+        <strong><%= t("admin.machine_learning.notice.working") %></strong>
+      </p>
+
+      <p>
+        <strong><%= t("admin.machine_learning.executed_by") %></strong> <%= machine_learning_job.user.name %><br>
+        <strong><%= t("admin.machine_learning.script_name") %></strong> <%= machine_learning_job.script %><br>
+        <strong><%= t("admin.machine_learning.started_at") %></strong> <%= machine_learning_job.started_at %>
+      </p>
+    </div>
+  <% end %>
+
+  <% if machine_learning_job.running_for_too_long? %>
+    <%= link_to t("admin.machine_learning.cancel"),
+                cancel_admin_machine_learning_path,
+                method: :post, class: "button hollow alert",
+                data: { confirm: t("admin.machine_learning.cancel_alert") } %>
+  <% elsif machine_learning_job.errored? || !machine_learning_job.started? || machine_learning_job.finished? %>
+    <div class="small-12 column">
+      <div class="small-12 medium-6 large-4 margin-bottom end">
+        <%= form_tag execute_admin_machine_learning_path, method: :post do %>
+          <label for="script"><%= t("admin.machine_learning.select_script") %></label>
+          <%= select_tag "script", options_for_select(script_select_options), class: "js-ml-script-select" %>
+
+          <div id="script_descriptions">
+            <% @scripts_info.each_with_index do |script_info, index| %>
+            <div id="<%= script_info[:name] %>"
+                 class="help-text margin-bottom <%= index.zero? ? "" : "hide" %>">
+              <%= sanitize(script_info[:description]) %>
+            </div>
+            <% end %>
+          </div>
+
+          <%= submit_tag t("admin.machine_learning.execute_script"), class: "button primary" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

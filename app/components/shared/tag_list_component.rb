@@ -23,7 +23,7 @@ class Shared::TagListComponent < ApplicationComponent
     end
 
     def see_more_link
-      render Shared::SeeMoreLinkComponent.new(taggable, :tags, limit: limit)
+      render Shared::SeeMoreLinkComponent.new(taggable, :tags_list, limit: limit)
     end
 
     def taggables_path(taggable, tag_name)

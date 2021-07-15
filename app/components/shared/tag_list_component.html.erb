@@ -1,1 +1,11 @@
+<% if Setting["machine_learning.tags"] && action_name == "show" %>
+  <% if taggable.tags_list.any? %>
+    <div class="machine-learning-info">
+      <span data-tooltip class="top" tabindex="2" title="<%= t("machine_learning.info_text") %>">
+        <span class="fas fa-info-circle"></span>
+        <span class="show-for-sr"><%= t("machine_learning.info_text") %></span>
+      </span>
+    </div>
+  <% end %>
+<% end %>
 <%= link_list(*links, class: "tags", id: "tags_#{dom_id(taggable)}") %>

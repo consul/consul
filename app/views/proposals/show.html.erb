@@ -13,15 +13,11 @@
   <%= render "shared/canonical", href: proposal_url(@proposal) %>
 <% end %>
 
-<% cache [locale_and_user_status(@proposal),
-          @proposal,
-          @proposal.author,
-          Flag.flagged?(current_user, @proposal),
-          @proposal.followed_by?(current_user),
-          @proposal_votes] do %>
-  <div class="proposal-show">
-    <div id="<%= dom_id(@proposal) %>" class="row">
-      <div class="small-12 medium-9 column">
+<div class="proposal-show">
+  <div id="<%= dom_id(@proposal) %>" class="row">
+    <div class="small-12 medium-9 column">
+      <% cache ["proposal_title", locale_and_user_status(@proposal), @proposal, @proposal.author, @proposal_votes,
+                Flag.flagged?(current_user, @proposal), @proposal.followed_by?(current_user)] do %>
         <%= back_link_to proposals_path unless preview %>
 
         <h1><%= @proposal.title %></h1>
@@ -38,20 +34,29 @@
             <strong><%= t("proposals.show.flag") %></strong>
           </div>
         <% end %>
+      <% end %>
 
-        <%= render "proposals/info", proposal: @proposal %>
+      <%= render "proposals/info", proposal: @proposal %>
+
+      <% cache ["proposal_geozone", locale_and_user_status(@proposal), @proposal, @proposal.author,
+                @proposal_votes, Flag.flagged?(current_user, @proposal),
+                @proposal.followed_by?(current_user)] do %>
         <%= render "shared/geozone", geozonable: @proposal %>
+      <% end %>
 
-        <% unless @proposal.selected? %>
-          <%= render "relationable/related_content", relationable: @proposal %>
-        <% end %>
+      <% unless @proposal.selected? %>
+        <%= render "relationable/related_content", relationable: @proposal %>
+      <% end %>
 
-        <div class="js-moderator-proposal-actions margin">
-          <%= render "proposals/actions", proposal: @proposal %>
-        </div>
+      <div class="js-moderator-proposal-actions margin">
+        <%= render "proposals/actions", proposal: @proposal %>
       </div>
+    </div>
 
-      <% unless preview %>
+    <% unless preview %>
+      <% cache ["proposal_sidebar", locale_and_user_status(@proposal), @proposal, @proposal.author,
+                @proposal_votes, Flag.flagged?(current_user, @proposal),
+                @proposal.followed_by?(current_user)] do %>
         <aside class="small-12 medium-3 column">
           <% if can?(:dashboard, @proposal) %>
             <div class="sidebar-divider"></div>
@@ -80,9 +85,9 @@
           <%= render "communities/access_button", community: @proposal.community %>
         </aside>
       <% end %>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>
 
 <% unless preview %>
   <div class="additional-content">

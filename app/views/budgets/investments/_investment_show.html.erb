@@ -7,22 +7,17 @@
             og_image_url: (investment.image.present? ? investment.image_url(:thumb) : nil) %>
 <% end %>
 
-<% cache [locale_and_user_status(investment),
-          investment,
-          investment.image,
-          investment.author,
-          Flag.flagged?(current_user, investment),
-          investment.followed_by?(current_user),
-          current_user&.voted_for?(investment)] do %>
-  <section class="budget-investment-show" id="<%= dom_id(investment) %>">
+<section class="budget-investment-show" id="<%= dom_id(investment) %>">
 
-    <div class="row">
-      <div class="small-12 medium-9 column">
-        <%= back_link_to budget_investments_path(investment.budget, heading_id: investment.heading) %>
+  <div class="row">
+    <div class="small-12 medium-9 column">
+      <%= back_link_to budget_investments_path(investment.budget, heading_id: investment.heading) %>
 
-        <%= render "/budgets/investments/investment_detail", investment: investment %>
-      </div>
-
+      <%= render "/budgets/investments/investment_detail", investment: investment %>
+    </div>
+    <% cache [locale_and_user_status(investment), investment, investment.image, investment.author,
+              Flag.flagged?(current_user, investment), investment.followed_by?(current_user),
+              current_user&.voted_for?(investment)] do %>
       <aside class="small-12 medium-3 column">
         <%= render "/budgets/investments/author_actions", investment: investment %>
 
@@ -122,7 +117,7 @@
 
         <%= render "communities/access_button", community: investment.community %>
 
-       </aside>
-    </div>
-  </section>
-<% end %>
+      </aside>
+    <% end %>
+  </div>
+</section>

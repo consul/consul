@@ -108,6 +108,10 @@
     &.users-link {
       @include icon(user, solid);
     }
+
+    &.ml-link {
+      @include icon(brain, solid);
+    }
   }
 
   li {

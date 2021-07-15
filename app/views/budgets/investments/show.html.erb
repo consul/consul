@@ -16,6 +16,8 @@
 
 <div class="tabs-content" data-tabs-content="investments_tabs">
   <div class="tabs-panel is-active" id="tab-comments">
+    <%= render "shared/machine_learning_comments_summary", commentable: @investment %>
+
     <%= render "/comments/comment_tree", comment_tree: @comment_tree,
                                          display_comments_count: false %>
   </div>

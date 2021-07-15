@@ -101,6 +101,7 @@ class Setting < ApplicationRecord
         "feature.valuation_comment_notification": true,
         "feature.graphql_api": true,
         "feature.sdg": false,
+        "feature.machine_learning": false,
         "homepage.widgets.feeds.debates": true,
         "homepage.widgets.feeds.processes": true,
         "homepage.widgets.feeds.proposals": true,
@@ -190,7 +191,10 @@ class Setting < ApplicationRecord
         "sdg.process.proposals": true,
         "sdg.process.polls": true,
         "sdg.process.budgets": true,
-        "sdg.process.legislation": true
+        "sdg.process.legislation": true,
+        "machine_learning.related_content": false,
+        "machine_learning.comments_summary": false,
+        "machine_learning.tags": false
       }
     end
 

@@ -12,6 +12,16 @@ class Budget::Investment::Exporter
     end
   end
 
+  def to_json_file(filename)
+    investments = []
+    Budget::Investment.find_each do |investment|
+      investments << json_values(investment)
+    end
+    File.open(filename, "w") do |file|
+      file.write(investments.to_json)
+    end
+  end
+
   private
 
     def headers
@@ -63,5 +73,17 @@ class Budget::Investment::Exporter
       else
         I18n.t(price_string)
       end
+    end
+
+    def json_values(investment)
+      {
+        id: investment.id,
+        title: investment.title,
+        description: strip_tags(investment.description)
+      }
+    end
+
+    def strip_tags(html_string)
+      ActionView::Base.full_sanitizer.sanitize(html_string)
     end
 end

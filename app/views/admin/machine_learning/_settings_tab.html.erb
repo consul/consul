@@ -1,0 +1,66 @@
+<div class="tabs-panel" id="settings">
+  <% script_kinds.each do |kind| %>
+    <% setting = Setting.find_by(key: "machine_learning.#{kind}") %>
+
+    <div class="small-12 medium-6 large-4 column end" id="<%= dom_id(setting) %>">
+      <div class="card">
+        <div class="card-divider">
+          <h3 id="machine_learning_<%= kind %>"><%= t("admin.machine_learning.#{kind}") %></h3>
+        </div>
+        <div class="card-section">
+          <p id="machine_learning_<%= kind %>_description"><%= t("admin.machine_learning.#{kind}_description") %></p>
+
+          <% ml_info = MachineLearningInfo.for(kind) %>
+          <% if ml_info.present? %>
+            <%= form_for(setting, url: admin_setting_path(setting), method: :put) do |f| %>
+              <%= f.hidden_field :tab, value: "#settings", id: "setting_tab_#{kind}" %>
+              <%= f.hidden_field :value, value: (setting.enabled? ? "" : "active"), id: "setting_value_#{kind}" %>
+              <%= f.button(t("shared.#{setting.enabled? ? "yes" : "no"}"),
+                           class: "button-switch",
+                           "aria-labelledby": "machine_learning_#{kind}",
+                           "aria-describedby": "machine_learning_#{kind}_description",
+                           "aria-pressed": setting.enabled?) %>
+            <% end %>
+
+            <div class="callout success small">
+              <div class="margin-bottom">
+                <strong>
+                  <%= t("admin.machine_learning.last_execution") %><br>
+                  <%= ml_info.generated_at.strftime("%Y/%m/%d - %H:%M") %> |
+                  <%= ml_info.updated_at.strftime("%Y/%m/%d - %H:%M") %>
+                </strong>
+              </div>
+
+              <div class="margin-bottom">
+                <%= t("admin.machine_learning.executed_script") %>
+                <br>
+                <%= ml_info.script %>
+              </div>
+
+              <div class="margin-bottom">
+                <%= t("admin.machine_learning.output_files") %>
+                <br>
+                <% MachineLearning.data_output_files[ml_info.kind.to_sym].sort.each do |filename| %>
+                  <a href="<%= MachineLearning.data_path(filename) %>" target="_blank"><%= filename %></a><br>
+                <% end %>
+              </div>
+            </div>
+          <% else %>
+            <div class="callout secondary">
+              <%= t("admin.machine_learning.no_content") %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="small-12 column">
+    <div class="callout secondary">
+      <p><strong><%= t("admin.machine_learning.data_folder_content") %></strong></p>
+
+      <% MachineLearning.data_intermediate_files.each do |filename| %>
+        <a href="<%= MachineLearning.data_path(filename) %>" target="_blank"><%= filename %></a><br>
+      <% end %>
+    </div>
+  </div>
+</div>

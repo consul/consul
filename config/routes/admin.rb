@@ -270,6 +270,11 @@ namespace :admin do
   namespace :local_census_records do
     resources :imports, only: [:new, :create, :show]
   end
+
+  resource :machine_learning, controller: :machine_learning, only: [:show] do
+    post :execute, on: :collection
+    post :cancel, on: :collection
+  end
 end
 
 resolve "Milestone" do |milestone|

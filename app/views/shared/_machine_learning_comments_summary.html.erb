@@ -1,0 +1,16 @@
+<% if feature?(:machine_learning) && Setting["machine_learning.comments_summary"] %>
+  <% if commentable.summary_comment&.body.present? %>
+    <div class="row column margin-bottom">
+      <p>
+        <span data-tooltip class="top" tabindex="2" title="<%= t("machine_learning.info_text") %>">
+          <span class="fas fa-info-circle"></span>
+          <span class="show-for-sr"><%= t("machine_learning.info_text") %></span>
+        </span>
+        <strong><%= t("machine_learning.comments_summary") %></strong>
+      </p>
+
+      <p><%= simple_format(commentable.summary_comment.body) %></p>
+      <hr>
+    </div>
+  <% end %>
+<% end %>

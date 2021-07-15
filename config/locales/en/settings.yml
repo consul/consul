@@ -132,6 +132,8 @@ en:
         notification_emails_description: "Enable sending dashboard notification emails to proposal's authors"
       sdg: SDG
       sdg_description: Enable Sustainable Development Goals sections in the administration menu and in the Global Settings.
+      machine_learning: "AI / Machine learning"
+      machine_learning_description: "Enable the AI / Machine Learning section to run python scripts and enrich content automatically."
     remote_census:
       general:
         endpoint: "Endpoint"

@@ -1,76 +1,79 @@
-<div class="proposal-info">
-  <%= render "/shared/author_info", resource: @proposal %>
+<% cache [locale_and_user_status(@proposal), @proposal, @proposal.author, @proposal_votes,
+          Flag.flagged?(current_user, @proposal), @proposal.followed_by?(current_user)] do %>
+  <div class="proposal-info">
+    <%= render "/shared/author_info", resource: @proposal %>
 
-  <span class="bullet">&nbsp;&bull;&nbsp;</span>
-  <%= l @proposal.created_at.to_date %>
+    <span class="bullet">&nbsp;&bull;&nbsp;</span>
+    <%= l @proposal.created_at.to_date %>
 
+    <% unless @proposal.selected? %>
+      <span class="bullet">&nbsp;&bull;&nbsp;</span>
+      <span class="icon-comments"></span>&nbsp;
+      <%= link_to t("proposals.show.comments", count: @proposal.comments_count), "#comments" %>
+    <% end %>
+
+    <% if current_user %>
+      <span class="bullet">&nbsp;&bull;&nbsp;</span>
+      <span class="js-flag-actions">
+        <%= render "shared/flag_actions", flaggable: @proposal %>
+      </span>
+    <% end %>
+
+  </div>
+
+  <%= render_image(@proposal.image, :large, true) if @proposal.image.present? %>
+
+  <br>
   <% unless @proposal.selected? %>
-    <span class="bullet">&nbsp;&bull;&nbsp;</span>
-    <span class="icon-comments"></span>&nbsp;
-    <%= link_to t("proposals.show.comments", count: @proposal.comments_count), "#comments" %>
-  <% end %>
-
-  <% if current_user %>
-    <span class="bullet">&nbsp;&bull;&nbsp;</span>
-    <span class="js-flag-actions">
-      <%= render "shared/flag_actions", flaggable: @proposal %>
-    </span>
-  <% end %>
-
-</div>
-
-<%= render_image(@proposal.image, :large, true) if @proposal.image.present? %>
-
-<br>
-<% unless @proposal.selected? %>
-  <p>
-    <%= t("proposals.show.code") %>
-    <strong><%= @proposal.code %></strong>
-  </p>
-<% end %>
-
-<blockquote><%= @proposal.summary %></blockquote>
-
-<% if @proposal.video_url.present? %>
-  <div class="small-12 medium-7 small-centered">
-    <div class="flex-video">
-      <div id="js-embedded-video" data-video-code="<%= embedded_video_code(@proposal) %>"></div>
-    </div>
-  </div>
-<% end %>
-
-<%= auto_link_already_sanitized_html wysiwyg(@proposal.description) %>
-
-<% if feature?(:map) && map_location_available?(@proposal.map_location) %>
-  <div class="margin">
-    <%= render_map(@proposal.map_location, "proposal", false, nil) %>
-  </div>
-<% end %>
-
-<% if @proposal.video_url.present? %>
-  <div class="video-link">
     <p>
-      <span class="icon-video"></span>&nbsp;
-      <strong><%= t("proposals.show.title_video_url") %></strong>
+      <%= t("proposals.show.code") %>
+      <strong><%= @proposal.code %></strong>
     </p>
-    <%= sanitize_and_auto_link @proposal.video_url %>
-  </div>
-<% end %>
+  <% end %>
 
-<% if @proposal.retired? %>
-  <div id="retired_explanation" class="callout">
-    <h2>
-      <%= t("proposals.show.retired") %>:
-      <%= t("proposals.retire_options.#{@proposal.retired_reason}") unless @proposal.retired_reason == "other" %>
-    </h2>
-    <%= simple_format sanitize_and_auto_link(@proposal.retired_explanation), {}, sanitize: false %>
-  </div>
-<% end %>
+  <blockquote><%= @proposal.summary %></blockquote>
 
-<% if feature?(:allow_attached_documents) %>
-  <%= render "documents/documents",
-              documents: @proposal.documents,
-              max_documents_allowed: Proposal.max_documents_allowed %>
+  <% if @proposal.video_url.present? %>
+    <div class="small-12 medium-7 small-centered">
+      <div class="flex-video">
+        <div id="js-embedded-video" data-video-code="<%= embedded_video_code(@proposal) %>"></div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= auto_link_already_sanitized_html wysiwyg(@proposal.description) %>
+
+  <% if feature?(:map) && map_location_available?(@proposal.map_location) %>
+    <div class="margin">
+      <%= render_map(@proposal.map_location, "proposal", false, nil) %>
+    </div>
+  <% end %>
+
+  <% if @proposal.video_url.present? %>
+    <div class="video-link">
+      <p>
+        <span class="icon-video"></span>&nbsp;
+        <strong><%= t("proposals.show.title_video_url") %></strong>
+      </p>
+      <%= sanitize_and_auto_link @proposal.video_url %>
+    </div>
+  <% end %>
+
+  <% if @proposal.retired? %>
+    <div id="retired_explanation" class="callout">
+      <h2>
+        <%= t("proposals.show.retired") %>:
+        <%= t("proposals.retire_options.#{@proposal.retired_reason}") unless @proposal.retired_reason == "other" %>
+      </h2>
+      <%= simple_format sanitize_and_auto_link(@proposal.retired_explanation), {}, sanitize: false %>
+    </div>
+  <% end %>
+
+  <% if feature?(:allow_attached_documents) %>
+    <%= render "documents/documents",
+                documents: @proposal.documents,
+                max_documents_allowed: Proposal.max_documents_allowed %>
+  <% end %>
 <% end %>
 
 <%= render "shared/tags", taggable: @proposal %>

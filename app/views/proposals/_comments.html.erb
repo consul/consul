@@ -1,1 +1,3 @@
-<%= render Shared::CommentsComponent.new(@proposal, @comment_tree) %>
+<%= render Shared::CommentsComponent.new(@proposal, @comment_tree) do %>
+  <%= render "shared/machine_learning_comments_summary", commentable: @proposal %>
+<% end %>

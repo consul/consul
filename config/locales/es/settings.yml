@@ -132,6 +132,8 @@ es:
         notification_emails_description: "Activar el envío de emails de notificaciones a los autores de las propuestas en la sección de panel de progreso"
       sdg: ODS
       sdg_description: Habilitar secciones relacionadas con Objetivos de Desarrollo Sostenible en el menú de administración y en la sección de Configuración Global.
+      machine_learning: "IA / Machine learning"
+      machine_learning_description: "Habilita la sección de IA / Machine Learning para ejecutar scripts de python y enriquecer el contenido automáticamente."
     remote_census:
       general:
         endpoint: "Endpoint"

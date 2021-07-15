@@ -1,0 +1,42 @@
+<h1><%= t("admin.machine_learning.title") %></h1>
+
+<% if Setting["feature.machine_learning"].present? %>
+  <div class="callout primary">
+    <span class="fas fa-flask"></span>
+    <strong><%= sanitize(t("admin.machine_learning.help_text")) %></strong>
+  </div>
+
+  <ul class="tabs" data-tabs id="machine_learning_tabs" data-deep-link="true">
+    <li class="tabs-title is-active">
+      <a href="#scripts">
+        <%= t("admin.machine_learning.tab_scripts") %>
+      </a>
+    </li>
+    <li class="tabs-title">
+      <a href="#settings">
+        <%= t("admin.machine_learning.tab_settings") %>
+      </a>
+    </li>
+    <li class="tabs-title">
+      <a href="#help">
+        <%= t("admin.machine_learning.tab_help") %>
+      </a>
+    </li>
+  </ul>
+
+  <div class="tabs-content" data-tabs-content="machine_learning_tabs">
+    <%= render "scripts_tab", machine_learning_job: @machine_learning_job %>
+
+    <%= render "settings_tab", script_kinds: @script_kinds %>
+
+    <%= render "help_tab" %>
+  </div>
+<% else %>
+  <div class="callout primary">
+    <p>
+      <%= sanitize(t("admin.machine_learning.feature_disabled",
+                      link: link_to(t("admin.machine_learning.feature_disabled_link"),
+                                    admin_settings_path(anchor: "tab-feature-flags")))) %>
+    </p>
+  </div>
+<% end %>

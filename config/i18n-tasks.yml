@@ -221,7 +221,7 @@ ignore_unused:
   - "sdg.goals.goal_*"
   - "sdg.*.filter.more.*"
   - "sdg_management.relations.index.filter*"
-  - "tags.filter.more.*"
+  - "tags.list.filter.more.*"
 ####
 ## Exclude these keys from the `i18n-tasks eq-base" report:
 # ignore_eq_base:

@@ -133,3 +133,13 @@ es:
       text_9: "También encontrarás esta nueva acción de difusión recomendada…"
       text_10: "¡Seguro que tienes más recursos pendientes de usar!"
       dashboard_button: "Adelante, ¡descúbrelos!"
+    machine_learning_error:
+      subject: "Machine learning - Se ha producido un error"
+      title: "Script Machine Learning"
+      text: "Se ha producido un error ejecutando el script de Machine Learning."
+      link: "Visitar el panel de Machine Learning"
+    machine_learning_success:
+      subject: "Machine learning - Contenido generado correctamente"
+      title: "Script Machine Learning"
+      text: "El contenido ha sido generado correctamente."
+      link: "Visitar el panel de Machine Learning"

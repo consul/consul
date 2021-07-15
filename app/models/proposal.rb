@@ -41,6 +41,7 @@ class Proposal < ApplicationRecord
   has_many :dashboard_executed_actions, dependent: :destroy, class_name: "Dashboard::ExecutedAction"
   has_many :dashboard_actions, through: :dashboard_executed_actions, class_name: "Dashboard::Action"
   has_many :polls, as: :related, inverse_of: :related
+  has_one :summary_comment, as: :commentable, class_name: "MlSummaryComment", dependent: :destroy
 
   validates_translation :title, presence: true, length: { in: 4..Proposal.title_max_length }
   validates_translation :description, length: { maximum: Proposal.description_max_length }

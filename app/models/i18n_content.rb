@@ -52,6 +52,8 @@ class I18nContent < ApplicationRecord
   def self.translations_for(tab)
     if tab.to_s == "basic"
       basic_translations
+    elsif tab.to_s == "machine_learning"
+      machine_learning_translations
     else
       flat_hash(translations_hash_for(tab)).keys
     end
@@ -92,6 +94,20 @@ class I18nContent < ApplicationRecord
       legislation.processes.index.section_footer.description
       budgets.index.section_footer.title
       budgets.index.section_footer.description
+    ]
+  end
+
+  def self.machine_learning_translations
+    %w[
+      admin.machine_learning.title
+      machine_learning.comments_summary
+      machine_learning.info_text
+      admin.machine_learning.comments_summary
+      admin.machine_learning.comments_summary_description
+      admin.machine_learning.related_content
+      admin.machine_learning.related_content_description
+      admin.machine_learning.tags
+      admin.machine_learning.tags_description
     ]
   end
 

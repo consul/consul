@@ -133,3 +133,13 @@ en:
       text_9: "You will also find this new recommended dissemination action..."
       text_10: "You sure have more resources to use!"
       dashboard_button: "Go ahead, discover them!"
+    machine_learning_error:
+      subject: "Machine Learning - An error has occurred running the script"
+      title: "Machine Learning script"
+      text: "An error has occurred running the Machine Learning script."
+      link: "Visit Machine Learning panel"
+    machine_learning_success:
+      subject: "Machine Learning - Content has been generated successfully"
+      title: "Machine Learning script"
+      text: "Content has been generated successfully."
+      link: "Visit Machine Learning panel"

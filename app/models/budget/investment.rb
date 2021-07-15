@@ -50,6 +50,7 @@ class Budget
     has_many :valuator_groups, through: :valuator_group_assignments
 
     has_many :comments, -> { where(valuation: false) }, as: :commentable, inverse_of: :commentable
+    has_one :summary_comment, as: :commentable, class_name: "MlSummaryComment", dependent: :destroy
     has_many :valuations, -> { where(valuation: true) },
       as:         :commentable,
       inverse_of: :commentable,

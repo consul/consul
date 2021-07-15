@@ -1,71 +1,79 @@
-<h1><%= investment.title %></h1>
-<div class="budget-investment-info">
-  <%= render "/shared/author_info", resource: investment %>
+<% cache ["investment_info", locale_and_user_status(investment), investment, investment.image, investment.author,
+          Flag.flagged?(current_user, investment), investment.followed_by?(current_user),
+          @investment_votes] do %>
+  <h1><%= investment.title %></h1>
+  <div class="budget-investment-info">
+    <%= render "/shared/author_info", resource: investment %>
 
-  <span class="bullet">&nbsp;&bull;&nbsp;</span>
-  <%= l investment.created_at.to_date %>
-  <span class="bullet">&nbsp;&bull;&nbsp;</span>
-  <%= investment.heading.name %>
-  <span class="bullet">&nbsp;&bull;&nbsp;</span>
-  <% if local_assigns[:preview].nil? %>
-    <span class="js-flag-actions">
-      <%= render "shared/flag_actions", flaggable: investment %>
-    </span>
-  <% end %>
-</div>
-
-<br>
-
-<%= render_image(investment.image, :large, true) if investment.image.present? %>
-
-<p id="investment_code">
-  <%= sanitize(t("budgets.investments.show.code", code: investment.id)) %>
-</p>
-
-<%= auto_link_already_sanitized_html wysiwyg(investment.description) %>
-
-<% if feature?(:map) && map_location_available?(@investment.map_location) %>
-  <div class="margin">
-    <%= render_map(investment.map_location, "budget_investment", false, nil) %>
+    <span class="bullet">&nbsp;&bull;&nbsp;</span>
+    <%= l investment.created_at.to_date %>
+    <span class="bullet">&nbsp;&bull;&nbsp;</span>
+    <%= investment.heading.name %>
+    <span class="bullet">&nbsp;&bull;&nbsp;</span>
+    <% if local_assigns[:preview].nil? %>
+      <span class="js-flag-actions">
+        <%= render "shared/flag_actions", flaggable: investment %>
+      </span>
+    <% end %>
   </div>
-<% end %>
 
-<% if investment.location.present? %>
-  <p>
-    <%= sanitize(t("budgets.investments.show.location", location: investment.location)) %>
+  <br>
+
+  <%= render_image(investment.image, :large, true) if investment.image.present? %>
+
+  <p id="investment_code">
+    <%= sanitize(t("budgets.investments.show.code", code: investment.id)) %>
   </p>
-<% end %>
 
-<% if investment.organization_name.present? %>
-  <p>
-    <%= sanitize(t("budgets.investments.show.organization_name", name: investment.organization_name)) %>
-  </p>
-<% end %>
+  <%= auto_link_already_sanitized_html wysiwyg(investment.description) %>
 
-<% if feature?(:allow_attached_documents) %>
-  <%= render "documents/documents",
-              documents: investment.documents,
-              max_documents_allowed: Budget::Investment.max_documents_allowed %>
+  <% if feature?(:map) && map_location_available?(@investment.map_location) %>
+    <div class="margin">
+      <%= render_map(investment.map_location, "budget_investment", false, nil) %>
+    </div>
+  <% end %>
+
+  <% if investment.location.present? %>
+    <p>
+      <%= sanitize(t("budgets.investments.show.location", location: investment.location)) %>
+    </p>
+  <% end %>
+
+  <% if investment.organization_name.present? %>
+    <p>
+      <%= sanitize(t("budgets.investments.show.organization_name", name: investment.organization_name)) %>
+    </p>
+  <% end %>
+
+  <% if feature?(:allow_attached_documents) %>
+    <%= render "documents/documents",
+                documents: investment.documents,
+                max_documents_allowed: Budget::Investment.max_documents_allowed %>
+  <% end %>
 <% end %>
 
 <%= render "shared/tags", taggable: investment %>
 
-<% if investment.external_url.present? %>
-  <div class="document-link">
-    <%= sanitize_and_auto_link investment.external_url %>
-  </div>
-<% end %>
+<% cache ["investment_content", locale_and_user_status(investment), investment, investment.image, investment.author,
+          Flag.flagged?(current_user, investment), investment.followed_by?(current_user),
+          @investment_votes] do %>
+  <% if investment.external_url.present? %>
+    <div class="document-link">
+      <%= sanitize_and_auto_link investment.external_url %>
+    </div>
+  <% end %>
 
-<% if investment.should_show_unfeasibility_explanation? %>
-  <h2><%= t("budgets.investments.show.unfeasibility_explanation") %></h2>
-  <p><%= investment.unfeasibility_explanation %></p>
-<% end %>
+  <% if investment.should_show_unfeasibility_explanation? %>
+    <h2><%= t("budgets.investments.show.unfeasibility_explanation") %></h2>
+    <p><%= investment.unfeasibility_explanation %></p>
+  <% end %>
 
-<% if investment.should_show_price_explanation? %>
-  <h2 id="price_explanation" data-magellan-target="price_explanation">
-    <%= t("budgets.investments.show.price_explanation") %>
-  </h2>
-  <p><%= investment.price_explanation %></p>
+  <% if investment.should_show_price_explanation? %>
+    <h2 id="price_explanation" data-magellan-target="price_explanation">
+      <%= t("budgets.investments.show.price_explanation") %>
+    </h2>
+    <p><%= investment.price_explanation %></p>
+  <% end %>
 <% end %>
 
 <% if local_assigns[:preview].nil? %>

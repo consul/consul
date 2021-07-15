@@ -116,6 +116,7 @@
 //= require_tree ./admin
 //= require_tree ./sdg
 //= require_tree ./sdg_management
+//= require machine_learning
 
 var initialize_modules = function() {
   "use strict";
@@ -172,6 +173,7 @@ var initialize_modules = function() {
   App.Datepicker.initialize();
   App.SDGRelatedListSelector.initialize();
   App.SDGManagementRelationSearch.initialize();
+  App.MachineLearning.initialize();
 };
 
 var destroy_non_idempotent_modules = function() {
