@@ -98,7 +98,7 @@ group :development do
   gem "capistrano-bundler", "~> 2.0", require: false
   gem "capistrano-rails", "~> 1.6.1", require: false
   gem "capistrano3-delayed-job", "~> 1.7.6"
-  gem "capistrano3-puma", "~> 4.0.0"
+  gem "capistrano3-puma", "~> 5.0.4"
   gem "erb_lint", "~> 0.0.35", require: false
   gem "github_changelog_generator", "~> 1.15.2"
   gem "mdl", "~> 0.11.0", require: false

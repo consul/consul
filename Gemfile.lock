@@ -109,10 +109,10 @@ GEM
     capistrano3-delayed-job (1.7.6)
       capistrano (~> 3.0, >= 3.0.0)
       daemons (~> 1.3)
-    capistrano3-puma (4.0.0)
+    capistrano3-puma (5.0.4)
       capistrano (~> 3.7)
       capistrano-bundler
-      puma (~> 4.0)
+      puma (>= 4.0, < 6.0)
     capybara (3.33.0)
       addressable
       mini_mime (>= 0.1.3)
@@ -288,7 +288,7 @@ GEM
     httpi (2.4.5)
       rack
       socksify
-    i18n (1.8.9)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.31)
       activesupport (>= 4.0.2)
@@ -609,7 +609,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sshkit (1.21.0)
+    sshkit (1.21.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     sync (0.5.0)
@@ -690,7 +690,7 @@ DEPENDENCIES
   capistrano-bundler (~> 2.0)
   capistrano-rails (~> 1.6.1)
   capistrano3-delayed-job (~> 1.7.6)
-  capistrano3-puma (~> 4.0.0)
+  capistrano3-puma (~> 5.0.4)
   capybara (~> 3.33.0)
   capybara-webmock (~> 0.5.5)
   caxlsx (~> 3.0.2)
