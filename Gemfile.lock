@@ -288,7 +288,7 @@ GEM
     httpi (2.4.5)
       rack
       socksify
-    i18n (1.8.9)
+    i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     i18n-tasks (0.9.31)
       activesupport (>= 4.0.2)
@@ -421,8 +421,8 @@ GEM
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
     parallel (1.19.2)
-    paranoia (2.4.2)
-      activerecord (>= 4.0, < 6.1)
+    paranoia (2.4.3)
+      activerecord (>= 4.0, < 6.2)
     parser (3.0.1.1)
       ast (~> 2.4.1)
     pg (1.0.0)
@@ -736,7 +736,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection (~> 0.1.2)
   omniauth-twitter (~> 1.4.0)
   paperclip (~> 6.1.0)
-  paranoia (~> 2.4.2)
+  paranoia (~> 2.4.3)
   pg (~> 1.0.0)
   pg_search (~> 2.3.5)
   pronto (~> 0.11.0)
