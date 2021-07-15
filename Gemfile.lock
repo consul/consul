@@ -45,7 +45,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (6.5.0)
       activerecord (>= 5.0, < 6.1)
-    acts_as_votable (0.12.1)
+    acts_as_votable (0.13.1)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ahoy_matey (1.6.0)
@@ -677,7 +677,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 6.5.0)
-  acts_as_votable (~> 0.12.1)
+  acts_as_votable (~> 0.13.1)
   ahoy_matey (~> 1.6.0)
   airbrake (~> 5.0)
   ancestry (~> 3.2.1)
