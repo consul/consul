@@ -1,5 +1,17 @@
 .admin .budgets-table {
 
+  .budget {
+
+    th,
+    td {
+      vertical-align: top;
+
+      &:first-child {
+        padding-left: $line-height;
+      }
+    }
+  }
+
   .budget-completed,
   .budget-draft {
     padding-left: calc(1em + #{rem-calc(10)});

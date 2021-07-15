@@ -65,4 +65,22 @@
       padding-top: $line-height / 2;
     }
   }
+
+  .is-active a {
+    background: #f9f9f9;
+    border-radius: rem-calc(3);
+    color: $budget;
+    font-weight: bold;
+
+    &::after {
+      content: "\f058";
+      font-family: "Font Awesome 5 Free";
+      font-size: $small-font-size;
+      font-weight: bold;
+      line-height: $line-height;
+      position: absolute;
+      top: 0;
+      right: 6px;
+    }
+  }
 }

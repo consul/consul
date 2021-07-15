@@ -580,6 +580,10 @@
     }
   }
 
+  img {
+    height: 100%;
+  }
+
   &.past-budgets {
     display: flex;
     flex-wrap: wrap;
@@ -687,6 +691,19 @@
     height: rem-calc(24);
     position: absolute;
     width: 100%;
+  }
+
+  h2 {
+    font-size: $base-font-size;
+  }
+}
+
+.budget-info,
+.budget-investment-index-list {
+
+  h2 {
+    font-size: rem-calc(20);
+    margin: $line-height / 2 0;
   }
 }
 
@@ -1108,6 +1125,11 @@
     background-size: cover;
   }
 
+  &.groups {
+    min-height: 0;
+    padding-top: 0;
+  }
+
   .budget-title {
     font-weight: bold;
     text-transform: uppercase;
@@ -1131,6 +1153,7 @@
   h2,
   p,
   a,
+  span,
   .back,
   .icon-angle-left,
   .description {
@@ -1331,34 +1354,6 @@
 .ballot-list {
   list-style: none;
   margin-left: 0;
-}
-
-.select-district a {
-  display: inline-block;
-  margin: $line-height / 4 0;
-  padding: $line-height / 4;
-}
-
-.select-district .is-active a {
-  background: #f9f9f9;
-  border-radius: rem-calc(3);
-  color: $budget;
-  font-weight: bold;
-  padding: $line-height / 4;
-
-  &::after {
-    content: "\56";
-    font-family: "icons";
-    font-size: $small-font-size;
-    font-weight: normal;
-    line-height: $line-height;
-    padding-left: rem-calc(3);
-    vertical-align: baseline;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
 }
 
 .progress-bar-nav {
@@ -1567,38 +1562,41 @@
   }
 }
 
-.orbit-bullets button {
-  background-color: #ccc;
-  height: $line-height / 2;
-  width: $line-height / 2;
+.section-recommended {
 
-  &.is-active {
-    background-color: $brand;
+  .orbit-bullets button {
+    background-color: #ccc;
+    height: $line-height / 2;
+    width: $line-height / 2;
+
+    &.is-active {
+      background-color: $brand;
+    }
   }
-}
 
-.orbit-container {
-  height: 100% !important;
-  max-height: none !important;
+  .orbit-container {
+    height: 100% !important;
+    max-height: none !important;
 
-  li {
-    margin-bottom: 0 !important;
+    li {
+      margin-bottom: 0 !important;
+    }
   }
-}
 
-.orbit-slide {
-  max-height: none !important;
-  position: relative;
-}
+  .orbit-slide {
+    max-height: none !important;
+    position: relative;
+  }
 
-.orbit-caption {
-  background: #eee;
-  color: $text;
-}
+  .orbit-caption {
+    background: #eee;
+    color: $text;
+  }
 
-.orbit-next,
-.orbit-previous {
-  background: rgba(34, 34, 34, 0.25);
+  .orbit-next,
+  .orbit-previous {
+    background: rgba(34, 34, 34, 0.25);
+  }
 }
 
 .zoom-link {

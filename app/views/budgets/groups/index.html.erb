@@ -1,0 +1,34 @@
+<% content_for :canonical do %>
+  <%= render "shared/canonical", href: budget_groups_url(filter: @current_filter) %>
+<% end %>
+
+<div class="expanded budget no-margin-top groups">
+  <div class="row">
+    <div class="small-12 column padding">
+      <%= back_link_to budget_path(@budget) %>
+      <h2>
+        <%= t("budgets.groups.show.title") %>
+      </h2>
+    </div>
+  </div>
+</div>
+
+<div class="row margin">
+  <div class="small-12 column groups-and-headings">
+    <% @budget.groups.sort_by_name.each do |group| %>
+      <h3><%= group.name %></h3>
+      <ul class="no-bullet" data-equalizer data-equalizer-on="medium">
+        <% group.headings.sort_by_name.each do |heading| %>
+          <li class="heading small-12 medium-4 large-2" data-equalizer-watch>
+            <span id="<%= dom_id(heading) %>"
+                  class="<%= css_for_ballot_heading(heading) %>">
+              <%= link_to budget_investments_path(@budget.id, heading_id: heading.id) do %>
+                <%= heading_name_and_price_html(heading, @budget) %>
+              <% end %>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>

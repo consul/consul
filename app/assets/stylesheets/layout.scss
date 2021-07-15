@@ -386,7 +386,7 @@ a {
   }
 }
 
-.button.float-right ~ .button.float-right {
+.button.float-right + .button.float-right {
   margin: 0 $line-height / 2;
 }
 
@@ -1037,6 +1037,15 @@ form {
     font-weight: bold;
   }
 
+  select {
+    border: 2px solid #d2d7dc;
+    border-radius: rem-calc(4);
+
+    &:not(.locale-switcher) {
+      min-height: $line-height * 2;
+    }
+  }
+
   [type="radio"] {
     height: $line-height !important;
     vertical-align: top;
@@ -1051,7 +1060,10 @@ form {
   }
 
   [type]:not([type="button"], [type=checkbox], [type=file], [type=radio], [type=submit]) {
-    background: #f8f8f8;
+    background: $white;
+    border: 2px solid #d2d7dc;
+    border-radius: rem-calc(4);
+    box-shadow: none;
     height: $input-height;
     margin-bottom: rem-calc(16);
 
@@ -1105,6 +1117,10 @@ form {
 
 .translation-locale {
   padding-top: $line-height;
+}
+
+.form-label {
+  font-weight: bold;
 }
 
 // 07. Callout

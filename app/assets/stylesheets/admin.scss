@@ -54,6 +54,10 @@ $table-header:   #ecf1f6;
 
   h3 {
     margin: $line-height 0;
+
+    &.inline-block {
+      margin-bottom: 0;
+    }
   }
 
   .back {
@@ -218,7 +222,6 @@ $table-header:   #ecf1f6;
       }
 
       a {
-        color: inherit;
         white-space: nowrap;
       }
     }

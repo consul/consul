@@ -301,6 +301,22 @@ describe "Budgets" do
       expect(page).to have_link "See results"
     end
 
+    scenario "See results button isn't showed if the budget hasn't finished for all users" do
+      user = create(:user)
+      admin = create(:administrator)
+      budget = create(:budget, :balloting)
+
+      login_as(user)
+      visit budget_path(budget)
+      expect(page).not_to have_link "See results"
+
+      logout
+
+      login_as(admin.user)
+      visit budget_path(budget)
+      expect(page).not_to have_link "See results"
+    end
+
     scenario "Show link to see all investments" do
       budget = create(:budget)
       group = create(:budget_group, budget: budget)
