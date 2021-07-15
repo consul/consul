@@ -362,7 +362,7 @@ GEM
     mime-types-data (3.2020.1104)
     mimemagic (0.3.8)
       nokogiri (~> 1)
-    mini_mime (1.0.2)
+    mini_mime (1.1.0)
     mini_portile2 (2.5.1)
     minitest (5.14.4)
     mixlib-cli (2.1.8)
@@ -496,7 +496,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    recipient_interceptor (0.2.0)
+    recipient_interceptor (0.3.0)
       mail
     redcarpet (3.5.1)
     referer-parser (0.3.0)
@@ -748,7 +748,7 @@ DEPENDENCIES
   rails (= 5.2.4.6)
   rails-assets-leaflet!
   rails-assets-markdown-it (~> 9.0.1)!
-  recipient_interceptor (~> 0.2.0)
+  recipient_interceptor (~> 0.3.0)
   redcarpet (~> 3.5.1)
   responders (~> 3.0.1)
   rinku (~> 2.0.6)
