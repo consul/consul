@@ -969,3 +969,7 @@ es:
       more:
         one: "Una etiqueta más"
         other: "%{count} etiquetas más"
+  unsubscribe:
+    edit:
+      notifications: Notificaciones
+      save_changes_submit: Guardar cambios

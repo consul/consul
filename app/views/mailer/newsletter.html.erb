@@ -2,4 +2,14 @@
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;line-height: 24px;">
     <%= auto_link_already_sanitized_html wysiwyg(@newsletter.body) %>
   </p>
+
+  <% if @receiver.present? %>
+    <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 12px;font-weight: normal;line-height: 20px;">
+      <%= t("mailers.config.manage_email_subscriptions") %>
+      <%= link_to t("mailers.newsletter.unsubscribe"),
+                  edit_unsubscribe_url(@receiver.unsubscribe_hash),
+                  style: "color: #2895F1; text-decoration:none;",
+                  target: :_blank %>
+    </p>
+  <% end %>
 </td>

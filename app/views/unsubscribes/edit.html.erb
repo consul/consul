@@ -1,0 +1,15 @@
+<div class="unsubscribe-form">
+  <%= form_for @user, url: unsubscribe_path(@user.unsubscribe_hash) do |f| %>
+    <div class="small-12 medium-7">
+      <h2><%= t("unsubscribe.edit.notifications") %></h2>
+
+      <div><%= f.check_box :email_on_comment %></div>
+      <div><%= f.check_box :email_on_comment_reply %></div>
+      <div><%= f.check_box :newsletter %></div>
+      <div><%= f.check_box :email_digest %></div>
+      <div><%= f.check_box :email_on_direct_message %></div>
+
+      <%= f.submit t("unsubscribe.edit.save_changes_submit"), class: "button margin-top" %>
+    </div>
+  <% end %>
+</div>

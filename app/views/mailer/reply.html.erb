@@ -5,7 +5,7 @@
   </h1>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
-    <%= t("mailers.reply.hi") %> <strong><%= @email.recipient.name %></strong>,
+    <%= t("mailers.reply.hi") %> <strong><%= @receiver.name %></strong>,
   </p>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px;">
@@ -18,6 +18,10 @@
   </div>
 
   <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 12px;font-weight: normal;line-height: 20px;">
-    <%= t("mailers.config.manage_email_subscriptions") %> <%= link_to t("account.show.title"), account_url, style: "color: #2895F1; text-decoration:none;" %>
+    <%= t("mailers.config.manage_email_subscriptions") %>
+    <%= link_to t("mailers.reply.unsubscribe"),
+                edit_unsubscribe_url(@receiver.unsubscribe_hash),
+                style: "color: #2895F1; text-decoration:none;",
+                target: :_blank %>
   </p>
 </td>

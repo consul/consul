@@ -67,6 +67,7 @@ class Admin::SystemEmailsController < Admin::BaseController
     end
 
     def load_sample_proposal_notifications
+      @receiver = current_user
       @notifications = Notification.where(notifiable_type: "ProposalNotification").limit(2)
       @subject = t("mailers.proposal_notification_digest.title", org_name: Setting["org_name"])
     end
@@ -84,6 +85,7 @@ class Admin::SystemEmailsController < Admin::BaseController
       @comment = Comment.where(commentable_type: %w[Debate Proposal Budget::Investment]).last
       if @comment
         @commentable = @comment.commentable
+        @receiver = @commentable.author
         @subject = t("mailers.comment.subject", commentable: commentable_name)
       else
         redirect_to admin_system_emails_path, alert: t("admin.system_emails.alert.no_comments")
@@ -94,6 +96,7 @@ class Admin::SystemEmailsController < Admin::BaseController
       reply = Comment.select(&:reply?).last
       if reply
         @email = ReplyEmail.new(reply)
+        @receiver = @email.recipient
       else
         redirect_to admin_system_emails_path, alert: t("admin.system_emails.alert.no_replies")
       end
@@ -120,6 +123,7 @@ class Admin::SystemEmailsController < Admin::BaseController
       @direct_message = DirectMessage.new(sender: current_user, receiver: current_user,
                                           title: t("admin.system_emails.message_title"),
                                           body: t("admin.system_emails.message_body"))
+      @receiver = @direct_message.receiver
       @subject = t("mailers.#{@system_email}.subject")
     end
 

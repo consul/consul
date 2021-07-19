@@ -7,6 +7,7 @@ en:
       new_comment_by: There is a new comment from <strong>%{commenter}</strong>
       subject: Someone has commented on your %{commentable}
       title: New comment
+      unsubscribe: Unsubscribe
     config:
       manage_email_subscriptions: To stop receiving these emails change your settings in
     email_verification:
@@ -21,19 +22,20 @@ en:
       new_reply_by: There is a new response from <strong>%{commenter}</strong> to your comment on
       subject: Someone has responded to your comment
       title: New response to your comment
+      unsubscribe: Unsubscribe
     proposal_notification_digest:
       info: "Here are the new notifications that have been published by authors of the proposals that you have supported in %{org_name}."
       title: "Proposal notifications in %{org_name}"
       share: Share proposal
       comment: Comment proposal
-      unsubscribe: "If you don't want to receive any proposal notifications, visit %{account} and uncheck 'Receive a summary of proposal notifications'."
-      unsubscribe_account: My account
+      unsubscribe: "If you don't want to receive any proposal notifications, visit %{unsubscribe} and uncheck 'Receive a summary of proposal notifications'."
+      unsubscribe_account: Unsubscribe
       unfollow: "Visit this proposal and unfollow it to stop receiving notifications."
     direct_message_for_receiver:
       subject: "You have received a new private message"
       reply: Reply to %{sender}
-      unsubscribe: "If you don't want to receive direct messages, visit %{account} and uncheck 'Receive emails about direct messages'."
-      unsubscribe_account: My account
+      unsubscribe: "If you don't want to receive direct messages, visit %{unsubscribe} and uncheck 'Receive emails about direct messages'."
+      unsubscribe_account: Unsubscribe
     direct_message_for_sender:
       subject: "You have sent a new private message"
       title: "You have sent a new private message to <strong>%{receiver}</strong> with the content:"
@@ -133,3 +135,5 @@ en:
       text_9: "You will also find this new recommended dissemination action..."
       text_10: "You sure have more resources to use!"
       dashboard_button: "Go ahead, discover them!"
+    newsletter:
+      unsubscribe: Unsubscribe

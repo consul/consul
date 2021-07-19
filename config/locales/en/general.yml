@@ -969,3 +969,7 @@ en:
       more:
         one: "One more tag"
         other: "%{count} more tags"
+  unsubscribe:
+    edit:
+      notifications: Notifications
+      save_changes_submit: Save changes

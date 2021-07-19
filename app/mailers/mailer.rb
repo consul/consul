@@ -9,8 +9,9 @@ class Mailer < ApplicationMailer
     @comment = comment
     @commentable = comment.commentable
     @email_to = @commentable.author.email
+    @receiver = @commentable.author
 
-    with_user(@commentable.author) do
+    with_user(@receiver) do
       subject = t("mailers.comment.subject", commentable: t("activerecord.models.#{@commentable.class.name.underscore}", count: 1).downcase)
       mail(to: @email_to, subject: subject) if @commentable.present? && @commentable.author.present?
     end
@@ -19,8 +20,9 @@ class Mailer < ApplicationMailer
   def reply(reply)
     @email = ReplyEmail.new(reply)
     @email_to = @email.to
+    @receiver = @email.recipient
 
-    with_user(@email.recipient) do
+    with_user(@receiver) do
       mail(to: @email_to, subject: @email.subject) if @email.can_be_sent?
     end
   end
@@ -60,6 +62,7 @@ class Mailer < ApplicationMailer
   def proposal_notification_digest(user, notifications)
     @notifications = notifications
     @email_to = user.email
+    @receiver = user
 
     with_user(user) do
       mail(to: @email_to, subject: t("mailers.proposal_notification_digest.title", org_name: Setting["org_name"]))
@@ -116,6 +119,7 @@ class Mailer < ApplicationMailer
   def newsletter(newsletter, recipient_email)
     @newsletter = newsletter
     @email_to = recipient_email
+    @receiver = User.find_by(email: @email_to)
 
     mail(to: @email_to, from: @newsletter.from, subject: @newsletter.subject)
   end

@@ -27,8 +27,10 @@
         <td style="padding-left: 10px;">
           <p style="font-family: 'Open Sans','Helvetica Neue',arial,sans-serif;font-size: 14px;font-weight: normal;line-height: 24px; margin: 0; font-style: italic; padding-bottom: 20px;">
             <%= sanitize(t("mailers.direct_message_for_receiver.unsubscribe",
-                account: link_to(t("mailers.direct_message_for_receiver.unsubscribe_account"),
-                                account_url, style: "color: #2895F1; text-decoration: none;"))) %>
+                unsubscribe: link_to(t("mailers.direct_message_for_receiver.unsubscribe_account"),
+                                edit_unsubscribe_url(@receiver.unsubscribe_hash),
+                                style: "color: #2895F1; text-decoration: none;",
+                                target: :_blank))) %>
           </p>
         </td>
       </tr>

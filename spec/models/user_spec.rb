@@ -804,4 +804,14 @@ describe User do
       expect(other_user_proposal_notification.reload).to be_hidden
     end
   end
+
+  describe "#add_unsubscribe_hash" do
+    let(:user) { build(:user, unsubscribe_hash: nil) }
+
+    it "generate unsubscribe_hash for user before create" do
+      user.save!
+
+      expect(user.unsubscribe_hash).to be_present
+    end
+  end
 end
